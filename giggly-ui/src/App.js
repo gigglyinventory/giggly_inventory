@@ -2,6 +2,7 @@ import React from 'react';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import InventoryTable from "./InventoryTable"
+import EndOfDay from "./EndOfDay"
 
 import logo from './giggly_logo.PNG';
 import './App.css';
@@ -34,6 +35,11 @@ function App() {
       <TabPanel>
         <div>
           <InventoryTable />
+        </div>
+      </TabPanel>
+      <TabPanel>
+        <div>
+          <EndOfDay />
         </div>
       </TabPanel>
 
