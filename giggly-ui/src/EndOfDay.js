@@ -3,6 +3,16 @@ import ReactDOM from 'react-dom';
 import "./EndOfDay.css"
 
 function EndOfDay(){
+  const grillDesign = [
+    {id: 'em', name: ''},
+    {id: 'tr', name: 'Truck'},
+    {id: 'nb', name: 'Noteboard'}
+  ];
+
+  let grillDesignList = grillDesign.length > 0 && grillDesign.map((item, i) => {
+    return (<option key={i} value={item.id}>{item.name}</option>)
+  }, this)
+
     const location = [
       {id: 'em', name: ''},
       {id: 'l1', name: 'Location 1'},
@@ -40,6 +50,10 @@ function EndOfDay(){
   return(
     <div>
       <h2>Grill</h2>
+      <label for="grill_design">Grill Design: </label>
+      <select id="grill_design">{grillDesignList}</select>
+      <br />
+      <br />
       <label for="grill_color">Grill Colors: </label>
       <select id="grill_color">{colorsList}</select>
       <br />

@@ -1,7 +1,8 @@
 h2{
   text-decoration: underline;
+  margin-left: 30px;
 }
 
-label{
-  text-indent: 5px;
+label, input, select{
+  margin-left: 60px;
 }
