@@ -33,6 +33,11 @@
   color: red;
 }
 
+.credentials{
+  width: 150px;
+  text-align: center;
+}
+
 table{
 	border-collapse: collapse;
 	border: 1px solid black;

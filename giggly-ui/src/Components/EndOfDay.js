@@ -51,22 +51,27 @@ function EndOfDay(){
     <div>
       <h2>Grill</h2>
       <label for="grill_design">Grill Design: </label>
+      <br />
       <select id="grill_design">{grillDesignList}</select>
       <br />
       <br />
       <label for="grill_color">Grill Colors: </label>
+      <br />
       <select id="grill_color">{colorsList}</select>
       <br />
       <br />
       <label for="enter_grill_amount">Amount: </label>
+      <br />
       <input id="enter_grill_amount" type="text" name="amount" defualtValue="" maxlength="10" />
       <br />
       <br />
       <label for="grill_scrap">Scrap: </label>
+      <br />
       <input id="grill_scrap" type="text" name="amount" defualtValue="" maxlength="10" />
       <br />
       <br />
       <label for="grill_location">Location: </label>
+      <br />
       <select id="grill_locaiton">{locationList}</select>
       <br />
       <br />
