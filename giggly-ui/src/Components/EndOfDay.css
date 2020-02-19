@@ -6,3 +6,25 @@ h2{
 label, input, select{
   margin-left: 60px;
 }
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.form-inline label {
+  margin: 60px 5px 10px 5px 0;
+}
+
+.form-inline select {
+  margin: 10px;
+}
+
+.form-inline input {
+  margin:10px;
+}
+
+.form-inline select {
+  width: 140px;
+}
