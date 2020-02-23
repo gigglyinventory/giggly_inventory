@@ -528,6 +528,16 @@ var Production = {
         redNoteboardPackWaiting,
         blueNoteboardPackWaiting,
         blackNoteboardPackWaiting,
+        wonderfallSkin4WPackWaiting,
+        wonderfallSkin2WPackWaiting,
+        barktasticSkin4WPackWaiting,
+        barktasticSkin2WPackWaiting,
+        patrioticSkin4WPackWaiting,
+        patrioticSkin2WPackWaiting,
+        flowerificSkin4WPackWaiting,
+        flowerificSkin2WPackWaiting,
+        militarySkin4WPackWaiting,
+        militarySkin2WPackWaiting,
         setRedPawBlisterWaiting: function (newWaiting) {
             this.redPawBlisterWaiting = newWaiting;
         },
@@ -581,6 +591,66 @@ var Production = {
         },
         getBlackNoteboardPackWaiting: function () {
             return this.blackNoteboardPackWaiting;
+        },
+        setWonderfallSkin4WpackWaiting: function (newW){
+            this.wonderfallSkin4WPackWaiting = newW;
+        },
+        getWonderfallSkin4WPackWaiting: function (){
+            return this.wonderfallSkin4WPackWaiting;
+        },
+        setWonderfallSkin2WPackWaiting: function (newWW){
+            this.wonderfallSkin2WPackWaiting = newWW;
+        },
+        getWonderfallSkin2WPackWaiting: function (){
+            return this.wonderfallSkin2WPackWaiting;
+        },
+        setBarktasticSkin4WPackWaiting: function (newB){
+            this.barktasticSkin4WPackWaiting = newB;
+        },
+        getBarktasticSkin4WPackWaiting: function (){
+            return this.barktasticSkin4WPackWaiting;
+        },
+        setBarktasticSkin2WPackWaiting: function (newBB){
+            this.barktasticSkin2WPackWaiting = newBB;
+        },
+        getBarktasticSkin2WPackWaiting: function (){
+            return this.barktasticSkin2WPackWaiting;
+        },
+        setPatrioticSkin4WPackWaiting: function (newP){
+            this.patrioticSkin4WPackWaiting = newP;
+        },
+        getPatrioticSkin4WPackWaiting: function () {
+            return this.patrioticSkin4WPackWaiting;
+        },
+        setPatrioticSkin2WPackWaiting: function (newPP){
+            this.PatrioticSkin2WPackWaiting = newPP;
+        },
+        getPatrioticSkin2WPackWaiting: function (){
+            return this.patrioticSkin2WPackWaiting;
+        },
+        setFlowerificSkin4WPackWaiting: function (newF) {
+            this.flowerificSkin4WPackWaiting = newF;
+        },
+        getFlowerificSkin4WPackWaiting: function (){
+            return this.flowerificSkin4WPackWaiting;
+        },
+        setFlowerificSkin2WPackWaiting: function (newFF){
+            this.flowerificSkin2WPackWaiting = newFF;
+        },
+        getFlowerificSkin2WPackWaiting: function (){
+            return this.flowerificSkin2WPackWaiting;
+        },
+        setMilitarySkin4WPackWaiting: function (newM){
+            this.militarySkin4WPackWaiting = newM;
+        },
+        getMilitarySkin4WPackWaiting: function (){
+            return this.militarySkin4WPackWaiting;
+        },
+        setMilitarySkin2WPackWaiting: function (newMM){
+            this.militarySkin2WPackWaiting = newMM;
+        },
+        getMilitarySkin2WPackWaiting: function (){
+            return this.militarySkin2WPackWaiting;
         },
         blisterPack: function (color, design, completed) {
             switch (color) {
@@ -651,7 +721,55 @@ var Production = {
             }
         },
         walkerPackage: function (walkerType, design, completed) {
-
+            switch (walkerType) {
+                case "four-wheel":
+                    switch (design) {
+                        case "Wonderfall":
+                            Product.gigglyskins.setRdyShipWonderfallSkins4W(Product.gigglyskins.getRdyShipWonderfallSkins4W() + completed);
+                            this.wonderfallSkin4WPackWaiting -= completed;
+                            break;
+                        case "Barktastic":
+                            Product.gigglyskins.setRdyShipBarktasticSkins4W(Product.gigglyskins.getRdyShipBarktasticSkins4W() + completed);
+                            this.barktasticSkin4WPackWaiting -= completed;
+                            break;
+                        case "Flowerific":
+                            Product.gigglyskins.setRdyShipFlowerificSkins4W(Product.gigglyskins.getRdyShipFlowerificSkins4W() + completed);
+                            this.flowerificSkin4WPackWaiting -= completed;
+                            break;
+                        case "Patriotic":
+                            Product.gigglyskins.setRdyShipPatrioticSkins4W(Product.gigglyskins.getRdyShipPatrioticSkins4W() + completed);
+                            this.patrioticSkin4WPackWaiting -= completed;
+                            break;
+                        case "Military":
+                            Product.gigglyskins.setRdyShipMilitarySkins4W(Product.gigglyskins.getRdyShipMilitarySkins4W() + completed);
+                            this.militarySkin4WPackWaiting -= completed;
+                            break;
+                    }
+                    break;
+                case "two-wheel":
+                    switch (design) {
+                        case "Wonderfall":
+                            Product.gigglyskins.setRdyShipWonderfallSkins2W(Product.gigglyskins.getRdyShipWonderfallSkins2W() + completed);
+                            this.wonderfallSkin2WPackWaiting -= completed;
+                            break;
+                        case "Barktastic":
+                            Product.gigglyskins.setRdyShipBarktasticSkins2W(Product.gigglyskins.getRdyShipBarktasticSkins2W() + completed);
+                            this.barktasticSkin2WPackWaiting -= completed;
+                            break;
+                        case "Flowerific":
+                            Product.gigglyskins.setRdyShipFlowerificSkins2W(Product.gigglyskins.getRdyShipFlowerificSkins2W() + completed);
+                            this.flowerificSkin2WPackWaiting -= completed;
+                            break;
+                        case "Patriotic":
+                            Product.gigglyskins.setRdyShipPatrioticSkins2W(Product.gigglyskins.getRdyShipPatrioticSkins2W() + completed);
+                            this.patrioticSkin2WPackWaiting -= completed;
+                            break;
+                        case "Military":
+                            Product.gigglyskins.setRdyShipMilitarySkins2W(Product.gigglyskins.getRdyShipMilitarySkins2W() + completed);
+                            this.militarySkin2WPackWaiting -= completed;
+                            break;
+                    }
+            }                   
         }
     }
 
