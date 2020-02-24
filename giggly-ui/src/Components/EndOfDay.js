@@ -13,13 +13,13 @@ function EndOfDay(){
     return (<option key={i} value={item.id}>{item.name}</option>)
   }, this)
 
-    const location = [
+    const walker = [
       {id: 'em', name: ''},
-      {id: 'l1', name: 'Location 1'},
-      {id: 'l2', name: 'Location 2'}
+      {id: 'w2', name: '2-Wheels'},
+      {id: 'w4', name: '4-Wheels'}
     ];
 
-    let locationList = location.length > 0 && location.map((item, i) => {
+    let walkerList = walker.length > 0 && walker.map((item, i) => {
       return (<option key={i} value={item.id}>{item.name}</option>)
     }, this)
 
@@ -117,41 +117,101 @@ function EndOfDay(){
 
 
       <h2>Feet</h2>
-      <label for="puppy_color">Puppy Colors: </label>
-      <select id="puppy_color">{colorsList}</select>
-      <br />
-      <br />
-      <label for="enter_grill_amount">Amount: </label>
-      <input id="enter_grill_amount" type="text" name="amount" defualtValue="" maxlength="10" />
-      <br />
-      <br />
-      <label for="grill_scrap">Scrap: </label>
-      <input id="grill_scrap" type="text" name="amount" defualtValue="" maxlength="10" />
-      <br />
-      <br />
-      <label for="grill_location">Location: </label>
-      <select id="grill_locaiton">{locationList}</select>
-      <br />
-      <br />
+
+      <form class="inline-date">
+        <label>Date: </label>
+        <input type="type" name="month" placeholder="MM" maxlength="2" size="2"/>
+        <input type="type" name="day" placeholder="DD" maxlength="2" size="2"/>
+        <input type="type" name="year" placeholder="YYYY" maxlength="4" size="2"/>
+      </form>
+
+      <form class="form-inline">
+        <label for="puppy_color">Colors: </label>
+        <select id="puppy_color">{colorsList}</select>
+      </form>
+
+      <form class="form-inline">
+        <label><b>Process</b></label>
+        <label><b>Completed</b></label>
+        <label><b>Lost</b></label>
+      </form>
+
+      <form class="form-inline">
+        <label for="feet_deliv">Delivered: </label>
+        <input id="feet_deliv" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+        <input id="deliv_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+      </form>
+
+      <form class="form-inline">
+        <label for="feet_trim">Trim: </label>
+        <input id="feet_trim" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+        <input id="trim_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+      </form>
+
+      <form class="form-inline">
+        <label for="feet_screw">Screw: </label>
+        <input id="feet_screw" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+        <input id="screw_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+      </form>
+
+      <form class="form-inline">
+        <label for="feet_pac">Packaging: </label>
+        <input id="feet_pac" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+        <input id="trim_pac_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+      </form>
+
       <input type="submit" value="Add" />
 
       <h2>Vinyl</h2>
+
+      <form class="inline-date">
+        <label>Date: </label>
+        <input type="type" name="month" placeholder="MM" maxlength="2" size="2"/>
+        <input type="type" name="day" placeholder="DD" maxlength="2" size="2"/>
+        <input type="type" name="year" placeholder="YYYY" maxlength="4" size="2"/>
+      </form>
+
+      <form class="form-inline">
       <label for="vinyl_pattern">Vinyls: </label>
       <select id="vinyl_pattern">{vinylList}</select>
-      <br />
-      <br />
-      <label for="enter_grill_amount">Amount: </label>
-      <input id="enter_grill_amount" type="text" name="amount" defualtValue="" maxlength="10" />
-      <br />
-      <br />
-      <label for="grill_scrap">Scrap: </label>
-      <input id="grill_scrap" type="text" name="amount" defualtValue="" maxlength="10" />
-      <br />
-      <br />
-      <label for="grill_location">Location: </label>
-      <select id="grill_locaiton">{locationList}</select>
-      <br />
-      <br />
+      </form>
+
+      <form class="form-inline">
+        <label><b>Process</b></label>
+        <label><b>Completed</b></label>
+        <label><b>Lost</b></label>
+      </form>
+
+      <form class="form-inline">
+        <label for="canvas_amount">Canvas: </label>
+        <input id="canvas_amount" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+        <input id="canvas_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+      </form>
+
+      <form class="form-inline">
+        <label for="canvas_print">Printing: </label>
+        <input id="canvas_print" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+        <input id="print_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+      </form>
+
+      <form class="form-inline">
+        <label for="canvas_cut">Cutting: </label>
+        <input id="canvas_cut" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+        <input id="cut_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+      </form>
+
+      <form class="form-inline">
+        <label for="walker_type">Wrap: </label>
+        <select id="walker_type">{walkerList}</select>
+        <input id="canvas_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+      </form>
+
+      <form class="form-inline">
+        <label for="vinyl_pac">Packaging: </label>
+        <input id="vinyl_pac" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+        <input id="vinyl_pac_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+      </form>
+
       <input type="submit" value="Add" />
 
     </div>
