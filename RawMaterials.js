@@ -578,6 +578,60 @@ var RawMaterials = {
             }
         }
     },
+
+    Blisters: {
+        totalPawBlisters,
+        setTotalPawBlisters: function (newB) {
+            this.totalPawBlisters = newB;
+        },
+        getTotalPawBlisters: function () {
+            return this.totalPawBlisters;
+        },
+        pawBlistersLow: function () {
+            if (this.totalPawBlisters < 200) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    },
+
+    BlisterCards: {
+        totalCards,
+        setTotalCards: function (newC) {
+            this.totalCards = newC;
+        },
+        getTotalCards: function () {
+            return this.totalCards;
+        },
+        blisterCardsLow: function () {
+            if (this.totalCards < 200) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    },
+
+    WalkerBoxes: {
+        totalWalkerBoxes,
+        setTotalWalkerBoxes: function (newB) {
+            this.totalWalkerBoxes = newB;
+        },
+        getTotalWalkerBoxes: function () {
+            return this.totalWalkerBoxes;
+        },
+        walkerBoxesLow: function () {
+            if (this.totalWalkerBoxes < 100) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    },
+    walkerBoxesLow: walkerBoxesLow(),
+    blisterCardsLow: blisterCardsLow(),
+    puppyPawBlistersLow: pawBlistersLow(),
     ABSLow: ABSLow(),
     puppyfeetLow: puppyFeetLow(),
     walkers4wLow: walker4WLow(),
