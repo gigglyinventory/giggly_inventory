@@ -1,210 +1,242 @@
 'use strict' 
-var Product = {
+//class Product {
 
-    gigglyfeet: {
-        puppyPaw: {
-            rdyShipRedPaws,
-            rdyShipBluePaws,
-            rdyShipBlackPaws,
-            rdyShipPaws: rdyShipRedPaws + rdyShipBlackPaws + rdyShipBluePaws,
-            redPaws,
-            bluePaws,
-            blackPaws,
-            totalPaws: redPaws + bluePaws + blackPaws,
-            getTotalPaws: function () {
-                return this.redPaws + this.bluePaws + this.blackPaws;
-            },
-            setRedPaws: function (redPawsNew) {
-                redPaws = redPawsNew;
-            },
-            getRedPaws: function () {
-                return redPaws;
-            },
-            setBluePaws: function (bluePawsNew) {
-                bluePaws = bluePawsNew;
-            },
-            getBluePaws: function () {
-                return bluePaws;
-            },
-            setBlackPaws: function (blackPawsNew) {
-                blackPaws = blackPawsNew;
-            },
-            getBlackPaws: function () {
-                return blackPaws;
-            },
-            setRdyShipRedPaws: function (newR) {
-                this.rdyShipRedPaws = newR;
-            },
-            getRdyShipRedPaws: function () {
-                return this.rdyShipRedPaws;
-            },
-            setRdyShipBluePaws: function (newB) {
-                this.rdyShipBluePaws = newB;
-            },
-            getRdyShipBluePaws: function () {
-                return this.rdyShipBluePaws;
-            },
-            setRdyShipBlackPaws: function (newBl) {
-                this.rdyShipBlackPaws = newBl;
-            },
-            getRdyShipBlackPaws: function () {
-                return this.rdyShipBlackPaws;
-            },
-            getRdyShipPaws: function () {
-                return this.rdyShipPaws;
-            }
+class Gigglyfeet{
+    //puppyPaw: {
+        // rdyShipRedPaws,
+        // rdyShipBluePaws,
+        // rdyShipBlackPaws,
+        // rdyShipPaws: rdyShipRedPaws + rdyShipBlackPaws + rdyShipBluePaws,
+        // redPaws,
+        // bluePaws,
+        // blackPaws,
+        // totalPaws: redPaws + bluePaws + blackPaws,
+    get totalPaws() {
+        return this._redPaws + this._bluePaws + this._blackPaws;
+    }
+    set redPaws (redPawsNew) {
+        this._redPaws = redPawsNew
+    }
+    get redPaws() {
+        return this._redPaws
+    }
+    set bluePaws(bluePawsNew) {
+        this._bluePaws = bluePawsNew
+    }
+    get bluePaws() {
+        return this._bluePaws
+    }
+    set blackPaws(blackPawsNew) {
+        this._blackPaws = blackPawsNew
+    }
+    get blackPaws() {
+        return this._blackPaws
+    }
+    set rdyShipRedPaws(newR) {
+        this._rdyShipRedPaws = newR
+    }
+    get rdyShipRedPaws() {
+        return this._rdyShipRedPaws
+    }
+    set dyShipBluePaws(newB) {
+        this._rdyShipBluePaws = newB
+    }
+    get rdyShipBluePaws() {
+        return this._rdyShipBluePaws
+    }
+    set rdyShipBlackPaws (newBl) {
+        this._rdyShipBlackPaws = newBl
+    }
+    get rdyShipBlackPaws() {
+        return this._rdyShipBlackPaws
+    }
+    get rdyShipPaws() {
+        return this._rdyShipPaws
+    }
 
-        },
-        totalFeet: puppyPaw.getTotalPaws,
-        redFeet: puppyPaw.getRedPaws,
-        blueFeet: puppyPaw.getBluePaws,
-        blackFeet: puppyPaw.getBlackPaws,
-        rdyShipRedFeet: puppyPaw.getRdyShipRedPaws,
-        rdyShipBlueFeet: this.puppyPaw.getRdyShipBluePaws,
-        rdyShipBlackFeet: this.puppyPaw.getRdyShipBlackPaws,
-        rdyShipFeet: puppyPaw.getRdyShipPaws,
-        getRdyShipFeet: function () {
-            return this.rdyShipFeet;
-        },
-        getRdyShipRedFeet: function () {
-            return this.rdyShipRedFeet;
-        },
-        getRdyShipBlueFeet: function () {
-            return this.rdyShipBlueFeet;
-        },
-        getRdyShipBlackFeet: function () {
-            return this.rdyShipBlackFeet;
-        },
-        getTotalFeet: function () {
-            return this.totalFeet;
-        },
-        getRedFeet: function () {
-            return this.redFeet;
-        },
-        getBlueFeet: function () {
-            return this.blueFeet;
-        },
-        getBlackFeet: function () {
-            return this.blackFeet;
-        }
+}
+        //totalFeet: puppyPaw.getTotalPaws,
+        //redFeet: puppyPaw.getRedPaws,
+        //blueFeet: puppyPaw.getBluePaws,
+        //blackFeet: puppyPaw.getBlackPaws,
+        //rdyShipRedFeet: puppyPaw.getRdyShipRedPaws,
+        //rdyShipBlueFeet: this.puppyPaw.getRdyShipBluePaws,
+        //rdyShipBlackFeet: this.puppyPaw.getRdyShipBlackPaws,
+        //rdyShipFeet: puppyPaw.getRdyShipPaws,
+        // getRdyShipFeet: function () {
+        //     return this.rdyShipFeet;
+        // },
+        // getRdyShipRedFeet: function () {
+        //     return this.rdyShipRedFeet;
+        // },
+        // getRdyShipBlueFeet: function () {
+        //     return this.rdyShipBlueFeet;
+        // },
+        // getRdyShipBlackFeet: function () {
+        //     return this.rdyShipBlackFeet;
+        // },
+    //     getTotalFeet: function () {
+    //         return this.totalFeet;
+    //     },
+    //     getRedFeet: function () {
+    //         return this.redFeet;
+    //     },
+    //     getBlueFeet: function () {
+    //         return this.blueFeet;
+    //     },
+    //     getBlackFeet: function () {
+    //         return this.blackFeet;
+    //     }
 
-    },
-    gigglygrills: {
-        truckFront: {
-            redTruck,
-            blueTruck,
-            blackTruck,
-            rdyShipRedTruck,
-            rdyShipBlueTruck,
-            rdyShipBlackTruck,
-            rdyShipTruck: rdyShipRedTruck + rdyShipBlueTruck + rdyShipBlackTruck,
-            totalTruck: redTruck + blueTruck + blackTruck,
-            getTotalTruck: function () {
-                return this.redTruck + this.blueTruck + this.blackTruck;
-            },
-            setRedTruck: function (redT) {
-                redTruck = redT;
-            },
-            getRedTruck: function () {
-                return redTruck;
-            },
-            setBlueTruck: function (blueT) {
-                blueTruck = blueT;
-            },
-            getBlueTruck: function () {
-                return blueTruck;
-            },
-            setBlackTruck: function (blackT) {
-                blackTruck = blackT;
-            },
-            getBlackTruck: function () {
-                return blackTruck;
-            },
-            getRdyShipTruck: function () {
-                return this.rdyShipTruck;
-            },
-            setRdyShipRedTruck: function (newR) {
-                this.rdyShipRedTruck = newR;
-            },
-            getRdyShipRedTruck: function () {
-                return this.rdyShipRedTruck;
-            },
-            setRdyShipBlueTruck: function (newB) {
-                this.rdyShipBlueTruck = newB;
-            },
-            getRdyShipBlueTruck: function () {
-                return this.rdyShipBlueTruck;
-            },
-            setRdyShipBlackTruck: function (newBl) {
-                this.rdyShipBlackTruck = newBl;
-            },
-            getRdyShipBlackTruck: function () {
-                return this.rdyShipBlackTruck;
-            }
-        },
-        Noteboard: {
-            redNoteboard,
-            blueNoteboard,
-            blackNoteboard,
-            rdyShipRedNoteboard,
-            rdyShipBlueNoteboard,
-            rdyShipBlackNoteboard,
-            rdyShipNoteboard: rdyShipRedNoteboard + rdyShipBlueNoteboard + rdyShipBlackNoteboard,
-            totalNoteboard: redNoteboard + blueNoteboard + blackNoteboard,
-            getTotalNoteboard: function () {
-                return totalNoteboard;
-            },
-            setRedNoteboard: function (redN) {
-                redNoteboard = redN;
-            },
-            getRedNoteboard: function () {
-                return redNoteboard;
-            },
-            setBlueNoteboard: function (blueN) {
-                blueNoteboard = blueN;
-            },
-            getBlueNoteboard: function () {
-                return blueNoteboard;
-            },
-            setBlackNoteboard: function (blackN) {
-                blackNoteboard = blackN;
-            },
-            getBlackNoteboard: function () {
-                return blackNoteboard;
-            },
-            getRdyShipNoteboard: function () {
-                return this.rdyShipNoteboard;
-            },
-            setRdyShipRedNoteboard: function (newR) {
-                this.rdyShipRedNoteboard = newR;
-            },
-            getRdyShipRedNoteboard: function () {
-                return this.rdyShipRedNoteboard;
-            },
-            setRdyShipBlueNoteboard: function (newB) {
-                this.rdyShipBlueNoteboard = newB;
-            },
-            getRdyShipBlueNoteboard: function () {
-                return this.rdyShipBlueNoteboard;
-            },
-            setRdyShipBlackNoteboard: function (newBl) {
-                this.rdyShipBlackNoteboard = newBl;
-            },
-            getRdyShipBlackNoteboard: function () {
-                return this.rdyShipBlackNoteboard;
-            }
+    // },
+class Gigglygrills{
+    // truckFront: {
+    //     redTruck,
+    //     blueTruck,
+    //     blackTruck,
+    //     rdyShipRedTruck,
+    //     rdyShipBlueTruck,
+    //     rdyShipBlackTruck,
+    //     rdyShipTruck: rdyShipRedTruck + rdyShipBlueTruck + rdyShipBlackTruck,
+    //     totalTruck: redTruck + blueTruck + blackTruck,
+    set totalTruck() {
+        this._totalTruck = this._redTruck + this._blueTruck + this._blackTruck;
+    }
+    get totalTruck() {
+        return this._totalTruck
+    }
+    set redTruck(redT) {
+        this._redTruck = redT
+    }
+    get redTruck() {
+        return this._redTruck
+    }
+    set blueTruck(blueT) {
+        this._blueTruck = blueT
+    }
+    get blueTruck() {
+        return this._blueTruck
+    }
+    set blackTruck(blackT) {
+        this._blackTruck = blackT
+    }
+    get blackTruck () {
+        return this._blackTruck
+    }
+    set rdyShipTruck() {
+        this._rdyShipTruck = this._rdyShipRedTruck + this._rdyShipBlueTruck + this._rdyShipBlackTruck
+    }
+    get rdyShipTruck() {
+        return this._rdyShipTruck;
+    }
+    set rdyShipRedTruck(newR) {
+        this._rdyShipRedTruck = newR;
+    }
+    get rdyShipRedTruck() {
+        return this._rdyShipRedTruck;
+    }
+    set rdyShipBlueTruck(newB) {
+        this._rdyShipBlueTruck = newB;
+    }
+    get rdyShipBlueTruck() {
+        return this._rdyShipBlueTruck;
+    }
+    set rdyShipBlackTruck(newBl) {
+        this._rdyShipBlackTruck = newBl;
+    }
+    get rdyShipBlackTruck() {
+        return this._rdyShipBlackTruck;
+    }
+        // }
+        // Noteboard: {
+        //     redNoteboard,
+        //     blueNoteboard,
+        //     blackNoteboard,
+        //     rdyShipRedNoteboard,
+        //     rdyShipBlueNoteboard,
+        //     rdyShipBlackNoteboard,
+        //     rdyShipNoteboard: rdyShipRedNoteboard + rdyShipBlueNoteboard + rdyShipBlackNoteboard,
+        //     totalNoteboard: redNoteboard + blueNoteboard + blackNoteboard,
+    set totalNoteboard() {
+        this._totalNoteboard = this._redNoteboard + this._blueNoteboard + this._blackNoteboard
+    }
+    get totalNoteboard() {
+        return this._totalNoteboard
+    }
+    set redNoteboard(redN) {
+        this._redNoteboard = redN
+    }
+    get redNoteboard() {
+        return this._redNoteboard
+    }
+    set blueNoteboard(blueN) {
+        this._blueNoteboard = blueN
+    }
+    get blueNoteboard() {
+        return blueNoteboard;
+    }
+    set blackNoteboard(blackN) {
+        this._blackNoteboard = blackN;
+    }
+    get blackNoteboard() {
+        return this._blackNoteboard;
+    }
+    set rdyShipNoteboard() {
+        this._rdyShipNoteboard = this._rdyShipNoteboard + this._rdyShipBlueNoteboard + this._rdyShipBlackNoteboard ;
+    }
+    get rdyShipNoteboard() {
+        return this._rdyShipNoteboard;
+    }
+    set rdyShipRedNoteboard(newR) {
+        this._rdyShipRedNoteboard = newR;
+    }
+    get rdyShipRedNoteboard() {
+        return this._rdyShipRedNoteboard;
+    }
+    set RdyShipBlueNoteboard(newB) {
+        this._rdyShipBlueNoteboard = newB;
+    }
+    get rdyShipBlueNoteboard() {
+        return this._rdyShipBlueNoteboard;
+    }
+    set rdyShipBlackNoteboard(newBl) {
+        this._rdyShipBlackNoteboard = newBl;
+    }
+    get rdyShipBlackNoteboard() {
+        return this._rdyShipBlackNoteboard;
+    }
 
-        },
-        redGrills: getRedTruck() + getRedNoteboard(),
-        blueGrills: getBlueTruck() + getBlueNoteboard(),
-        blackGrills: getBlackTruck() + getBlackNoteboard(),
-        rdyShipRedGrills: getRdyShipRedTruck() + getRdyShipRedNoteboard(),
-        rdyShipGrills: rdyShipTruck + rdyShipNoteboard,
-        totalGrills: redGrills + blueGrills + blackGrills,
-        getRdyShipGrills: function () {
-            return this.rdyShipGrills;
-        }
-    },
+    set redGrills(){
+        this._redGrills = this._redTruck + this._redNoteboard
+     } 
+    get redGrills(){
+       return this._redGrills
+    } 
+    set blueGrills(){
+        this._blueGrills = this._blueTruck + this._blueNoteboard
+    }
+    get blueGrills() {
+        return this._blueGrills
+    }
+    set blackGrills(){ 
+        this._blackGrills = this._blackTruck + this._blackNoteboard
+    }
+    get blackGrills(){ 
+        return this._blackGrills
+    }
+    //Do we need rdyShipBlackGrills and rdyShipBlueGrills??
+    set rdyShipRedGrills(){
+        this._rdyShipRedGrills = this._rdyShipRedTruck + this._rdyShipRedNoteboard
+    } 
+    set rdyShipRedGrills(){
+        return this._rdyShipRedGrills
+    } 
+    rdyShipGrills: rdyShipTruck + rdyShipNoteboard,
+    totalGrills: redGrills + blueGrills + blackGrills,
+    getRdyShipGrills: function () {
+        return this.rdyShipGrills;
+    }
+    }
     gigglyskins: {
         wonderfallSkins4W,
         barktasticSkins4W,
