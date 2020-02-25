@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from 'react-dom';
+import "./InventoryTable.css";
 
 function InventoryTable(){
 
@@ -12,9 +13,9 @@ function InventoryTable(){
     //console.log(text);
     //document.write(text);
     return(
-      <div>
-        Grill
-        <ul>
+      <div class="across">
+
+        <ul class="products"><h2 class="inventory">Grill</h2>
           {design.map((value, index) => {
             return <li key={index}>{value}
               <ul>
@@ -25,8 +26,8 @@ function InventoryTable(){
             </li>
           })}
         </ul>
-        Feet
-        <ul>
+
+        <ul class="products"><h2 class="inventory">Feet</h2>
           <li>Puppy</li>
               <ul>
                 {colors.map((value, index) => {
@@ -35,8 +36,8 @@ function InventoryTable(){
               </ul>
           <li>Bobber</li>
         </ul>
-        Vinyl
-        <ul>
+
+        <ul class="products"><h2 class="inventory">Vinyl</h2>
           {walker.map((value, index) => {
             return <li key={index}>{value}
             <ul>

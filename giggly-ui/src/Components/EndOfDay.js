@@ -49,74 +49,80 @@ function EndOfDay(){
 
   return(
     <div>
-      <h2>Grill</h2>
-      <form class="inline-date">
-        <label>Date: </label>
-        <input type="type" name="month" placeholder="MM" maxlength="2" size="2"/>
-        <input type="type" name="day" placeholder="DD" maxlength="2" size="2"/>
-        <input type="type" name="year" placeholder="YYYY" maxlength="4" size="2"/>
-      </form>
+    <div class="top">
+      <div>
+        <h2 class="end">Grill</h2>
+        <form class="inline-date">
+          <label>Date: </label>
+          <input type="type" name="month" placeholder="MM" maxlength="2" size="2"/>
+          <input type="type" name="day" placeholder="DD" maxlength="2" size="2"/>
+          <input type="type" name="year" placeholder="YYYY" maxlength="4" size="2"/>
+        </form>
 
-      <form class="form-inline">
-        <label for="grill_design">Design: </label>
-        <select id="grill_design">{grillDesignList}</select>
-        <label for="grill_color">Colors: </label>
-        <select id="grill_color">{colorsList}</select>
-      </form>
+        <form class="form-inline">
+          <label for="grill_design">Design: </label>
+          <select id="grill_design">{grillDesignList}</select>
+          <label for="grill_color">Colors: </label>
+          <select id="grill_color">{colorsList}</select>
+        </form>
 
-      <form class="form-inline">
-        <label><b>Process</b></label>
-        <label><b>Completed</b></label>
-        <label><b>Lost</b></label>
-      </form>
+        <form class="form-inline">
+          <label><b>Process</b></label>
+          <label><b>Completed</b></label>
+          <label><b>Lost</b></label>
+        </form>
 
-      <form class="form-inline">
-        <label for="grill_vac">Belovac: </label>
-        <input id="grill_vac" type="text" name="amount" defualtValue="" maxlength="5" size="8"/>
-        <input id="vac_lost" type="text" name="amount" defualtValue="" maxlength="5" size="8"/>
-      </form>
+        <form class="form-inline">
+          <label for="grill_vac">Belovac: </label>
+          <input id="grill_vac" type="text" name="amount" defualtValue="" maxlength="5" size="8"/>
+          <input id="vac_lost" type="text" name="amount" defualtValue="" maxlength="5" size="8"/>
+        </form>
 
-      <form class="form-inline">
-        <label for="grill_guil">Guillotine: </label>
-        <input id="grill_guil" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
-        <input id="guil_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
-      </form>
+        <form class="form-inline">
+          <label for="grill_guil">Guillotine: </label>
+          <input id="grill_guil" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+          <input id="guil_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+        </form>
 
-      <form class="form-inline">
-        <label for="grill_zip">RotoZip: </label>
-        <input id="grill_zip" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
-        <input id="zip_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
-      </form>
+        <form class="form-inline">
+          <label for="grill_zip">RotoZip: </label>
+          <input id="grill_zip" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+          <input id="zip_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+        </form>
 
-      <form class="form-inline">
-        <label for="grill_sand">Sanding: </label>
-        <input id="grill_sand" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
-        <input id="sand_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
-      </form>
+        <form class="form-inline">
+          <label for="grill_sand">Sanding: </label>
+          <input id="grill_sand" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+          <input id="sand_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+        </form>
 
-      <form class="form-inline">
-        <label for="grill_assem">Assembly: </label>
-        <input id="grill_assem" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
-        <input id="assem_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
-      </form>
+        <form class="form-inline">
+          <label for="grill_assem">Assembly: </label>
+          <input id="grill_assem" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+          <input id="assem_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+        </form>
 
-      <form class="form-inline">
-        <label for="grill_vin">Vinyl: </label>
-        <input id="grill_vin" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
-        <input id="vvin_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
-      </form>
+        <form class="form-inline">
+          <label for="grill_vin">Vinyl: </label>
+          <input id="grill_vin" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+          <input id="vvin_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+        </form>
 
-      <form class="form-inline">
-        <label for="grill_pac">Packaging: </label>
-        <input id="grill_pac" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
-        {/*<label for="pac_lost">Lost: </label>*/}
-        <input id="pac_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
-      </form>
+        <form class="form-inline">
+          <label for="grill_pac">Packaging: </label>
+          <input id="grill_pac" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+          {/*<label for="pac_lost">Lost: </label>*/}
+          <input id="pac_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+        </form>
 
-      <input type="submit" value="Add" />
+        <input type="submit" value="Add" />
+        </div>
+        <div>
+          hey
+        </div>
+      </div>
 
-
-      <h2>Feet</h2>
+      <h2 class="end">Feet</h2>
 
       <form class="inline-date">
         <label>Date: </label>
@@ -162,7 +168,7 @@ function EndOfDay(){
 
       <input type="submit" value="Add" />
 
-      <h2>Vinyl</h2>
+      <h2 class="end">Vinyl</h2>
 
       <form class="inline-date">
         <label>Date: </label>
@@ -172,20 +178,16 @@ function EndOfDay(){
       </form>
 
       <form class="form-inline">
-      <label for="vinyl_pattern">Vinyls: </label>
-      <select id="vinyl_pattern">{vinylList}</select>
+        <label for="vinyl_pattern">Vinyls: </label>
+        <select id="vinyl_pattern">{vinylList}</select>
+        <label for="walker_type">Walker: </label>
+        <select id="walker_type">{walkerList}</select>
       </form>
 
       <form class="form-inline">
         <label><b>Process</b></label>
         <label><b>Completed</b></label>
         <label><b>Lost</b></label>
-      </form>
-
-      <form class="form-inline">
-        <label for="canvas_amount">Canvas: </label>
-        <input id="canvas_amount" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
-        <input id="canvas_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
       </form>
 
       <form class="form-inline">
@@ -201,9 +203,9 @@ function EndOfDay(){
       </form>
 
       <form class="form-inline">
-        <label for="walker_type">Wrap: </label>
-        <select id="walker_type">{walkerList}</select>
-        <input id="canvas_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+        <label for="vinyl_wrap">Wrap: </label>
+        <input id="vinyl_wrap" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
+        <input id="wrap_lost" type="text" name="amount" defualtValue="" maxlength="10" size="8"/>
       </form>
 
       <form class="form-inline">
@@ -213,8 +215,11 @@ function EndOfDay(){
       </form>
 
       <input type="submit" value="Add" />
-
+      <div>
+        hey
+      </div>
     </div>
+
   )
 }
 
