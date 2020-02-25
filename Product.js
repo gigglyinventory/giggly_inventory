@@ -1,16 +1,8 @@
 'use strict' 
-//class Product {
-
+// getRdyShip() {
+//     return rdyShipSkins + rdyShipGrills + rdyShipFeet;
+// }
 class Gigglyfeet{
-    //puppyPaw: {
-        // rdyShipRedPaws,
-        // rdyShipBluePaws,
-        // rdyShipBlackPaws,
-        // rdyShipPaws: rdyShipRedPaws + rdyShipBlackPaws + rdyShipBluePaws,
-        // redPaws,
-        // bluePaws,
-        // blackPaws,
-        // totalPaws: redPaws + bluePaws + blackPaws,
     get totalPaws() {
         return this._redPaws + this._bluePaws + this._blackPaws;
     }
@@ -55,56 +47,7 @@ class Gigglyfeet{
     }
 
 }
-        //totalFeet: puppyPaw.getTotalPaws,
-        //redFeet: puppyPaw.getRedPaws,
-        //blueFeet: puppyPaw.getBluePaws,
-        //blackFeet: puppyPaw.getBlackPaws,
-        //rdyShipRedFeet: puppyPaw.getRdyShipRedPaws,
-        //rdyShipBlueFeet: this.puppyPaw.getRdyShipBluePaws,
-        //rdyShipBlackFeet: this.puppyPaw.getRdyShipBlackPaws,
-        //rdyShipFeet: puppyPaw.getRdyShipPaws,
-        // getRdyShipFeet: function () {
-        //     return this.rdyShipFeet;
-        // },
-        // getRdyShipRedFeet: function () {
-        //     return this.rdyShipRedFeet;
-        // },
-        // getRdyShipBlueFeet: function () {
-        //     return this.rdyShipBlueFeet;
-        // },
-        // getRdyShipBlackFeet: function () {
-        //     return this.rdyShipBlackFeet;
-        // },
-    //     getTotalFeet: function () {
-    //         return this.totalFeet;
-    //     },
-    //     getRedFeet: function () {
-    //         return this.redFeet;
-    //     },
-    //     getBlueFeet: function () {
-    //         return this.blueFeet;
-    //     },
-    //     getBlackFeet: function () {
-    //         return this.blackFeet;
-    //     }
-
-    // },
 class Gigglygrills{
-    // truckFront: {
-    //     redTruck,
-    //     blueTruck,
-    //     blackTruck,
-    //     rdyShipRedTruck,
-    //     rdyShipBlueTruck,
-    //     rdyShipBlackTruck,
-    //     rdyShipTruck: rdyShipRedTruck + rdyShipBlueTruck + rdyShipBlackTruck,
-    //     totalTruck: redTruck + blueTruck + blackTruck,
-    set totalTruck() {
-        this._totalTruck = this._redTruck + this._blueTruck + this._blackTruck;
-    }
-    get totalTruck() {
-        return this._totalTruck
-    }
     set redTruck(redT) {
         this._redTruck = redT
     }
@@ -122,12 +65,6 @@ class Gigglygrills{
     }
     get blackTruck () {
         return this._blackTruck
-    }
-    set rdyShipTruck() {
-        this._rdyShipTruck = this._rdyShipRedTruck + this._rdyShipBlueTruck + this._rdyShipBlackTruck
-    }
-    get rdyShipTruck() {
-        return this._rdyShipTruck;
     }
     set rdyShipRedTruck(newR) {
         this._rdyShipRedTruck = newR;
@@ -147,21 +84,11 @@ class Gigglygrills{
     get rdyShipBlackTruck() {
         return this._rdyShipBlackTruck;
     }
-        // }
-        // Noteboard: {
-        //     redNoteboard,
-        //     blueNoteboard,
-        //     blackNoteboard,
-        //     rdyShipRedNoteboard,
-        //     rdyShipBlueNoteboard,
-        //     rdyShipBlackNoteboard,
-        //     rdyShipNoteboard: rdyShipRedNoteboard + rdyShipBlueNoteboard + rdyShipBlackNoteboard,
-        //     totalNoteboard: redNoteboard + blueNoteboard + blackNoteboard,
-    set totalNoteboard() {
-        this._totalNoteboard = this._redNoteboard + this._blueNoteboard + this._blackNoteboard
+    set rdyShipTruck() {
+        this._rdyShipTruck = this._rdyShipRedTruck + this._rdyShipBlueTruck + this._rdyShipBlackTruck
     }
-    get totalNoteboard() {
-        return this._totalNoteboard
+    get rdyShipTruck() {
+        return this._rdyShipTruck;
     }
     set redNoteboard(redN) {
         this._redNoteboard = redN
@@ -205,7 +132,6 @@ class Gigglygrills{
     get rdyShipBlackNoteboard() {
         return this._rdyShipBlackNoteboard;
     }
-
     set redGrills(){
         this._redGrills = this._redTruck + this._redNoteboard
      } 
@@ -231,160 +157,163 @@ class Gigglygrills{
     set rdyShipRedGrills(){
         return this._rdyShipRedGrills
     } 
-    rdyShipGrills: rdyShipTruck + rdyShipNoteboard,
-    totalGrills: redGrills + blueGrills + blackGrills,
-    getRdyShipGrills: function () {
-        return this.rdyShipGrills;
+    set rdyShipGrills(){
+        this._rdyShipGrills = this._rdyShipTruck + this._rdyShipNoteboard
     }
+    get rdyShipGrills(){
+        return this._rdyShipGrill
     }
-    gigglyskins: {
-        wonderfallSkins4W,
-        barktasticSkins4W,
-        patrioticSkins4W,
-        flowerificSkins4W,
-        militarySkins4W,
-        wonderfallSkins2W,
-        barktasticSkins2W,
-        patrioticSkins2W,
-        flowerificSkins2W,
-        militarySkins2W,
-        totalSkins: wonderfallSkins + barktasticSkins + patrioticSkins + flowerificSkins + militarySkins,
-        rdyShipWonderfallSkins4W,
-        rdyShipBarktasticSkins4W,
-        rdyShipPatrioticSkins4W,
-        rdyShipFlowerificSkins4W,
-        rdyShipMilitarySkins4W,
-        rdyShipWonderfallSkins2W,
-        rdyShipBarktasticSkins2W,
-        rdyShipPatrioticSkins2W,
-        rdyShipFlowerificSkins2W,
-        rdyShipMilitarySkins2W,
-        rdyShipSkins: rdyShipWonderfallSkins4W + rdyShipBarktasticSkins4W + rdyShipPatrioticSkins4W + rdyShipFlowerificSkins4W + rdyShipMilitarySkins4W + rdyShipWonderfallSkins2W + rdyShipBarktasticSkins2W + rdyShipPatrioticSkins2W + rdyShipFlowerificSkins2W + rdyShipMilitarySkins2W,
-        setWonderfallSkins2W: function (fall) {
-            this.wonderfallSkins2W = fall;
-        },
-        getWonderfallSkins2W: function () {
-            return this.wonderfallSkins2W;
-        },
-        setBarktasticSkins2W: function (bark) {
-            this.barktasticSkins2W = bark;
-        },
-        getBarktasticSkins2W: function () {
-            return this.barktasticSkins2W;
-        },
-        setPatrioticSkins2W: function (pat) {
-            this.patrioticSkins2W = pat;
-        },
-        getPatrioticSkins2W: function () {
-            return this.patrioticSkin2Ws;
-        },
-        setFlowerificSkins2W: function (flower) {
-            this.flowerificSkins2W = flower;
-        },
-        getFlowerificSkins2W: function () {
-            return this.flowerificSkins2W;
-        },
-        setMilitarySkins2W: function (mil) {
-            this.militarySkins2W = mil;
-        },
-        getMilitarySkins2W: function () {
-            return this.militarySkins2W;
-        },
-        setWonderfallSkins4W: function (fall) {
-            this.wonderfallSkins4W = fall;
-        },
-        getWonderfallSkins4W: function () {
-            return this.wonderfallSkins4W;
-        },
-        setBarktasticSkins4W: function (bark) {
-            this.barktasticSkins4W = bark;
-        },
-        getBarktasticSkins4W: function () {
-            return this.barktasticSkins4W;
-        },
-        setPatrioticSkins4W: function (pat) {
-            this.patrioticSkins4W = pat;
-        },
-        getPatrioticSkins4W: function () {
-            return this.patrioticSkins4W;
-        },
-        setFlowerificSkins4W: function (flower) {
-            this.flowerificSkins4W = flower;
-        },
-        getFlowerificSkins4W: function () {
-            return this.flowerificSkins4W;
-        },
-        setMilitarySkins4W: function (mil) {
-            this.militarySkins4W = mil;
-        },
-        getMilitarySkins4W: function () {
-            return this.militarySkins4W;
-        },
-        setRdyShipWonderfallSkins4W: function (newR) {
-            this.rdyShipWonderfallSkins4W = newR;
-        },
-        getRdyShipWonderfallSkins4W: function () {
-            return this.rdyShipWonderfallSkins4W;
-        },
-        setRdyShipBarktasticSkins4W: function (newB) {
-            this.rdyShipBarktasticSkins4W = newB;
-        },
-        getRdyShipBarktasticSkins4W: function () {
-            return this.rdyShipBarktasticSkins4W;
-        },
-        setRdyShipPatrioticSkins4W: function (newP) {
-            this.rdyShipPatrioticSkins4W = newP;
-        },
-        getRdyShipPatrioticSkins4W: function () {
-            return this.rdyShipPatrioticSkins4W;
-        },
-        setRdyShipFlowerificSkins4W: function (newF) {
-            this.rdyShipFlowerificSkins4W + newF;
-        },
-        getRdyShipFlowerificSkins4W: function () {
-            return this.rdyShipFlowerificSkins4W;
-        },
-        setRdyShipMilitarySkins4W: function (newM) {
-            this.rdyShipMilitarySkins4W = newM;
-        },
-        getRdyShipMilitarySkins4W: function () {
-            return this.rdyShipMilitarySkins4W;
-        },
-        setRdyShipWonderfallSkins2W: function (newW) {
-            this.rdyShipWonderfallSkins2W = newW;
-        },
-        getRdyShipWonderfallSkins2W: function () {
-            return this.rdyShipWonderfallSkins2W;
-        },
-        setRdyShipBarktasticSkins2W: function (newB) {
-            this.rdyShipBarktasticSkins2W = newB;
-        },
-        getRdyShipBarktasticSkins2W: function () {
-            return this.rdyShipBarktasticSkins2W;
-        },
-        setRdyShipPatrioticSkins2W: function (newP) {
-            this.rdyShipPatrioticSkins2W = newP;
-        },
-        getRdyShipPatrioticSkins2W: function () {
-            return this.rdyShipPatrioticSkins2W;
-        },
-        setRdyShipFlowerificSkins2W: function (newF) {
-            this.rdyShipFlowerificSkins2W = newF;
-        },
-        getRdyShipFlowerificSkins2W: function () {
-            return this.rdyShipFlowerificSkins2W;
-        },
-        setRdyShipMilitarySkins2W: function (newM) {
-            this.rdyShipMilitarySkins2W = newM;
-        },
-        getRdyShipMilitarySkins2W: function () {
-            return this.rdyShipMilitarySkins2W;
-        },
-        getRdyShipSkins: function () {
-            return this.rdyShipSkins;
-        }
-    },
-    getRdyShip: function () {
-        return rdyShipSkins + rdyShipGrills + rdyShipFeet;
+    set totalTruck() {
+        this._totalTruck = this._redTruck + this._blueTruck + this._blackTruck;
     }
-};
+    get totalTruck() {
+        return this._totalTruck
+    }
+    set totalNoteboard() {
+        this._totalNoteboard = this._redNoteboard + this._blueNoteboard + this._blackNoteboard
+    }
+    get totalNoteboard() {
+        return this._totalNoteboard
+    }
+    set totalGrills(){
+        this._totalGrills = this._redGrills + this._blueGrills + this._blackGrills
+    }
+    get totalGrills(){
+        return this._totalGrills
+    }
+}
+
+class gigglyskins{
+    set wnderfallSkins2W(fall) {
+        this._wonderfallSkins2W = fall;
+    }
+    get wonderfallSkins2W() {
+        return this._wonderfallSkins2W;
+    }
+    set BarktasticSkins2W(bark) {
+        this._barktasticSkins2W = bark;
+    }
+    get barktasticSkins2W() {
+        return this._barktasticSkins2W;
+    }
+    set patrioticSkins2W(pat) {
+        this._patrioticSkins2W = pat;
+    }
+    get patrioticSkins2W() {
+        return this._patrioticSkin2Ws;
+    }
+    set flowerificSkins2W(flower) {
+        this._flowerificSkins2W = flower;
+    }
+    get flowerificSkins2W() {
+        return this._flowerificSkins2W;
+    } 
+    set militarySkins2W(mil) {
+        this._militarySkins2W = mil;
+    }
+    get militarySkins2W() {
+        return this._militarySkins2W;
+    }
+    set wonderfallSkins4W(fall) {
+        this._wonderfallSkins4W = fall;
+    }
+    get wonderfallSkins4W() {
+        return this._wonderfallSkins4W;
+    }
+    set barktasticSkins4W(bark) {
+        this._barktasticSkins4W = bark;
+    }
+    get arktasticSkins4W() {
+        return this._barktasticSkins4W;
+    } 
+    set patrioticSkins4W(pat) {
+        this._patrioticSkins4W = pat;
+    } 
+    get patrioticSkins4W() {
+        return this._patrioticSkins4W;
+    } 
+    set flowerificSkins4W(flower) {
+        this._flowerificSkins4W = flower;
+    } 
+    get flowerificSkins4W() {
+        return this._flowerificSkins4W;
+    } 
+    set militarySkins4W(mil) {
+        this._militarySkins4W = mil;
+    } 
+    get militarySkins4W() {
+        return this._militarySkins4W;
+    } 
+    set rdyShipWonderfallSkins4W(newR) {
+        this._rdyShipWonderfallSkins4W = newR;
+    } 
+    get rdyShipWonderfallSkins4W() {
+        return this._rdyShipWonderfallSkins4W;
+    } 
+    set rdyShipBarktasticSkins4W(newB) {
+        this._rdyShipBarktasticSkins4W = newB;
+    } 
+    get rdyShipBarktasticSkins4W() {
+        return this._rdyShipBarktasticSkins4W;
+    } 
+    set rdyShipPatrioticSkins4W(newP) {
+        this._rdyShipPatrioticSkins4W = newP;
+    } 
+    get rdyShipPatrioticSkins4W() {
+        return this._rdyShipPatrioticSkins4W;
+    } 
+    set rdyShipFlowerificSkins4W(newF) {
+        this._rdyShipFlowerificSkins4W + newF;
+    } 
+    get rdyShipFlowerificSkins4W() {
+        return this._rdyShipFlowerificSkins4W;
+    } 
+    set rdyShipMilitarySkins4W(newM) {
+        this._rdyShipMilitarySkins4W = newM;
+    } 
+    get rdyShipMilitarySkins4W() {
+        return this._rdyShipMilitarySkins4W;
+    } 
+    set rdyShipWonderfallSkins2W(newW) {
+        this._rdyShipWonderfallSkins2W = newW;
+    } 
+    get rdyShipWonderfallSkins2W() {
+        return this._rdyShipWonderfallSkins2W;
+    } 
+    set rdyShipBarktasticSkins2W(newB) {
+        this._rdyShipBarktasticSkins2W = newB;
+    } 
+    get rdyShipBarktasticSkins2W() {
+        return this._rdyShipBarktasticSkins2W;
+    } 
+    set rdyShipPatrioticSkins2W(newP) {
+        this._rdyShipPatrioticSkins2W = newP;
+    } 
+    get rdyShipPatrioticSkins2W() {
+        return this._rdyShipPatrioticSkins2W;
+    } 
+    set rdyShipFlowerificSkins2W(newF) {
+        this._rdyShipFlowerificSkins2W = newF;
+    } 
+    get rdyShipFlowerificSkins2W() {
+        return this._rdyShipFlowerificSkins2W;
+    } 
+    set rdyShipMilitarySkins2W(newM) {
+        this._rdyShipMilitarySkins2W = newM;
+    } 
+    get rdyShipMilitarySkins2W() {
+        return this._rdyShipMilitarySkins2W;
+    }
+    set totalSkins(){
+        this._totalSkins = this._wonderfallSkins + this._barktasticSkins + this._patrioticSkins + this._flowerificSkins + this._militarySkins
+    }
+    get totalSkins(){
+        return this._totalSkins
+    }
+    set rdyShipSkins(){
+        this._rdyShipSkins = this._rdyShipWonderfallSkins4W + this._rdyShipBarktasticSkins4W + this._rdyShipPatrioticSkins4W + this._rdyShipFlowerificSkins4W + this._rdyShipMilitarySkins4W + this._rdyShipWonderfallSkins2W + this._rdyShipBarktasticSkins2W + this._rdyShipPatrioticSkins2W + this._rdyShipFlowerificSkins2W + this._rdyShipMilitarySkins2W
+    }
+    get rdyShipSkins() {
+        return this._rdyShipSkins;
+    }
+} 
