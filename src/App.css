@@ -1,0 +1,49 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    /*animation: App-logo-spin infinite 20s linear;*/
+  }
+}
+
+.App-table{
+  margin: auto;
+  width: auto;
+}
+
+.App-header {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.App-link {
+  color: red;
+}
+
+table{
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: auto;
+}
+th, td{
+  border-collapse: collapse;
+  border: 1px solid black;
+  color: black;
+  text-align: center;
+}
+tr{
+  color:white;
+}
