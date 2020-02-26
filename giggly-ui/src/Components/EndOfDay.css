@@ -8,7 +8,7 @@ div.top {
   flex-direction: row;
 }
 
-label, input, select{
+label, input, select, button{
   margin-left: 60px;
 }
 
@@ -27,7 +27,7 @@ label, input, select{
 
 }
 
-.form-inline input{
+.form-inline input, button{
   margin: 60px 5px 10px 5px 0;
   width: 75px;
   display: inline-block;
