@@ -6,12 +6,12 @@ import "./App.css";
 class Login extends React.Component {
   constructor(props) {
     super(props);
-
+    {/*Variables to hide the password*/}
     this.state = {
       hidden: true,
       password: ""
     };
-
+    {/*Declares the functions below and helps access the variables above*/}
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.toggleShow = this.toggleShow.bind(this);
   }
@@ -36,6 +36,8 @@ class Login extends React.Component {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="giggly_logo" />
         <p>
+          {/*Fields for entering Username and Password along width
+            using the functions above to hide/show password*/}
           <label for="username">Username </label>
           <br />
           <input
@@ -65,6 +67,7 @@ class Login extends React.Component {
           <br />
           <input type="checkbox" onClick={this.toggleShow} />Show Password
         </p>
+        {/*This is the link for the main store website*/}
         <a
           className="App-link"
           href="https://www.lifeimprovedmedical.com/"
