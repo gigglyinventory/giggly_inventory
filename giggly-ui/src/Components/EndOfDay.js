@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import Grills from "./Grills"
+import Output from "./Output"
 import "./EndOfDay.css"
 
 {/*Will be moving the bulk of of EndOfDay to their own .js file.
@@ -87,8 +88,7 @@ function EndOfDay(){
         {/*The div below is where i was going to try to display the input from EndOfDay
           Will try to add a Display.js for said function*/}
         <div>
-          hey
-          <output name="display" for="grill_vac vac_lost"></output>
+          <Output />
         </div>
 
       {/*The dive below will be movied to Feet.js. Almost an exact copy of Grills.js*/}

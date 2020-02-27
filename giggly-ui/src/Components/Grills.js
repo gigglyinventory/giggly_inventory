@@ -2,8 +2,14 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import "./EndOfDay.css";
+import Output, {addMessage} from './Output'
+//import * as utils from './Output.js';
+//import {addMessage} from './Output.js';
+//const addMessage = require("./Output").addMessage;
 /*Each member of the EndOfDay.js uses the EndOfDay.css for styling.*/
-import "./EndOfDay.css"
+
+
 
 class Grills extends React.Component{
   constructor(props){
@@ -31,9 +37,15 @@ class Grills extends React.Component{
       packaging: "10",
       packagingLost: "5"
     };
-
+    this.outputMessage ="Checking";
     this.handleChange = this.handleChange.bind(this);
     this.submit = this.submit.bind(this);
+    this.sendToSummary = this.sendToSummary.bind(this);
+  }
+
+  sendToSummary(message){
+    alert(message)
+    addMessage(message)
   }
 
   /*Function for when you add the information for the EndOfDay Grill information.
@@ -58,7 +70,7 @@ class Grills extends React.Component{
     confirmAlert({
       title: 'Confirm Add',
       message: 'Do you want to add to inventory',
-      buttons: [{label: 'Confim'
+      buttons: [{label: 'Confim', onClick: () => this.sendToSummary(message)
       },{label: 'Deny'}]
     })
   }
@@ -232,5 +244,6 @@ render() {
 }
 
 }
+
 
 export default Grills
