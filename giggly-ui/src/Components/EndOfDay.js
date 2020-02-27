@@ -3,8 +3,13 @@ import ReactDOM from 'react-dom';
 import Grills from "./Grills"
 import "./EndOfDay.css"
 
-function EndOfDay(){
+{/*Will be moving the bulk of of EndOfDay to their own .js file.
+  will be creating Deliveries.js, Feet.js, Vinyls.js.
+  Plans for Sales.js but don't know how to implement yet*/}
 
+function EndOfDay(){
+  {/*List of all raw materials for deliveries section.
+    Will move to Deliveries.js*/}
   const rawMaterials = [
     {id: '', name: ''},
     {id: 'vin', name: 'Vinyl'},
@@ -33,16 +38,9 @@ function EndOfDay(){
     return (<option key={i} value={item.id}>{item.name}</option>)
   }, this)
 
-  const grillDesign = [
-    {id: 'em', name: ''},
-    {id: 'tr', name: 'Truck'},
-    {id: 'nb', name: 'Noteboard'}
-  ];
+    {/*These are arrays for the drop down selections for designs/colors/vinyls*/}
 
-  let grillDesignList = grillDesign.length > 0 && grillDesign.map((item, i) => {
-    return (<option key={i} value={item.id}>{item.name}</option>)
-  }, this)
-
+    {/*Will be moving to Vinyl.js*/}
     const walker = [
       {id: 'em', name: ''},
       {id: 'w2', name: '2-Wheels'},
@@ -53,6 +51,8 @@ function EndOfDay(){
       return (<option key={i} value={item.id}>{item.name}</option>)
     }, this)
 
+    {/*Color array used by both Puppy Feet and grills.
+      Add a copy when create Feet.js*/}
     const colors = [
       {id: 'em', name: ''},
       {id: 'rd', name: 'Red'},
@@ -63,6 +63,7 @@ function EndOfDay(){
       return (<option key={i} value={item.id}>{item.name}</option>)
     }, this)
 
+    {/*Array of the different vinyl designs. will move to Vinyl.js*/}
     const vinyl = [
       {id: 'em', name: ''},
       {id: 'cm', name: 'Camo'},
@@ -83,12 +84,15 @@ function EndOfDay(){
       <div>
         <Grills />
         </div>
+        {/*The div below is where i was going to try to display the input from EndOfDay
+          Will try to add a Display.js for said function*/}
         <div>
           hey
           <output name="display" for="grill_vac vac_lost"></output>
         </div>
-      </div>
 
+      {/*The dive below will be movied to Feet.js. Almost an exact copy of Grills.js*/}
+      </div>
       <h2 class="end">Feet</h2>
 
       <form class="inline-date">
@@ -134,6 +138,8 @@ function EndOfDay(){
       </form>
 
       <input type="submit" value="Add" />
+
+      {/*Will place in a dive then make it function just like Grills.js*/}
 
       <h2 class="end">Vinyl</h2>
 
@@ -182,6 +188,8 @@ function EndOfDay(){
       </form>
 
       <input type="submit" value="Add" />
+      {/*Will be adding Deliveries and Sales div at the bottom and both Will
+        reference a .js file for the functionality.*/}
       <div>
         hey
       </div>

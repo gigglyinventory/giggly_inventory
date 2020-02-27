@@ -2,11 +2,14 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+/*Each member of the EndOfDay.js uses the EndOfDay.css for styling.*/
 import "./EndOfDay.css"
 
 class Grills extends React.Component{
   constructor(props){
     super(props);
+
+  /*Variables for the Grills.js input. have data hardcoded for time save*/
     this.state = {
       month: "04",
       day: "30",
@@ -33,6 +36,9 @@ class Grills extends React.Component{
     this.submit = this.submit.bind(this);
   }
 
+  /*Function for when you add the information for the EndOfDay Grill information.
+    you will get an alert with a summary then a confirmation popup to confirm.
+    Will look into Modal for a possible replacement*/
   submit(){
     var title = "Summary"
     var date = "Date: " + this.state.month +"/"+ this.state.day +"/"+ this.state.year;
@@ -45,7 +51,10 @@ class Grills extends React.Component{
     var mVinyl= "Vinyl: Completed: " + this.state.vinyl + ". Lost: " + this.state.vinylLost;
     var mPackaing= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
     var message= title +"\n"+ date + "\n" + product+"\n"+mBelovac+"\n"+mGuillotine+"\n"+mRotozip+"\n"+mSanding+"\n"+mAssembly+"\n"+mVinyl+"\n"+mPackaing;
+    {/*This shows the alert with the summary*/}
     alert(message)
+    {/*If click confirm add to database, click deny will not*/}
+    {/*Will try to send data to the Output function here when confirm is selected*/}
     confirmAlert({
       title: 'Confirm Add',
       message: 'Do you want to add to inventory',
@@ -54,22 +63,27 @@ class Grills extends React.Component{
     })
   }
 
+  /*This function handles the change of values from inputs on the EndOfDay tab on the webpage*/
   handleChange(evt){
     const value = evt.target.value;
     this.setState({[evt.target.name]: value});
   }
 
+
 render() {
+
+  {/*Array of truck designs used in the drop down selects on webpage*/}
   const grillDesign = [
     {id: 'em', name: ''},
     {id: 'tr', name: 'Truck'},
     {id: 'nb', name: 'Noteboard'}
   ];
-
+  {/*Need this part for the actual select option*/}
   let grillDesignList = grillDesign.length > 0 && grillDesign.map((item, i) => {
     return (<option key={i} value={item.name}>{item.name}</option>)
   }, this)
 
+  {/*Array of colors*/}
   const colors = [
     {id: 'em', name: ''},
     {id: 'rd', name: 'Red'},
@@ -85,7 +99,9 @@ render() {
 
     <div>
       <h2 class="end">Grill</h2>
+      {/*I use forms for each row of inputs to unify the spacing and positions*/}
       <form class="inline-date">
+
         <label>Date: </label>
         <input type="type"
           name="month"
@@ -114,13 +130,14 @@ render() {
           value={this.name}
           onChange={this.handleChange}>{colorsList}</select>
       </form>
-
+      {/*Headers for the production steps*/}
       <form class="form-inline">
         <label><b>Process</b></label>
         <label><b>Completed</b></label>
         <label><b>Lost</b></label>
       </form>
-
+      {/*Below is the input fields for all the production steps for the Grills
+        Each step is in a form that contains a label, completed, and lost*/}
       <form class="form-inline">
         <label for="grill_vac">Belovac: </label>
         <input id="grill_vac" type="text"
@@ -207,6 +224,7 @@ render() {
         onChange={this.handleChange}/>
       </form>
 
+      {/*This button takes all information inputed form the input fields and calls the alert*/}
       <button onClick={this.submit}>Add</button>
     </div>
   );

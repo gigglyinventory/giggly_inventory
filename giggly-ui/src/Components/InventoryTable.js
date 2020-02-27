@@ -4,17 +4,16 @@ import "./InventoryTable.css";
 
 function InventoryTable(){
 
+    {/*Arrays to hold the different products, designs, colors and vinyls*/}
     const products = ["Grill","Feet","Vinyl"];
     const design = ["Truck", "Board"];
     const colors = ["Red","Blue","Black"];
     const vinyls = ["Camo", "Flag", "Flower", "Bark", "Wonder"];
     const walker = ["2-Wheels","4-Wheels"];
     const bottoms = ["Puppy", "Bobber"];
-    //console.log(text);
-    //document.write(text);
     return(
       <div class="across">
-
+        {/*Nested bullet points seen on the InventoryTable page*/}
         <ul class="products"><h2 class="inventory">Grill</h2>
           {design.map((value, index) => {
             return <li key={index}>{value}
