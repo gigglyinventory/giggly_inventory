@@ -122,11 +122,13 @@ render() {
           onChange={this.handleChange}/>
         <input type="type"
           name="day"
-          value={this.name} placeholder="DD" maxlength="2" size="2"
+          value={this.name}
+          placeholder="DD" maxlength="2" size="2"
           onChange={this.handleChange}/>
         <input type="type"
           name="year"
-          value={this.name} placeholder="YYYY" maxlength="4" size="2"
+          value={this.name}
+          placeholder="YYYY" maxlength="4" size="2"
           onChange={this.handleChange}/>
       </form>
 

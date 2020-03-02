@@ -2,21 +2,27 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import "./EndOfDay.css"
 
-var entries = new Array;
+var entries = ["First step", "Second step"];
 
 class Output extends React.Component{
   constructor(props){
     super(props);
+    this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
+  };
 
-  }
-
+  forceUpdateHandler(){
+      this.forceUpdate();
+  };
 
 
   render(){
-
     return(
+      //entries.push("tesing"),
       <div>
-        <ul>Testing
+        <button onClick={
+          this.forceUpdateHandler
+        }>View</button>
+        <ul class="elements">
           {entries.map((value, index) => {
             return <li key={index}>{value}</li>
           })}
@@ -26,9 +32,12 @@ class Output extends React.Component{
   }
 }
 
+//ReactDOM.render(add, document.getElementById('root'));
 export function addMessage(msg){
-  alert("Ta da: " + msg)
+  var value = msg;
+
   entries.push(msg);
+
 }
 //module.exports = addMessage
 
