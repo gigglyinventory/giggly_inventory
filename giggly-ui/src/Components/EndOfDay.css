@@ -12,6 +12,10 @@ label, input, select, button{
   margin-left: 60px;
 }
 
+ul.elements{
+  width: 175px;
+}
+
 .form-inline {
   display: flex;
   flex-flow: row wrap;
