@@ -6,7 +6,7 @@ class App extends React.Component{
   constructor(){
     super()
   }
-
+/*This is where it starts by calling TabContent.js in Components*/
   render(){
     return(
       <TabContent />

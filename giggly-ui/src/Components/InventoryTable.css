@@ -1,0 +1,21 @@
+h2.inventory{
+  text-decoration: underline;
+  text-decoration-color: red;
+  text-align: left;
+  align-self: auto;
+
+}
+
+div.across{
+  font-size: 150%;
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 10px;
+}
+
+ul.products{
+  font-size: 100%;
+  margin: 60px 60px 60px 60px;
+  border: 3px solid black;
+  width: 150px;
+}

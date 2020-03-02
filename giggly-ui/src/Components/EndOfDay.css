@@ -1,9 +1,14 @@
-h2{
+h2.end{
   text-decoration: underline;
   margin-left: 30px;
 }
 
-label, input, select{
+div.top {
+  display: flex;
+  flex-direction: row;
+}
+
+label, input, select, button{
   margin-left: 60px;
 }
 
@@ -11,20 +16,36 @@ label, input, select{
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .form-inline label {
   margin: 60px 5px 10px 5px 0;
+  width: 75px;
+  display: inline-block;
+  text-align: center;
+
+}
+
+.form-inline input, button{
+  margin: 60px 5px 10px 5px 0;
+  width: 75px;
+  display: inline-block;
 }
 
 .form-inline select {
   margin: 10px;
+  width: 120px;
 }
 
-.form-inline input {
-  margin:10px;
+
+.inline-date{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+
 }
 
-.form-inline select {
-  width: 140px;
+.inline-date input{
+  text-align: center;
 }
