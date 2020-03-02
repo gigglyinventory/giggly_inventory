@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import "./EndOfDay.css"
 
-var entries = new Array;
+var entries = ["First step", "Second step"];
 
 class Output extends React.Component{
   constructor(props){
@@ -10,25 +10,36 @@ class Output extends React.Component{
 
   }
 
-
-
   render(){
 
     return(
-      <div>
-        <ul>Testing
-          {entries.map((value, index) => {
-            return <li key={index}>{value}</li>
-          })}
-        </ul>
-      </div>
+      //entries.push("tesing"),
+      display()
+
     );
   }
 }
 
+function display(){
+  return(
+    <div>
+      <ul>Testing
+        {entries.map((value, index) => {
+          return <li key={index}>{value}</li>
+        })}
+      </ul>
+    </div>
+  );
+}
+
 export function addMessage(msg){
-  alert("Ta da: " + msg)
-  entries.push(msg);
+  var value = msg;
+
+  entries.push("getting here");
+  console.log(entries);
+  return(
+    alert("Ta da: " + msg)
+  );
 }
 //module.exports = addMessage
 
