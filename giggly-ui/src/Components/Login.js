@@ -35,15 +35,13 @@ class Login extends React.Component {
       <div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="giggly_logo" />
-        <p>
-          {/*Fields for entering Username and Password along width
-            using the functions above to hide/show password*/}
+        <form method="POST" action="/login">
           <label for="username">Username </label>
           <br />
           <input
             id="enter_username"
-            type="user"
-            name="id"
+            type="text"
+            name="username"
             defualtValue=""
             class="credentials"
             maxlength="20"
@@ -55,7 +53,7 @@ class Login extends React.Component {
           <input
             id="enter_password"
             type={this.state.hidden ? "password" : "text"}
-            name="code"
+            name="password"
             value={this.state.password}
             class="credentials"
             maxlength="20"
@@ -63,10 +61,10 @@ class Login extends React.Component {
             onChange={this.handlePasswordChange}
           />
           <br />
-          <input type="login" value="Login" class="credentials" />
+          <button type="submit" class="credentials">Login</button>
           <br />
           <input type="checkbox" onClick={this.toggleShow} />Show Password
-        </p>
+        </form>
         {/*This is the link for the main store website*/}
         <a
           className="App-link"
