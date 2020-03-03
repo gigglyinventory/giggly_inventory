@@ -107,7 +107,7 @@ class Materials extends React.Component{
         <form class="form-inline">
           <label for="materials">Delivered: </label>
           <select id="materials"
-            name="print"
+            name="material"
             value={this.name}
             onChange={this.handleChange}>{materialsList}</select>
         </form>
@@ -115,13 +115,13 @@ class Materials extends React.Component{
         <form class="form-inline">
           <label for="delivered">Delivered: </label>
           <input id="delivered" type="text"
-            name="amount"
+            name="delivered"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
           <label for="deliveriesLost">Scrap: </label>
           <input id="deliveriesLost" type="text"
-            name="amount"
+            name="deliveredLost"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>

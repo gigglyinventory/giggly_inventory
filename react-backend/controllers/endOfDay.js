@@ -1,4 +1,4 @@
-const Material = require('../models/material');
+//const Material = require('../models/material');
 const Product = require('../models/product');
 
 exports.postUpdateSummary = (req, res, next) => {
@@ -7,9 +7,9 @@ exports.postUpdateSummary = (req, res, next) => {
     const discontinued = req.body.discontinued;
     const product = new Product(id, name, discontinued);
     product
-      .save()
+      .update()
       .then(() => {
-        res.redirect('/admin');
+        res.redirect('/endOfDay');
       })
       .catch(err => console.log(err));
 };
