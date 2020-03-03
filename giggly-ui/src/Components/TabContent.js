@@ -3,6 +3,7 @@ import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import InventoryTable from "./InventoryTable"
 import EndOfDay from "./EndOfDay"
 import Login from "./Login"
+import Admin from "./Admin"
 
 
 function TabContent(){
@@ -51,7 +52,7 @@ function TabContent(){
       </TabPanel>
       <TabPanel>
         <div>
-          Admin Tab
+        <Admin />
         </div>
       </TabPanel>
 

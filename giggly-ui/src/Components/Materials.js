@@ -9,9 +9,12 @@ class Materials extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      material: "",
-      delivered: "",
-      deliveredLost: ""
+      month: "01",
+      day: "20",
+      year: "2017",
+      material: "Velcro",
+      delivered: "304",
+      deliveredLost: "227"
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -27,12 +30,9 @@ class Materials extends React.Component{
   submit(){
     var title = "Summary"
     var date = "Date: " + this.state.month +"/"+ this.state.day +"/"+ this.state.year;
-    var product= "Product: Vinyl: " + this.state.print + ". Walker: " + this.state.type;
-    var mPrinting= "Printing: Completed: " + this.state.printing + ". Lost: " + this.state.printingLost;
-    var mCutting= "Cutting: Completed: " + this.state.cutting + ". Lost: " + this.state.cuttingLost;
-    var mWrap= "Wrap: Completed: " + this.state.wrap + ". Lost: " + this.state.wrapLost;
-    var mPackaing= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
-    var message= title +"\n"+ date + "\n" + product+"\n"+mPrinting+"\n"+mCutting+"\n"+mWrap+"\n"+mPackaing;
+    var product= "Material: " + this.state.material;
+    var mDelivered= "Delivered:" + this.state.delivered + ". Lost: " + this.state.deliveredLost;
+    var message= title +"\n"+ date + "\n" + product+"\n"+mDelivered;
     {/*This shows the alert with the summary*/}
     alert(message)
     {/*If click confirm add to database, click deny will not*/}
