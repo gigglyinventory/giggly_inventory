@@ -10,43 +10,103 @@ function InventoryTable(){
     const colors = ["Red","Blue","Black"];
     const vinyls = ["Camo", "Flag", "Flower", "Bark", "Wonder"];
     const walker = ["2-Wheels","4-Wheels"];
-    const bottoms = ["Puppy", "Bobber"];
     return(
       <div class="across">
-        {/*Nested bullet points seen on the InventoryTable page*/}
+
+      <div class="column">
         <ul class="products"><h2 class="inventory">Grill</h2>
-          {design.map((value, index) => {
-            return <li key={index}>{value}
-              <ul>
-                {colors.map((value, index) => {
-                  return <li key={index}>{value}</li>
-                })}
-              </ul>
-            </li>
-          })}
+          <li>Truck
+            <ul>
+              <li>Red</li>
+              <li>Blue</li>
+              <li>Black</li>
+            </ul>
+          </li>
+          <li>Noteboard
+            <ul>
+              <li>Red</li>
+              <li>Blue</li>
+              <li>Black</li>
+            </ul>
+          </li>
         </ul>
 
         <ul class="products"><h2 class="inventory">Feet</h2>
-          <li>Puppy</li>
-              <ul>
-                {colors.map((value, index) => {
-                  return <li key={index}>{value}</li>
-                })}
-              </ul>
-          <li>Bobber</li>
-        </ul>
-
-        <ul class="products"><h2 class="inventory">Vinyl</h2>
-          {walker.map((value, index) => {
-            return <li key={index}>{value}
+          <li>Puppy Feet
             <ul>
-              {vinyls.map((value, index) => {
-                return <li key={index}>{value}</li>
-              })}
+              <li>Red</li>
+              <li>Blue</li>
+              <li>Black</li>
             </ul>
-            </li>
-          })}
+          </li>
+
         </ul>
+      </div>
+
+      <div class="column">
+        <ul class="products"><h2 class="inventory">Vinyl</h2>
+          <li>2-Wheels
+            <ul>
+              <li>Camo</li>
+              <li>Flag</li>
+              <li>Flower</li>
+              <li>Bark</li>
+              <li>Wonder</li>
+            </ul>
+          </li>
+          <li>4-Wheels
+            <ul>
+              <li>Camo</li>
+              <li>Flag</li>
+              <li>Flower</li>
+              <li>Bark</li>
+              <li>Wonder</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="column">
+        <ul class="products"><h2 class="inventory">Raw Materials</h2>
+          <li>Grill
+            <ul>
+              <li>Red Plastic</li>
+              <li>Blue Plastic</li>
+              <li>Black Plastic</li>
+              <li>Velcro</li>
+              <li>Grill Stickers</li>
+              <li>Noteboard Stickers</li>
+              <li>Boxes</li>
+            </ul>
+          </li>
+          <li>Feet
+            <ul>
+              <li>Red Feet</li>
+              <li>Blue Feet</li>
+              <li>Black Feet</li>
+              <li>Cores</li>
+              <li>Grommets</li>
+              <li>Boxes</li>
+            </ul>
+          </li>
+          <li>Vinyl
+            <ul>
+              <li>Vinyl</li>
+              <li>2-Wheels</li>
+              <li>4-Wheels</li>
+              <li>Polybags</li>
+              <li>Boxes</li>
+            </ul>
+          </li>
+          <li>Ship Envelopes</li>
+        </ul>
+      </div>
+        {/*Nested bullet points seen on the InventoryTable page*/}
+
+
+
+
+
       </div>
     )
 

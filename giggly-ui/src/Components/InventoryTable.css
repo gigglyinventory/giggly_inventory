@@ -13,9 +13,9 @@ div.across{
   margin-bottom: 10px;
 }
 
-ul.products{
+.column{
   font-size: 100%;
-  margin: 60px 60px 60px 60px;
+  margin: 60px 30px 60px 30px;
   border: 3px solid black;
-  width: 150px;
+  width: 250px;
 }
