@@ -58,7 +58,6 @@ class Materials extends React.Component{
       {id: 'grd', name: 'Grill Plastic Red'},
       {id: 'gbu', name: 'Grill Plastic Blue'},
       {id: 'gbk', name: 'Grill Plastic Black'},
-      {id: 'bob', name: 'Bobbers'},
       {id: 'prd', name: 'Puppy Feet Red'},
       {id: 'pbu', name: 'Puppy Feet Blue'},
       {id: 'pbk', name: 'Puppy Feet Black'},

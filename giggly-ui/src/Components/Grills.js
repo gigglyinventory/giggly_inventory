@@ -146,17 +146,20 @@ render() {
         <label><b>Lost</b></label>
       {/*Below is the input fields for all the production steps for the Grills
         Each step is in a form that contains a label, completed, and lost*/}
-        <label for="grill_vac">Belovac: </label>
-        <input id="grill_vac" type="text"
-          name="belovac"
-          value={this.name}
-          defualtValue="" maxlength="5" size="8"
-          onChange={this.handleChange}/>
-        <input id="vac_lost" type="text"
-          name="belovacLost"
-          value={this.name}
-          defualtValue="" maxlength="5" size="8"
-          onChange={this.handleChange}/>
+        <div class="form-inline">
+          <label for="grill_vac">Belovac: </label>
+          <input id="grill_vac" type="text"
+            name="belovac"
+            value={this.name}
+            defualtValue="" maxlength="5" size="8"
+            onChange={this.handleChange}/>
+          <input id="vac_lost" type="text"
+            name="belovacLost"
+            value={this.name}
+            defualtValue="" maxlength="5" size="8"
+            onChange={this.handleChange}/>
+        </div>
+
 
         <label for="grill_guil">Guillotine: </label>
         <input id="grill_guil" type="text"
