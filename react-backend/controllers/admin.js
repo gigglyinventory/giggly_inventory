@@ -9,21 +9,26 @@ const Product = require('../models/product')
 // we may not need any get functions at the moment since data is being called
 // directly from the fields on the site
 
-// exports.getAddUser = (req, res, next) => {
-//   User.fetchAll(users => {
-//     res.render('admin', {
-//       prods: users,
-//       pageTitle: 'Admin',
-//       path: '/admin'
-//     });
-//   });
-// };
+exports.getUsers = (req, res, next) => {
+  res.send('test')
+  res.redirect('/admin/get-users');
+  res.send('<h1>test2</h1>')
+  //res.send(User.fetchAll())
+  
+  // User.fetchAll(users => {
+  //   res.render('admin', {
+  //     prods: users,
+  //     pageTitle: 'Admin',
+  //     path: '/admin/users'
+  //   });
+  // });
+}
 
 exports.postAddUser = (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
-  const fName = req.body.fName;
-  const lName = req.body.lName;
+  const fName = req.body.userFirstName;
+  const lName = req.body.userLastName;
   const email = req.body.email;
   const user = new User(username, password, fName, lName, email, null);
   user
@@ -32,7 +37,7 @@ exports.postAddUser = (req, res, next) => {
       res.redirect('/admin');
     })
     .catch(err => console.log(err));
-};
+}; 
 
 exports.postAddProduct = (req, res, next) => {
   const id = req.body.productID;
@@ -49,7 +54,7 @@ exports.postAddProduct = (req, res, next) => {
 
 exports.postDeleteUser = (req, res, next) => {
   const username = req.body.username;
-  User.deleteById(username);
+  User.deleteByID(username);
   res.redirect('/admin');
 };
 
