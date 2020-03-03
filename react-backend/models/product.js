@@ -16,7 +16,9 @@ module.exports = class Product {
     );
   }
 
-  static update()
+  static update() {
+    return db.execute('') //this is a complex query that will be implemented
+  }
 
   static fetchAll() {
     return db.execute('SELECT * FROM products');
@@ -24,5 +26,13 @@ module.exports = class Product {
 
   static findById(id) {
     return db.execute('SELECT * FROM products WHERE productID = ?', [id]);
+  }
+
+  static findIDByName(name) {
+      return db.execute('SELECT productID FROM products WHERE productName like %?%', [name])
+  }
+
+  static discontinueByID(id) {
+      return db.execute('UPDATE products SET Discontinued = 1 WHERE productID = ?', [id])
   }
 };

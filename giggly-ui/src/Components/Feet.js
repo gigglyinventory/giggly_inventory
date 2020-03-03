@@ -113,12 +113,12 @@ class Feet extends React.Component{
         <form class="form-inline">
           <label for="feet_deliv">Delivered: </label>
           <input id="delivered" type="text"
-            name="amount"
+            name="delivered"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
           <input id="deliveredLost" type="text"
-            name="amount"
+            name="deliveredLost"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
@@ -127,12 +127,12 @@ class Feet extends React.Component{
         <form class="form-inline">
           <label for="feet_trim">Trim: </label>
           <input id="trim" type="text"
-            name="amount"
+            name="trim"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
           <input id="trimLost" type="text"
-            name="amount"
+            name="trimLost"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
@@ -141,12 +141,12 @@ class Feet extends React.Component{
         <form class="form-inline">
           <label for="feet_screw">Screw: </label>
           <input id="screw" type="text"
-            name="amount"
+            name="screw"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
           <input id="screwLost" type="text"
-            name="amount"
+            name="screwLost"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
@@ -155,13 +155,14 @@ class Feet extends React.Component{
         <form class="form-inline">
           <label for="feet_pac">Packaging: </label>
           <input id="packaging" type="text"
-          name="amount"
+          name="packaging"
           value={this.name}
           defualtValue="" maxlength="5" size="8"
           onChange={this.handleChange}/>
           <input id="packagingLost" type="text"
-          name="amount"
-          defualtValue="" maxlength="10" size="8"/>
+          name="packagingLost"
+          defualtValue="" maxlength="10" size="8"
+          onChange={this.handleChange}/>
         </form>
 
         <button onClick={this.submit}>Add</button>

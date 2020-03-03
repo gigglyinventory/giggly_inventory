@@ -161,61 +161,61 @@ render() {
         <label for="grill_guil">Guillotine: </label>
         <input id="grill_guil" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
+          name="guillotine" defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
         <input id="guil_lost" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
-          />
+          name="guillotineLost" defualtValue="" maxlength="10" size="8"
+          onChange={this.handleChange}/>
 
         <label for="grill_zip">RotoZip: </label>
         <input id="grill_zip" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
+          name="rotozip" defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
         <input id="zip_lost" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
+          name="rotozipLost" defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
 
         <label for="grill_sand">Sanding: </label>
         <input id="grill_sand" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
+          name="sanding" defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
         <input id="sand_lost" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
+          name="sandingLost" defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
 
         <label for="grill_assem">Assembly: </label>
         <input id="grill_assem" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
+          name="assembly" defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
         <input id="assem_lost" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
+          name="assemblyLost" defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
 
         <label for="grill_vin">Vinyl: </label>
         <input id="grill_vin" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
+          name="vinyl" defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
         <input id="vin_lost" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
+          name="vinylLost" defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
 
         <label for="grill_pac">Packaging: </label>
         <input id="grill_pac" type="text"
         value={this.name}
-        name="amount" defualtValue="" maxlength="10" size="8"
+        name="packaging" defualtValue="" maxlength="10" size="8"
         onChange={this.handleChange}/>
         <input id="pac_lost" type="text"
         value={this.name}
-        name="amount" defualtValue="" maxlength="10" size="8"
+        name="packagingLost" defualtValue="" maxlength="10" size="8"
         onChange={this.handleChange}/>
 
       {/*This button takes all information inputed form the input fields and calls the alert*/}
