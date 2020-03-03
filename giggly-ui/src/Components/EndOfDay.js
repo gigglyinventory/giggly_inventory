@@ -14,13 +14,7 @@ import "./EndOfDay.css"
 function EndOfDay(){
   {/*List of all raw materials for deliveries section.
     Will move to Deliveries.js*/}
-
-
     {/*These are arrays for the drop down selections for designs/colors/vinyls*/}
-
-
-
-
 
   return(
     <div>
