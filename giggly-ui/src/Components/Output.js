@@ -27,6 +27,7 @@ class Output extends React.Component{
             return <li key={index}>{value}</li>
           })}
         </ul>
+          <button type="submit">submit</button>
       </div>
     );
   }
