@@ -112,8 +112,7 @@ render() {
     <div>
       <h2 class="end">Grill</h2>
       {/*I use forms for each row of inputs to unify the spacing and positions*/}
-      <form class="inline-date">
-
+      <form method="POST" action="/endOfDay">
         <label>Date: </label>
         <input type="type"
           name="month"
@@ -130,9 +129,7 @@ render() {
           value={this.name}
           placeholder="YYYY" maxlength="4" size="2"
           onChange={this.handleChange}/>
-      </form>
 
-      <form class="form-inline">
         <label for="grill_design">Design: </label>
         <select id="grill_design"
           name="design"
@@ -143,16 +140,12 @@ render() {
           name="color"
           value={this.name}
           onChange={this.handleChange}>{colorsList}</select>
-      </form>
       {/*Headers for the production steps*/}
-      <form class="form-inline">
         <label><b>Process</b></label>
         <label><b>Completed</b></label>
         <label><b>Lost</b></label>
-      </form>
       {/*Below is the input fields for all the production steps for the Grills
         Each step is in a form that contains a label, completed, and lost*/}
-      <form class="form-inline">
         <label for="grill_vac">Belovac: </label>
         <input id="grill_vac" type="text"
           name="belovac"
@@ -164,82 +157,70 @@ render() {
           value={this.name}
           defualtValue="" maxlength="5" size="8"
           onChange={this.handleChange}/>
-      </form>
 
-      <form class="form-inline">
         <label for="grill_guil">Guillotine: </label>
         <input id="grill_guil" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
+          name="guillotine" defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
         <input id="guil_lost" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
-          />
-      </form>
+          name="guillotineLost" defualtValue="" maxlength="10" size="8"
+          onChange={this.handleChange}/>
 
-      <form class="form-inline">
         <label for="grill_zip">RotoZip: </label>
         <input id="grill_zip" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
+          name="rotozip" defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
         <input id="zip_lost" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
+          name="rotozipLost" defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
-      </form>
 
-      <form class="form-inline">
         <label for="grill_sand">Sanding: </label>
         <input id="grill_sand" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
+          name="sanding" defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
         <input id="sand_lost" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
+          name="sandingLost" defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
-      </form>
 
-      <form class="form-inline">
         <label for="grill_assem">Assembly: </label>
         <input id="grill_assem" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
+          name="assembly" defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
         <input id="assem_lost" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
+          name="assemblyLost" defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
-      </form>
 
-      <form class="form-inline">
         <label for="grill_vin">Vinyl: </label>
         <input id="grill_vin" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
+          name="vinyl" defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
         <input id="vin_lost" type="text"
           value={this.name}
-          name="amount" defualtValue="" maxlength="10" size="8"
+          name="vinylLost" defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
-      </form>
 
-      <form class="form-inline">
         <label for="grill_pac">Packaging: </label>
         <input id="grill_pac" type="text"
         value={this.name}
-        name="amount" defualtValue="" maxlength="10" size="8"
+        name="packaging" defualtValue="" maxlength="10" size="8"
         onChange={this.handleChange}/>
         <input id="pac_lost" type="text"
         value={this.name}
-        name="amount" defualtValue="" maxlength="10" size="8"
+        name="packagingLost" defualtValue="" maxlength="10" size="8"
         onChange={this.handleChange}/>
-      </form>
 
       {/*This button takes all information inputed form the input fields and calls the alert*/}
-      <button onClick={this.submit}>Add</button>
+      <button type="submit" onClick={this.submit}>Add</button>
+      </form>
     </div>
   );
 

@@ -130,12 +130,12 @@ class Feet extends React.Component{
         <form class="form-inline">
           <label for="printing">Printing: </label>
           <input id="printing" type="text"
-            name="amount"
+            name="printing"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
           <input id="printingLost" type="text"
-            name="amount"
+            name="printingLost"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
@@ -144,26 +144,26 @@ class Feet extends React.Component{
         <form class="form-inline">
           <label for="trim">Trim: </label>
           <input id="trim" type="text"
-            name="amount"
+            name="cutting"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
           <input id="trimLost" type="text"
-            name="amount"
+            name="cuttingLost"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
         </form>
 
         <form class="form-inline">
-          <label for="screw">Screw: </label>
-          <input id="screw" type="text"
-            name="amount"
+          <label for="wrap">Wrap: </label>
+          <input id="wrap" type="text"
+            name="wrap"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
-          <input id="screwLost" type="text"
-            name="amount"
+          <input id="wrapLost" type="text"
+            name="wrapLost"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
@@ -172,13 +172,14 @@ class Feet extends React.Component{
         <form class="form-inline">
           <label for="packaging">Packaging: </label>
           <input id="packaging" type="text"
-          name="amount"
+          name="packaging"
           value={this.name}
           defualtValue="" maxlength="5" size="8"
           onChange={this.handleChange}/>
           <input id="packagingLost" type="text"
-          name="amount"
-          defualtValue="" maxlength="10" size="8"/>
+          name="packagingLost"
+          defualtValue="" maxlength="10" size="8"
+          onChange={this.handleChange}/>
         </form>
 
         <button onClick={this.submit}>Add</button>
