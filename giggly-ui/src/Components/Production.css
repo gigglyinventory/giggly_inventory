@@ -1,0 +1,13 @@
+.form-inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+.left-margin{
+    display: flex;
+    align-items: center;
+    text-indent: 60px;
+    margin-bottom: 20px;
+}
