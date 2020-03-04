@@ -1,12 +1,27 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import "./EndOfDay.css";
+//import {baseUrl} from '../../config.json';
 
 class Admin extends React.Component{
   constructor(props){
     super(props);
   }
 
+  // state = {
+  //    users = []
+  // }
+  
+  async componentDidMount() {
+    try {
+      let response = await fetch(`/admin/get-users`);
+      let resJson = await response.json();
+      //console.log(resJson);
+      //this.setState(users, resJson);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   render(){
 
@@ -61,18 +76,14 @@ class Admin extends React.Component{
         <br></br>
         <form method="POST" action="/admin/delete-user">
           <div class="enter_user">
-            <div class="enter_user">
           <label>Username</label>
           <input type="text" name="username"></input> <button type="submit">Delete</button>
-            </div>
           </div>
         </form>
         <form method="GET" action="/admin/get-users">
           <div class="enter_user">
-            <div class="enter_user">
-          <label>Username</label>
-          <input type="text" name="username"></input> <button type="submit">Get</button>
-            </div>
+          <input type="text"></input>
+          <button type="submit">Display User List</button>
           </div>
         </form>
       </div>
