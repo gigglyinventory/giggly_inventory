@@ -90,7 +90,7 @@ class Feet extends React.Component{
       <div>
         <h2 class="end">Vinyl</h2>
 
-        <form class="inline-date">
+        <div class="inline-date">
           <label>Date: </label>
           <input type="type"
             name="month"
@@ -107,9 +107,9 @@ class Feet extends React.Component{
             value={this.name}
             placeholder="YYYY" maxlength="4" size="2"
             onChange={this.handleChange}/>
-        </form>
+        </div>
 
-        <form class="form-inline">
+        <div class="form-inline">
           <label for="vinyl_pattern">Vinyls: </label>
           <select id="vinyl_pattern"
             name="print"
@@ -120,15 +120,15 @@ class Feet extends React.Component{
             name="type"
             value={this.name}
             onChange={this.handleChange}>{walkerList}</select>
-        </form>
+        </div>
 
-        <form class="form-inline">
+        <div class="form-inline">
           <label><b>Process</b></label>
           <label><b>Completed</b></label>
           <label><b>Lost</b></label>
-        </form>
+        </div>
 
-        <form class="form-inline">
+        <div class="form-inline">
           <label for="printing">Printing: </label>
           <input id="printing" type="text"
             name="printing"
@@ -140,9 +140,9 @@ class Feet extends React.Component{
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
-        </form>
+        </div>
 
-        <form class="form-inline">
+        <div class="form-inline">
           <label for="trim">Trim: </label>
           <input id="trim" type="text"
             name="cutting"
@@ -154,9 +154,9 @@ class Feet extends React.Component{
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
-        </form>
+        </div>
 
-        <form class="form-inline">
+        <div class="form-inline">
           <label for="wrap">Wrap: </label>
           <input id="wrap" type="text"
             name="wrap"
@@ -168,9 +168,9 @@ class Feet extends React.Component{
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
-        </form>
+        </div>
 
-        <form class="form-inline">
+        <div class="form-inline">
           <label for="packaging">Packaging: </label>
           <input id="packaging" type="text"
           name="packaging"
@@ -181,9 +181,12 @@ class Feet extends React.Component{
           name="packagingLost"
           defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
-        </form>
+        </div>
+        <div>
+          <button onClick={this.submit}>Add</button>
+        </div>
 
-        <button onClick={this.submit}>Add</button>
+
       </div>
     );
   }
