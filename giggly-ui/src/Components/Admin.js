@@ -1,28 +1,50 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import "./EndOfDay.css";
 //import {baseUrl} from '../../config.json';
 
 class Admin extends React.Component{
   constructor(props){
-    super(props);
+    super(props)
+    this.state = {
+      users: [{
+        UserID: '',
+        Password:'',
+        UserEmail:'',
+        UserFirstName:'',
+        UserLastName:''
+      }]
+    } 
+    //this.fetch = this.fetch.bind(this)
+
   }
 
-  // state = {
-  //    users = []
-  // }
-  
+//   handleClick() {
+//     this.setState(prevState => {
+//         return {
+//             
+//         }
+//     })
+// }
+
   async componentDidMount() {
     try {
       let response = await fetch(`/admin/get-users`);
-      let resJson = await response.json();
-      //console.log(resJson);
-      //this.setState(users, resJson);
+      let users = await response.json();
+      console.log(users);
+      this.setState({users});
     } catch (error) {
       console.log(error);
     }
   }
 
+  async handleDelete(){
+    try{
+      await postMessage()
+
+    }catch(error){
+      console.log(error)
+    }
+  }
   render(){
 
     const permissions = [
@@ -74,7 +96,7 @@ class Admin extends React.Component{
         </div>
         </form>
         <br></br>
-        <form method="POST" action="/admin/delete-user">
+        <form onSubmit={}>
           <div class="enter_user">
           <label>Username</label>
           <input type="text" name="username"></input> <button type="submit">Delete</button>
@@ -83,6 +105,7 @@ class Admin extends React.Component{
         <form method="GET" action="/admin/get-users">
           <div class="enter_user">
           <input type="text"></input>
+          <h2>{this.state.users[0].UserFirstName}</h2> <h2>{this.state.users[0].UserLastName}</h2>
           <button type="submit">Display User List</button>
           </div>
         </form>
@@ -91,5 +114,6 @@ class Admin extends React.Component{
     );
   }
 }
+//<!-- Should add a handleClick method to handle the button -->
 
 export default Admin

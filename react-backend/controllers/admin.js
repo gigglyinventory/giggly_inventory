@@ -3,6 +3,7 @@
 // the model called
 const User = require('../models/user')
 const Product = require('../models/product')
+
 //const Index = require('../views/index')
 
 //functions that we want the website to be able to do
@@ -41,7 +42,7 @@ exports.postAddProduct = (req, res, next) => {
   product
     .save()
     .then(() => {
-      res.redirect('/admin');
+      res.end();
     })
     .catch(err => console.log(err));
 };
@@ -55,5 +56,5 @@ exports.postDeleteUser = (req, res, next) => {
 exports.postDiscontinueProductByID = (req, res, next) => {
   const productID = req.body.productID;
   Product.discontinueByID(productID);
-  res.redirect('/admin');
+  res.end();
 };

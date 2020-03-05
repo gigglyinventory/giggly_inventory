@@ -36,6 +36,8 @@
 .credentials{
   width: 150px;
   text-align: center;
+  padding: 10px;
+  border-radius: 4px;  
 }
 
 table{
@@ -51,4 +53,13 @@ th, td{
 }
 tr{
   color:white;
+}
+
+Button {
+  border: 1px solid lightgray;
+  background-color: lightsteelblue;
+  margin-top: 10px;
+  width: 175px;
+  padding: 10px;
+  border-radius: 4px;   
 }

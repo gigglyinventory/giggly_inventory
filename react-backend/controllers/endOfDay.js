@@ -1,7 +1,7 @@
 const Material = require('../models/material');
 const Product = require('../models/product');
 
-exports.postAddProduct = (req, res, next) => {
+exports.postUpdateProduct = (req, res, next) => {
   const id = req.body.productID;
   const name = req.body.productName;
   const discontinued = req.body.discontinued;
@@ -14,7 +14,7 @@ exports.postAddProduct = (req, res, next) => {
     .catch(err => console.log(err));
 };
 
-exports.postAddMaterial = (req, res, next) => {
+exports.postUpdateMaterial = (req, res, next) => {
   const id = req.body.productID;
   const name = req.body.productName;
   const material = new Material(id, name);
