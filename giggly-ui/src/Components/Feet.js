@@ -43,6 +43,7 @@ class Feet extends React.Component{
     var mScrew= "Screw: Completed: " + this.state.screw + ". Lost: " + this.state.screwLost;
     var mPackaing= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
     var message= title +"\n"+ date + "\n" + product+"\n"+mDelivered+"\n"+mTrim+"\n"+mScrew+"\n"+mPackaing;
+    var show = "Puppy|" + this.state.color+ "|D:"+ this.state.delivered+ "-" + this.state.deliveredLost + "|T:" + this.state.trim + "-" + this.state.trimLost + "|S:" + this.state.screw + "-" + this.state.screwLost + "|P:" + this.state.packaging + "-" + this.state.packagingLost;
     {/*This shows the alert with the summary*/}
     alert(message)
     {/*If click confirm add to database, click deny will not*/}
@@ -50,7 +51,7 @@ class Feet extends React.Component{
     confirmAlert({
       title: 'Confirm Add',
       message: 'Do you want to add to inventory',
-      buttons: [{label: 'Confim', onClick: () => this.sendToSummary(message)
+      buttons: [{label: 'Confim', onClick: () => this.sendToSummary(show)
       },{label: 'Deny'}]
     })
   }
@@ -77,7 +78,7 @@ class Feet extends React.Component{
       <div>
         <h2 class="end">Feet</h2>
 
-        <form class="inline-date">
+        <div class="inline-date">
           <label>Date: </label>
           <input type="type"
             name="month"
@@ -94,23 +95,23 @@ class Feet extends React.Component{
             value={this.name}
             placeholder="YYYY" maxlength="4" size="2"
             onChange={this.handleChange}/>
-        </form>
+        </div>
 
-        <form class="form-inline">
+        <div class="form-inline">
           <label for="puppy_color">Colors: </label>
           <select id="puppy_color"
             name="design"
             value={this.name}
             onChange={this.handleChange}>{colorsList}</select>
-        </form>
+        </div>
 
-        <form class="form-inline">
+        <div class="form-inline">
           <label><b>Process</b></label>
           <label><b>Completed</b></label>
           <label><b>Lost</b></label>
-        </form>
+        </div>
 
-        <form class="form-inline">
+        <div class="form-inline">
           <label for="feet_deliv">Delivered: </label>
           <input id="delivered" type="text"
             name="delivered"
@@ -122,9 +123,9 @@ class Feet extends React.Component{
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
-        </form>
+        </div>
 
-        <form class="form-inline">
+        <div class="form-inline">
           <label for="feet_trim">Trim: </label>
           <input id="trim" type="text"
             name="trim"
@@ -136,9 +137,9 @@ class Feet extends React.Component{
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
-        </form>
+        </div>
 
-        <form class="form-inline">
+        <div class="form-inline">
           <label for="feet_screw">Screw: </label>
           <input id="screw" type="text"
             name="screw"
@@ -150,9 +151,9 @@ class Feet extends React.Component{
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
-        </form>
+        </div>
 
-        <form class="form-inline">
+        <div class="form-inline">
           <label for="feet_pac">Packaging: </label>
           <input id="packaging" type="text"
           name="packaging"
@@ -163,9 +164,12 @@ class Feet extends React.Component{
           name="packagingLost"
           defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
-        </form>
+        </div>
+        <div class="form-inline">
+          <button onClick={this.submit}>Add</button>
+        </div>
 
-        <button onClick={this.submit}>Add</button>
+
       </div>
     );
   }
