@@ -43,6 +43,7 @@ class Feet extends React.Component{
     var mScrew= "Screw: Completed: " + this.state.screw + ". Lost: " + this.state.screwLost;
     var mPackaing= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
     var message= title +"\n"+ date + "\n" + product+"\n"+mDelivered+"\n"+mTrim+"\n"+mScrew+"\n"+mPackaing;
+    var show = "Puppy|" + this.state.color+ "|D:"+ this.state.delivered+ "-" + this.state.deliveredLost + "|T:" + this.state.trim + "-" + this.state.trimLost + "|S:" + this.state.screw + "-" + this.state.screwLost + "|P:" + this.state.packaging + "-" + this.state.packagingLost;
     {/*This shows the alert with the summary*/}
     alert(message)
     {/*If click confirm add to database, click deny will not*/}
@@ -50,7 +51,7 @@ class Feet extends React.Component{
     confirmAlert({
       title: 'Confirm Add',
       message: 'Do you want to add to inventory',
-      buttons: [{label: 'Confim', onClick: () => this.sendToSummary(message)
+      buttons: [{label: 'Confim', onClick: () => this.sendToSummary(show)
       },{label: 'Deny'}]
     })
   }

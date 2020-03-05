@@ -53,7 +53,7 @@ class Grills extends React.Component{
     Will look into Modal for a possible replacement*/
   submit(){
     var title = "Summary"
-    var date = "Date: " + this.state.month +"/"+ this.state.day +"/"+ this.state.year;
+    var date = this.state.month +"/"+ this.state.day +"/"+ this.state.year;
     var product= "Product: Design: " + this.state.design + ". Color: " + this.state.color;
     var mBelovac= "Belovac: Completed: " + this.state.belovac + ". Lost: " + this.state.belovacLost;
     var mGuillotine= "Guillotine: Completed: " + this.state.guillotine + ". Lost: " + this.state.guillotineLost;
@@ -63,6 +63,7 @@ class Grills extends React.Component{
     var mVinyl= "Vinyl: Completed: " + this.state.vinyl + ". Lost: " + this.state.vinylLost;
     var mPackaing= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
     var message= title +"\n"+ date + "\n" + product+"\n"+mBelovac+"\n"+mGuillotine+"\n"+mRotozip+"\n"+mSanding+"\n"+mAssembly+"\n"+mVinyl+"\n"+mPackaing;
+    var show = "Grill|" + this.state.design+ "|" + this.state.color + "|B:" + this.state.belovac +"-"+this.state.belovacLost+"|G:"+this.state.guillotine+"-"+this.state.guillotineLost+"|R:"+this.state.rotozip+"-"+this.state.rotozipLost+"|S:"+this.state.sanding+"-"+this.state.sandingLost+"|A:"+this.state.assembly+"-"+this.state.assemblyLost+"|V:"+this.state.vinyl+"-"+this.state.vinylLost+"|P:"+this.state.packaging+"-"+this.state.packagingLost;
     {/*This shows the alert with the summary*/}
     alert(message)
     {/*If click confirm add to database, click deny will not*/}
@@ -70,7 +71,7 @@ class Grills extends React.Component{
     confirmAlert({
       title: 'Confirm Add',
       message: 'Do you want to add to inventory',
-      buttons: [{label: 'Confim', onClick: () => this.sendToSummary(message)
+      buttons: [{label: 'Confim', onClick: () => this.sendToSummary(show)
       },{label: 'Deny'}]
     })
   }
