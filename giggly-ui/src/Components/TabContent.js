@@ -4,6 +4,8 @@ import InventoryTable from "./InventoryTable"
 import EndOfDay from "./EndOfDay"
 import Login from "./Login"
 import Admin from "./Admin"
+import Sales from "./Sales"
+import Production from "./Production"
 
 
 function TabContent(){
@@ -37,12 +39,12 @@ function TabContent(){
         sales and production will be a simple list with a filter*/}
       <TabPanel>
         <div>
-          Sales Tab
+          <Sales />
         </div>
       </TabPanel>
       <TabPanel>
         <div>
-          Production Tab
+          <Production />
         </div>
       </TabPanel>
       <TabPanel>
