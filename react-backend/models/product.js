@@ -28,11 +28,11 @@ module.exports = class Product {
     return db.query('SELECT * FROM products WHERE productID = ?', [id]);
   }
 
-  static findIDByName(name) {
-      return db.query('SELECT productID FROM products WHERE productName like %?%', [name])
+  static findByName(name) {
+      return db.query('SELECT * FROM products WHERE productName like %?%', [name])
   }
 
-  static discontinueByID(id) {
-      return db.query('UPDATE products SET Discontinued = 1 WHERE productID = ?', [id])
+  static discontinueByName(id) {
+      return db.query('UPDATE products SET Discontinued = 1 WHERE productName like %?%', [id])
   }
 };

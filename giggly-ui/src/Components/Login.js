@@ -61,7 +61,7 @@ class Login extends React.Component {
             onChange={this.handlePasswordChange}
           />
           <br />
-          <button type="submit" class="credentials">Login</button>
+          <button type="submit" class="button">Login</button>
           <br />
           <input type="checkbox" onClick={this.toggleShow} />Show Password
         </form>

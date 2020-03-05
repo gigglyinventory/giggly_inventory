@@ -25,7 +25,7 @@ module.exports = class Material {
     return db.query('SELECT * FROM materials WHERE materialID = ?', [id]);
   }
 
-  static findIDByName(name) {
-      return db.query('SELECT productID FROM materials WHERE materialName like %?%', [name])
+  static findByName(name) {
+      return db.query('SELECT * FROM materials WHERE materialName like %?%', [name])
   }
 }
