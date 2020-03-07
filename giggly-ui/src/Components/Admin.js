@@ -37,14 +37,24 @@ class Admin extends React.Component{
     }
   }
 
-  async handleDelete(){
-    try{
-      await postMessage()
-
-    }catch(error){
-      console.log(error)
-    }
-  }
+  // async handleDelete(event){
+  //   try{
+  //       event.preventDefault();
+  //       let username = document.getElementById('username1').value
+  //       await fetch('/admin/delete-user', {
+  //         method: 'POST',
+  //         body: JSON.stringify({username: username})
+  //       })
+  //   }catch(error){
+  //     console.log(error)
+  //   }
+  // }
+//   <form onSubmit={this.handleDelete.bind(this)}>
+//   <div class="enter_user">
+//   <label>Username</label>
+//   <input id="username1" name="username1"></input> <button type="submit">Delete</button>
+//   </div>
+// </form>
   render(){
 
     const permissions = [
@@ -96,7 +106,7 @@ class Admin extends React.Component{
         </div>
         </form>
         <br></br>
-        <form onSubmit={}>
+        <form method="POST" action="/admin/delete-user">
           <div class="enter_user">
           <label>Username</label>
           <input type="text" name="username"></input> <button type="submit">Delete</button>
@@ -104,7 +114,6 @@ class Admin extends React.Component{
         </form>
         <form method="GET" action="/admin/get-users">
           <div class="enter_user">
-          <input type="text"></input>
           <h2>{this.state.users[0].UserFirstName}</h2> <h2>{this.state.users[0].UserLastName}</h2>
           <button type="submit">Display User List</button>
           </div>

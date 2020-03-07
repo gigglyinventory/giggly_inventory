@@ -6,14 +6,16 @@ class InventoryTable extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      inventory: [{
-        ProductID: '',
-        ProductName:'',
-        Discontinued:'',
-        MaterialID:'',
-        MaterialName:''
-
-      }]
+      inventory: {
+        materials:[{
+          inStock: '',
+          materialName: '',
+        }],
+        products:[{
+          readyShip: '',
+          productName: ''
+        }]
+      }
     } 
   }
   
