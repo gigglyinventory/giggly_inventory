@@ -17,8 +17,7 @@ module.exports = class User {
   // functions that we know we need to use. Will often contain SQL queries
   // since we're interacting with a database
   save() {
-    return db.query(
-      'INSERT INTO users (UserID, Password, UserFirstName, UserLastName, UserEmail, LastLogonDate) VALUES (?, ?, ?, ?, ?, ?)',
+    return db.query('INSERT INTO users VALUES (?, ?, "salt", ?, ?, ?, ?)',
       [this.id, this.password, this.fname, this.lname, this.email, this.lastLogon]
     );
   }

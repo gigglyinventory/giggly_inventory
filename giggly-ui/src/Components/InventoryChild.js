@@ -25,10 +25,8 @@ class InventoryChild extends React.Component{
         <ul class="products"><h2 class="inventory">Grill</h2>
           <li>Truck
             <ul>
-              <li>Red  {' '}{this.props.inventory[0].ProductName}</li>
-              <li>Red {this.props.inventory[0].ProductID}</li>
-              <li>Red <text> {this.props.inventory[0].MaterialName}</text></li>
-              <li>Red {this.props.inventory[0].MaterialID}</li>
+              <li>Red  </li>
+              <li>Red <text>{this.props.inventory.products[0].productName}  </text></li>
 
               <li>Blue</li>
               <li>Black</li>
@@ -41,7 +39,7 @@ class InventoryChild extends React.Component{
               <li>Black</li>
             </ul>
           </li>
-        </ul>
+        </ul> 
 
         <ul class="products"><h2 class="inventory">Feet</h2>
           <li>Puppy Feet
