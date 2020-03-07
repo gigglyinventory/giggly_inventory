@@ -12,9 +12,15 @@ module.exports = class Product {
     );
   }
 
-  //this is a complex query that will be implemented
+  // Updates amounts of materials in various departments for a given amount of a given product.
+  // First it finds the type and amount of materials for the product and multiplies them by the
+  // given amount. Then it subtracts those materials from the given department and adds them to
+  // the next department in the production process.
   static update(name) {
-    return db.query('') 
+    return db.query(
+      ' \
+      '
+    ) 
   }
   
   // Returns the amount of products that are ready to ship. First it finds the type and 
