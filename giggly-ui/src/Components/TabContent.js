@@ -3,10 +3,15 @@ import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import InventoryTable from "./InventoryTable"
 import EndOfDay from "./EndOfDay"
 import Login from "./Login"
+import Admin from "./Admin"
+import Sales from "./Sales"
+import Production from "./Production"
 
 
 function TabContent(){
   return (
+
+    /*Imported from react-tabs this gives the tabs at the top of the webpage*/
     <Tabs>
       <TabList>
         <Tab>Login</Tab>
@@ -16,7 +21,8 @@ function TabContent(){
         <Tab>End of Day</Tab>
         <Tab>Admin</Tab>
       </TabList>
-
+      {/*React auto lines up the tabs with the tabpanels. In each tabpanel is a
+        webpage calling the webpages on .js file*/}
       <TabPanel>
         <div>
           <Login />
@@ -28,14 +34,17 @@ function TabContent(){
           <InventoryTable />
         </div>
       </TabPanel>
+
+      {/*Have no sales, production, or admin tab. Need database to get info from
+        sales and production will be a simple list with a filter*/}
       <TabPanel>
         <div>
-          Sales Tab
+          <Sales />
         </div>
       </TabPanel>
       <TabPanel>
         <div>
-          Production Tab
+          <Production />
         </div>
       </TabPanel>
       <TabPanel>
@@ -45,7 +54,7 @@ function TabContent(){
       </TabPanel>
       <TabPanel>
         <div>
-          Admin Tab
+        <Admin />
         </div>
       </TabPanel>
 

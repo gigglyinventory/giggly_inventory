@@ -1,0 +1,22 @@
+
+.calender{
+    font: 1.1rem 'Fira Sans', sans-serif;
+    margin: 60px 5px 10px 5px 0;
+    margin-bottom: 20px;
+}
+
+.form_inline {
+    font: 1.1rem 'Fira Sans', sans-serif;
+    margin: 60px 5px 10px 5px 0;
+    margin-bottom: 20px;
+    text-align: center;
+    display: inline-flex;
+
+  }
+
+.button_link {
+    background: transparent;
+    background-image: none;
+    box-shadow: none;
+    cursor: pointer;
+}

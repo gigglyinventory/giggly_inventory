@@ -1,55 +1,50 @@
 import React from "react";
-import ReactDOM from 'react-dom';
+import "./InventoryTable.css";
+import InventoryChild from './InventoryChild'
 
-function InventoryTable(){
+class InventoryTable extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      inventory: {
+        materials:[{
+          inStock: '',
+          materialName: '',
+        }],
+        products:[{
+          readyShip: '',
+          productName: ''
+        }]
+      }
+    } 
+  }
+  
+  async componentDidMount() {
+    try {
+      let response = await fetch(`/inventory/get-inventory`);
+      let inventory = await response.json();
+      this.setState({inventory});
+      console.log(this.state);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
+  render(){
+    {/*Arrays to hold the different products, designs, colors and vinyls*/}
     const products = ["Grill","Feet","Vinyl"];
     const design = ["Truck", "Board"];
     const colors = ["Red","Blue","Black"];
     const vinyls = ["Camo", "Flag", "Flower", "Bark", "Wonder"];
     const walker = ["2-Wheels","4-Wheels"];
-    const bottoms = ["Puppy", "Bobber"];
-    //console.log(text);
-    //document.write(text);
     return(
       <div>
-        Grill
-        <ul>
-          {design.map((value, index) => {
-            return <li key={index}>{value}
-              <ul>
-                {colors.map((value, index) => {
-                  return <li key={index}>{value}</li>
-                })}
-              </ul>
-            </li>
-          })}
-        </ul>
-        Feet
-        <ul>
-          <li>Puppy</li>
-              <ul>
-                {colors.map((value, index) => {
-                  return <li key={index}>{value}</li>
-                })}
-              </ul>
-          <li>Bobber</li>
-        </ul>
-        Vinyl
-        <ul>
-          {walker.map((value, index) => {
-            return <li key={index}>{value}
-            <ul>
-              {vinyls.map((value, index) => {
-                return <li key={index}>{value}</li>
-              })}
-            </ul>
-            </li>
-          })}
-        </ul>
+        <InventoryChild inventory={this.state.inventory}/>
+        {/*Nested bullet points seen on the InventoryTable page*/}
       </div>
     )
-
+    }
 }
+
 
 export default InventoryTable
