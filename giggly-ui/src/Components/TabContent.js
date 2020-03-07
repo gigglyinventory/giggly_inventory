@@ -14,7 +14,7 @@ function TabContent(){
     /*Imported from react-tabs this gives the tabs at the top of the webpage*/
     <Tabs>
       <TabList>
-        <Tab>Login</Tab>
+        {/*<Tab>Login</Tab>*/}
         <Tab>Inventory</Tab>
         <Tab>Sales</Tab>
         <Tab>Production</Tab>
@@ -23,12 +23,12 @@ function TabContent(){
       </TabList>
       {/*React auto lines up the tabs with the tabpanels. In each tabpanel is a
         webpage calling the webpages on .js file*/}
-      <TabPanel>
+      {/*<TabPanel>
         <div>
           <Login />
         </div>
 
-      </TabPanel>
+      </TabPanel>*/}
       <TabPanel>
         <div>
           <InventoryTable />
