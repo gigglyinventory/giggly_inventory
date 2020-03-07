@@ -1,8 +1,17 @@
-var express = require('express');
-var router = express.Router();
-//var loginController = require('../controllers/login');
+const express = require('express');
 
-//router.get('/login', loginController.getLogin);
-//router.post('/login', loginController.postLogin);
+const authController = require('../controllers/authController.js');
+
+const router = express.Router();
+
+router.get('/login', authController.getLogin);
+
+router.get('/signup', authController.getSignup);
+
+router.post('/login', authController.postLogin);
+
+router.post('/signup', authController.postSignup);
+
+router.post('/logout', authController.postLogout);
 
 module.exports = router;
