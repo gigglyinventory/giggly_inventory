@@ -40,17 +40,14 @@ class Sales extends React.Component{
     } 
 
     addProduct(){
-
         this.setState({productList: [...this.state.productList, "" ]})
-
     }
 
     handleChange(e, index){
         this.state.productList[index] = e.target.value
         this.setState({productList: this.state.productList})
     }
-
-
+    
     render(){
         return(
             <div>
@@ -108,11 +105,9 @@ class Sales extends React.Component{
                         <input/>
                     </div>
 
-            </div>
-            
+            </div>   
     )
   }
 }
-
 
 export default Sales

@@ -4,30 +4,41 @@ import "./InventoryTable.css";
 class InventoryChild extends React.Component{
   constructor(props){
     super(props);
+    this.state = {
+      inventory: {
+        materials:[{
+          inStock: '',
+          materialName: '',
+        }],
+        products:[{
+          readyShip: '',
+          productName: ''
+        }]
+      }
+    } 
   }
-  
-//   async componentDidMount() {
-//     try {
-//       let response = await fetch(`/inventory/get-inventory`);
-//       let inventroy = await response.json();
-//       this.setState({inventroy});
-//       console.log(this.state);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
 
+  // async componentDidMount() {
+  //   try {
+  //     await this.setState(this.props);
+  //     console.log('this is state in did mount', this.state);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+
+
+//{this.props.inventory.products[0].productName}
   render(){
     return(
       <div class="across">
-
       <div class="column">
         <ul class="products"><h2 class="inventory">Grill</h2>
           <li>Truck
             <ul>
-              <li>Red  </li>
-              <li>Red <text>{this.props.inventory.products[0].productName}  </text></li>
-
+              <li>Red <p>{console.log('in render for state', this.state)}  </p></li>
+    
               <li>Blue</li>
               <li>Black</li>
             </ul>
@@ -36,11 +47,11 @@ class InventoryChild extends React.Component{
             <ul>
               <li>Red</li>
               <li>Blue</li>
-              <li>Black</li>
+              <li>Black <p>{console.log('in render for props', this.props)}  </p></li>
             </ul>
           </li>
         </ul> 
-
+    
         <ul class="products"><h2 class="inventory">Feet</h2>
           <li>Puppy Feet
             <ul>
@@ -49,10 +60,10 @@ class InventoryChild extends React.Component{
               <li>Black</li>
             </ul>
           </li>
-
+    
         </ul>
       </div>
-
+    
       <div class="column">
         <ul class="products"><h2 class="inventory">Vinyl</h2>
           <li>2-Wheels
@@ -75,7 +86,7 @@ class InventoryChild extends React.Component{
           </li>
         </ul>
       </div>
-
+    
       <div class="column">
         <ul class="products"><h2 class="inventory">Raw Materials</h2>
           <li>Grill
@@ -113,6 +124,8 @@ class InventoryChild extends React.Component{
       </div>
         {/*Nested bullet points seen on the InventoryTable page*/}
       </div>
+    
+
     )
     }
   }
