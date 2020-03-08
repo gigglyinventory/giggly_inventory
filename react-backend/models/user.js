@@ -31,6 +31,14 @@ module.exports = class User {
   }
 
   static findById(id) {
-    return db.query('SELECT * FROM users WHERE userID = ?', [id]);
+    return db.execute('SELECT * FROM users WHERE userID = ?', [id]) // change to distinct?
+      .findOne( {userID: id} )
+      .then(user => {
+        console.log(user);
+        return user
+      })
+      .catch(err => {
+        console.log(err);
+      }); 
   }
 };
