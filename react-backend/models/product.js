@@ -12,15 +12,24 @@ module.exports = class Product {
     );
   }
 
-  // Updates amounts of materials in various departments for a given amount of a given product.
-  // First it finds the type and amount of materials for the product and multiplies them by the
-  // given amount. Then it subtracts those materials from the given department and adds them to
-  // the next department in the production process.
-  static update(name) {
-    return db.query(
-      ' \
-      '
-    ) 
+  // Updates amounts of materials in two given departments for a given amount of a given grill.
+  // First it finds the type and amount of materials for the grill and multiplies them by the
+  // given amount. Then it subtracts those materials from the given department. The next query
+  // adds them to the next department in the production process. The last query subtracts 
+  // specific materials from the current department depending on the given lost value.
+  static updateGrills(date, design, color, department, nextDepartment, completed, lost) {
+    db.query(
+      'WITH temp AS ( \
+        SELECT MatID, MaterialAmount * ? AS NumMats \
+        FROM productmaterials INNER JOIN products ON productmaterials.ProdID = products.ProductID \
+        WHERE ProductName like "%?%" AND ProductName like "%?%" \
+      ) \
+      INSERT INTO amounts (Date, DepID, MatID, InStock, Lost) \
+      VALUES (?, (SELECT DepartmentID FROM departments WHERE DepartmentName like ?), \
+        temp.MatID, temp.NumMats, 0) \
+      ON DUPLICATE KEY UPDATE InStock = InStock + temp.NumMats',
+      [completed, design, color, date, department])
+    return
   }
   
   // Returns the amount of products that are ready to ship. First it finds the type and 
@@ -30,11 +39,11 @@ module.exports = class Product {
   static fetchReadyShip() {
     return db.query(
       'WITH temp AS ( \
-      SELECT ProdID, X.MatID, InStock, MaterialAmount \
-      FROM productmaterials INNER JOIN amounts X ON productmaterials.MatID = X.MatID \
-      WHERE DepID IN (13, 18, 25) AND date = \
-        (SELECT MAX(date) FROM amounts WHERE MatID = X.MatID) ) \
-      SELECT CAST(MIN(InStock/MaterialAmount) AS int) AS readyShip, productName \
+        SELECT ProdID, X.MatID, InStock, MaterialAmount \
+        FROM productmaterials INNER JOIN amounts ON productmaterials.MatID = amounts.MatID \
+        WHERE DepID IN (13, 18, 25) AND Date = CURDATE() \
+      ) \
+      SELECT CAST(MIN(InStock/MaterialAmount) AS int) AS ReadyShip, ProductName \
       FROM temp INNER JOIN products ON temp.ProdID = products.ProductID \
       WHERE Discontinued = 0 \
       GROUP BY ProductName \
@@ -47,7 +56,7 @@ module.exports = class Product {
   }
 
   static findByName(name) {
-      return db.query('SELECT * FROM products WHERE productName like %?%', [name])
+      return db.query('SELECT * FROM products WHERE productName like "%?%"', [name])
   }
 
   static discontinue(name) {

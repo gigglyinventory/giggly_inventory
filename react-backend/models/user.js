@@ -19,7 +19,7 @@ module.exports = class User {
   save() {
     return db.query('INSERT INTO users VALUES (?, ?, "salt", ?, ?, ?, ?)',
       [this.id, this.password, this.fname, this.lname, this.email, this.lastLogon]
-    );
+    )
   }
 
   static deleteByID(id) {

@@ -19,10 +19,10 @@ module.exports = class Material {
   // Returns the amount of materials in pre-production 
   static fetchPreProduction(){
     return db.query(
-    'SELECT inStock, materialName \
-    FROM amounts X INNER JOIN materials ON X.matID = materials.MaterialID \
-    WHERE DepID IN (13, 18, 25) AND date = \
-      (SELECT MAX(date) FROM amounts WHERE matID = X.matID)')
+    'SELECT InStock, MaterialName \
+    FROM amounts INNER JOIN materials ON amounts.MatID = materials.MaterialID \
+    WHERE DepID IN (13, 18, 25) AND Date = CURDATE() \
+    ORDER BY materialName')
   }
 
   static fetchAll() {
@@ -30,6 +30,6 @@ module.exports = class Material {
   }
 
   static findByName(name) {
-      return db.query('SELECT * FROM materials WHERE materialName like %?%', [name])
+      return db.query('SELECT * FROM materials WHERE MaterialName like "%?%"', [name])
   }
 }

@@ -6,45 +6,75 @@ class InventoryTable extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      inventory: {
-        materials:[{
+        materials:[
+          {
           inStock: '',
           materialName: '',
-        }],
-        products:[{
-          readyShip: '',
+          }
+        ],
+        products:[
+          {
+          ReadyShip: '',
           productName: ''
-        }]
-      }
+          }
+        ]
     } 
   }
   
   async componentDidMount() {
     try {
       let response = await fetch(`/inventory/get-inventory`);
-      let inventory = await response.json();
-      this.setState({inventory});
-      console.log(this.state);
+      let {materials, products} = await response.json();
+      this.setState({materials, products});
     } catch (error) {
       console.log(error);
     }
   }
 
   render(){
-    {/*Arrays to hold the different products, designs, colors and vinyls*/}
-    const products = ["Grill","Feet","Vinyl"];
-    const design = ["Truck", "Board"];
-    const colors = ["Red","Blue","Black"];
-    const vinyls = ["Camo", "Flag", "Flower", "Bark", "Wonder"];
-    const walker = ["2-Wheels","4-Wheels"];
+    //{console.log('in render ', this.state)}
+    const materials = this.state.materials.map((item, index) =>{
+      return(
+        <div>
+          <ul>
+          {/*<Item key={index} item={item}/>*/}
+            <li>{`${item.materialName} in stock: ${item.inStock}`} </li>
+          </ul>
+        </div>
+        )})
+      const products = this.state.products.map((item, index) =>{
+          return(
+            <div>
+              <ul>
+              {/*<Item key={index} item={item}/>*/}
+              <li key={index}>{`${item.ProductName}   Ready to ship:   ${item.ReadyShip}`} </li>
+              </ul>
+            </div>
+            )})
+
+
     return(
       <div>
-        <InventoryChild inventory={this.state.inventory}/>
-        {/*Nested bullet points seen on the InventoryTable page*/}
+      <h1>Products Inventory</h1>
+        {products}
+      <h1>Raw Materials</h1>
+        {materials}
       </div>
-    )
-    }
+    ) 
+  }
 }
+
+  //   <div>
+  //   {this.state.materials.map((item) =>
+  //     <div>
+  //     <h5>{item.materialName}</h5>
+  //     <h5>{item.inStock}</h5>
+  //     </div>)}
+  // </div>
+
+    // )
+    
+
 
 
 export default InventoryTable

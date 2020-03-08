@@ -5,12 +5,30 @@ exports.postUpdateGrills = (req, res, next) => {
   const date = req.body.date
   const design = req.body.design
   const color = req.body.color
-  const department = req.body.department
-  const completed = req.body.completed
-  const lost = req.body.lost
-  Product
-    .update(name, department, gain, loss)
-    .catch(err => console.log(err))
+  const belovacCompleted = req.body.belovacCompleted
+  const belovacLost = req.body.belovacLost
+  const guillotineCompleted = req.body.guillotineCompleted
+  const guillotineLost = req.body.guillotineLost
+  const RotozipCompleted = req.body.RotozipCompleted
+  const RotozipLost = req.body.RotozipLost
+  const SandingCompleted = req.body.SandingCompleted
+  const SandingLost = req.body.SandingLost
+  const VelcroCompleted = req.body.VelcroCompleted
+  const VelcroLost = req.body.VelcroLost
+  const StickersCompleted = req.body.StickersCompleted
+  const StickersLost = req.body.StickersLost
+  const PackagingCompleted = req.body.PackagingCompleted
+  const PackagingLost = req.body.PackagingLost
+
+  // Product.updateGrills(date, design, color, "GrillBelovac", "GrillGuillotine", belovacCompleted, belovacLost)
+  //   .then(Product.updateGrills(date, design, color, "GrillGuillotine", "GrillRotozip", guillotineCompleted, guillotineLost)
+  //   .then(Product.updateGrills(date, design, color, "GrillRotozip", "GrillSanding", RotozipCompleted, RotozipLost)
+  //   .then(Product.updateGrills(date, design, color, "GrillSanding", "GrillVelcro", SandingCompleted, SandingLost)
+  //   .then(Product.updateGrills(date, design, color, "GrillVelcro", "GrillStickers", VelcroCompleted, VelcroLost)
+  //   .then(Product.updateGrills(date, design, color, "GrillStickers", "GrillPackaging", StickersCompleted, StickersLost)
+  //   .then(Product.updateGrills(date, design, color, "GrillPackaging", "GrillReadyShip", PackagingCompleted, PackagingLost)
+  //   ))))))
+  //   .catch(err => console.log(err))
     res.redirect('/')
 };
 

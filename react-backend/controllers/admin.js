@@ -5,8 +5,6 @@ const User = require('../models/user')
 const Product = require('../models/product')
 const Material = require('../models/material')
 
-//const Index = require('../views/index')
-
 //functions that we want the website to be able to do
 exports.getUsers = (req, res, next) => {
   User.fetchAll()
@@ -24,8 +22,8 @@ exports.postAddUser = (req, res, next) => {
   const email = req.body.email;
   const user = new User(username, password, fName, lName, email, null);
   user.save()
-  .catch(err => console.log(err))
-  res.redirect('/')
+    .catch(err => console.log(err))
+    res.redirect('/')
 };
 
 exports.postAddProduct = (req, res, next) => {
@@ -33,29 +31,29 @@ exports.postAddProduct = (req, res, next) => {
   const discontinued = req.body.discontinued;
   const product = new Product(name, discontinued);
   product.save()
-  .catch(err => console.log(err));
-  res.redirect('/')
+    .catch(err => console.log(err));
+    res.redirect('/')
 };
 
 exports.postAddMaterial = (req, res, next) => {
   const name = req.body.materialName;
   const material = new Material(name);
   material.save()
-  .catch(err => console.log(err));
-  res.redirect('/')
+    .catch(err => console.log(err));
+    res.redirect('/')
 };
 
 exports.postDeleteUser = (req, res, next) => {
   console.log('the req body', req.body)
   const username = req.body.username
   User.deleteByID(username)
-  .catch(err => console.log(err))
-  res.redirect('/')
+    .catch(err => console.log(err))
+    res.redirect('/')
 };
 
 exports.postDiscontinueProduct = (req, res, next) => {
   const productName = req.body.productID;
   Product.discontinue(productName)
-  .catch(err => console.log(err))
-  res.redirect('/')
+    .catch(err => console.log(err))
+    res.redirect('/')
 };
