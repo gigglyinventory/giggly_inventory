@@ -37,7 +37,6 @@ ul.elements{
 }
 
 .final-display{
-  word-wrap: break-word;
   border: 1px solid black;
   overflow-y: scroll;
   height: 500px;
