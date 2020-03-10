@@ -113,7 +113,7 @@ render() {
     <div>
       <h2 class="end">Grill</h2>
       {/*I use forms for each row of inputs to unify the spacing and positions*/}
-      <form method="POST" action="/endOfDay">
+      <form method="POST" action="/endOfDay/update-grills">
         <div class="form-inline">
           <label>Date: </label>
           <input type="type"

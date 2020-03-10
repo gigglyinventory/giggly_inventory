@@ -1,22 +1,32 @@
 
 .calender{
-    font: 1.1rem 'Fira Sans', sans-serif;
+    font: .8rem 'Fira Sans', sans-serif;
     margin: 60px 5px 10px 5px 0;
-    margin-bottom: 20px;
 }
 
-.form_inline {
-    font: 1.1rem 'Fira Sans', sans-serif;
-    margin: 60px 5px 10px 5px 0;
-    margin-bottom: 20px;
-    text-align: center;
-    display: inline-flex;
-
+  .salesStyle {
+    background-color: white;
+    margin: auto;
+    width: 50%;
+    height: 770px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #efefef;
+    padding: 50px;
   }
 
-.button_link {
-    background: transparent;
-    background-image: none;
-    box-shadow: none;
-    cursor: pointer;
+.formatInline{
+  display: flex;
+  font-size: large;
+  flex-flow: row wrap;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 80px;
+  margin: 10px 5px 10px 5px 0;
+}
+
+.dropdown-menu {
+  width: 300px !important;
+  height: 400px !important;
 }

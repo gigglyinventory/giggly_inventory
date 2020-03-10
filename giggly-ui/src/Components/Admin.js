@@ -68,7 +68,7 @@ class Admin extends React.Component{
     }, this)
 
     return(
-      <div>
+      <div className="productionStyle">
       <form method="POST" action="/admin/add-user">
         <div class="enter_user">
           <label>First Name</label>

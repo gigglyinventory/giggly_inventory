@@ -1,14 +1,13 @@
 import React from "react"
-import ReactDOM from 'react-dom';
-
+import "./Sales.css"
 
 
 class Sales extends React.Component{
+    
     constructor(props){
         super(props);
-    
          this.state = {
-            productList: []
+            productList: [],
         }        
          this.products = [
             {id: '', name: ''},
@@ -47,63 +46,86 @@ class Sales extends React.Component{
         this.state.productList[index] = e.target.value
         this.setState({productList: this.state.productList})
     }
+
+    handleSubmit(){
+        this.forceUpdate();
+    };
     
     render(){
         return(
-            <div>
-                <h2>Products Ordered:</h2>  
-                    <label for="design">Product name: </label>
-                        {
-                            this.state.productList.map((prod, index) => {
-                                return(
-                                    <div key={index}>
-                                        <select id="design">{this.productsMenue}</select>
-                                        <label>Quantity: </label>
-                                        <input onChange={(e)=>this.handleChange(e, index)} value={prod}/> 
-                                    </div>
-                                )   
-                            })
-                        }
-                    <button onClick= {(e) => this.addProduct(e)}> Add Product </button>               
-                <h2>Customer Details:</h2>
+            <div class="salesStyle">
+                    <h2 className="inventory">Products Ordered</h2>  
+                    <div className="formatInline">
+                        <label style={{fontSize: "20px"}}>Product: </label>
+                        <select id="design">{this.productsMenue}</select>
+                        <label style={{fontSize: "20px"}}>Quantity: </label>
+                        <input /> 
+                    </div>
+                            {
+                                this.state.productList.map((prod, index) => {
+                                    
+                                    return(
+                                        <div className="formatInline">
+                                            
+                                            <div key={index}>
+                                                <label>Product: </label>
+                                                <select id="design">{this.productsMenue}</select>
+                                                <label>Quantity: </label>
+                                                <input onChange={(e)=>this.handleChange(e, index)} value={prod}/> 
+                                            </div>
+                                        </div>
 
-                    <label>Order Date:</label>
-                    <input class="calender" type="date" name="order-date"></input>
+                                    )   
+                                })
+                            }
+                        <button onClick= {(e) => this.addProduct(e)}> Add Product </button>  
 
-                    <div class="form_inline">
-                        <label>First name: </label>
+
+                    <h2 className="inventory">Customer Details</h2>
+
+                    <div style={{fontSize: "19px"}}> 
+                        <label>Order date:</label>
+                        <input class="calender" type="date" name="order-date"></input>
+                    </div>
+
+                    <div style={{fontSize: "20px"}}>
+                        <label>Firstname: </label>
+                        <input type="text" firstName="firstName"/>
+                    </div>
+
+                    <div style={{fontSize: "20px"}}>
+                        <label>Lastname: </label>
                         <input/>
                     </div>
 
-                    <div class="form_inline">
-                        <label>Last name: </label>
-                        <input/>
-                    </div>
-
-                    <div class="form_inline">
+                    <div style={{fontSize: "20px"}}>
                         <label>Email: </label>
                         <input/>
                     </div>
 
-                    <div class="form_inline">
+                    <div style={{fontSize: "20px"}}>
                         <label>Address: </label>
                         <input/>
                     </div>
 
-                    <div class="form_inline">
+                    <div style={{fontSize: "20px"}}>
                         <label>City: </label>
                         <input/>
                     </div>
 
-                    <div class="form_inline">
+                    <div style={{fontSize: "20px"}}>
                         <label>Zip: </label>
                         <input/>
                     </div>
 
-                    <div class="form_inline">
+                    <div style={{fontSize: "20px"}}>
                         <label>State: </label>
                         <input/>
                     </div>
+
+                    <button>
+                        Submit
+                    </button>
 
             </div>   
     )
