@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="437ba30d-fef4-4d08-abcc-7d8d8c2d0901" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/giggly_inventory.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="437ba30d-fef4-4d08-abcc-7d8d8c2d0901" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,6 +77,7 @@
       <updated>1580407441345</updated>
       <workItem from="1580407442754" duration="4635000" />
       <workItem from="1580700219427" duration="724000" />
+      <workItem from="1583622314055" duration="6000" />
     </task>
     <servers />
   </component>

@@ -1,67 +1,52 @@
 import React from "react";
-import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
-import InventoryTable from "./InventoryTable"
 import EndOfDay from "./EndOfDay"
 import Login from "./Login"
 import Admin from "./Admin"
 import Sales from "./Sales"
 import Production from "./Production"
+import {Link} from "react-router-dom";
 
+const Navbar = () => {
 
-function TabContent(){
-  return (
+  const navStyle ={ 
+    color: '#f2f2f2',
+    textDecoration: 'none',
+    fontFamily: 'Helvetica Neue',
+    fontWeight: 'bold',
+    fontSize: '25px'
 
-    /*Imported from react-tabs this gives the tabs at the top of the webpage*/
-    <Tabs>
-      <TabList>
-        <Tab>Login</Tab>
-        <Tab>Inventory</Tab>
-        <Tab>Sales</Tab>
-        <Tab>Production</Tab>
-        <Tab>End of Day</Tab>
-        <Tab>Admin</Tab>
-      </TabList>
-      {/*React auto lines up the tabs with the tabpanels. In each tabpanel is a
-        webpage calling the webpages on .js file*/}
-      <TabPanel>
-        <div>
-          <Login />
-        </div>
+  };
 
-      </TabPanel>
-      <TabPanel>
-        <div>
-          <InventoryTable />
-        </div>
-      </TabPanel>
+  return(
+    <nav >
+      <ul className= "nav-links">
+        <Link style={navStyle} to="./">
+        </Link>
 
-      {/*Have no sales, production, or admin tab. Need database to get info from
-        sales and production will be a simple list with a filter*/}
-      <TabPanel>
-        <div>
-          <Sales />
-        </div>
-      </TabPanel>
-      <TabPanel>
-        <div>
-          <Production />
-        </div>
-      </TabPanel>
-      <TabPanel>
-        <div>
-          <EndOfDay />
-        </div>
-      </TabPanel>
-      <TabPanel>
-        <div>
-        <Admin />
-        </div>
-      </TabPanel>
+        <Link style={navStyle} to="/InventoryTable">
+          <li>Inventory</li>
+        </Link>
 
+        <Link style={navStyle} to="/Sales">
+          <li>Sales</li>
+        </Link>
 
+        <Link style={navStyle} to="/Production">
+          <li>Production</li>
+        </Link>
 
-    </Tabs>
-  );
+        <Link style={navStyle} to="/EndOfDay">
+          <li>EndOfDay</li>
+        </Link>
+
+        <Link style={navStyle} to="/Admin">
+          <li>Admin</li>
+        </Link>
+      </ul>
+    </nav>
+    
+  )
 }
+ 
 
-export default TabContent
+export default Navbar

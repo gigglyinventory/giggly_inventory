@@ -1,25 +1,37 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let createError = require('http-errors');
+let express = require('express');
+let app = express();
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var loginRouter = require('./routes/login');
-var endOfDayRouter = require('./routes/endOfDay');
-var adminRouter = require('./routes/admin');
+let indexRouter = require('./routes/index');
+let usersRouter = require('./routes/users');
+let loginRouter = require('./routes/login');
+let endOfDayRouter = require('./routes/endOfDay');
+let adminRouter = require('./routes/admin');
+let inventoryRouter = require('./routes/inventory');
 
-var app = express();
+let session = require('express-session')
+// let knexSessionStore = require('connect-session-knex')(session);
+// let store = new knexSessionStore('mysql');
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.use(session({
+  secret: 'gigglyinventory',
+  resave: true,
+  saveUninitialized: true,
+  isLoggedIn: false
+}))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+//app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // route setup
@@ -27,6 +39,7 @@ app.use('/login', loginRouter);
 app.use('/endOfDay', endOfDayRouter);
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
+app.use('/inventory', inventoryRouter);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler

@@ -35,7 +35,7 @@ class Login extends React.Component {
       <div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="giggly_logo" />
-        <form method="POST" action="/login">
+        <form method="POST" action="/login/post-login">
           <label for="username">Username </label>
           <br />
           <input
@@ -61,7 +61,7 @@ class Login extends React.Component {
             onChange={this.handlePasswordChange}
           />
           <br />
-          <button type="submit" class="credentials">Login</button>
+          <button type="submit" class="button">Login</button>
           <br />
           <input type="checkbox" onClick={this.toggleShow} />Show Password
         </form>
