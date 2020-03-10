@@ -3,12 +3,12 @@ import "./Sales.css"
 
 
 class Sales extends React.Component{
-    
+
     constructor(props){
         super(props);
          this.state = {
             productList: [],
-        }        
+        }
          this.products = [
             {id: '', name: ''},
             {id: 'pr', name: 'Paw Red'},
@@ -35,8 +35,8 @@ class Sales extends React.Component{
         this.productsMenue = this.products.length > 0 && this.products.map((item, i) => {
             return (<option key={i} value={item.id}>{item.name}</option>)
         }, this)
-    
-    } 
+
+    }
 
     addProduct(){
         this.setState({productList: [...this.state.productList, "" ]})
@@ -50,40 +50,40 @@ class Sales extends React.Component{
     handleSubmit(){
         this.forceUpdate();
     };
-    
+
     render(){
         return(
             <div class="salesStyle">
-                    <h2 className="inventory">Products Ordered</h2>  
+                    <h2 className="inventory">Products Ordered</h2>
                     <div className="formatInline">
                         <label style={{fontSize: "20px"}}>Product: </label>
                         <select id="design">{this.productsMenue}</select>
                         <label style={{fontSize: "20px"}}>Quantity: </label>
-                        <input /> 
+                        <input />
                     </div>
                             {
                                 this.state.productList.map((prod, index) => {
-                                    
+
                                     return(
                                         <div className="formatInline">
-                                            
+
                                             <div key={index}>
                                                 <label>Product: </label>
                                                 <select id="design">{this.productsMenue}</select>
                                                 <label>Quantity: </label>
-                                                <input onChange={(e)=>this.handleChange(e, index)} value={prod}/> 
+                                                <input onChange={(e)=>this.handleChange(e, index)} value={prod}/>
                                             </div>
                                         </div>
 
-                                    )   
+                                    )
                                 })
                             }
-                        <button onClick= {(e) => this.addProduct(e)}> Add Product </button>  
+                        <button onClick= {(e) => this.addProduct(e)}> Add Product </button>
 
 
                     <h2 className="inventory">Customer Details</h2>
 
-                    <div style={{fontSize: "19px"}}> 
+                    <div style={{fontSize: "19px"}}>
                         <label>Order date:</label>
                         <input class="calender" type="date" name="order-date"></input>
                     </div>
@@ -127,7 +127,7 @@ class Sales extends React.Component{
                         Submit
                     </button>
 
-            </div>   
+            </div>
     )
   }
 }

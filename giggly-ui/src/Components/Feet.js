@@ -2,16 +2,19 @@ import React from "react";
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import "./EndOfDay.css";
+<<<<<<< HEAD
 import {Button} from "reactstrap"
 import Output, {addMessage} from './Output'
+=======
+import Output, {addMessage} from './Output';
+import EndOfDay, {getDate} from './EndOfDay'
+>>>>>>> d40e7bb13ddf9278f1e0ccd017b5f65aebdf666e
 
 class Feet extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      month: "07",
-      day: "17",
-      year: "1998",
+      date: "",
       design: "Puppy",
       color: "Black",
       delivered: "5",
@@ -36,14 +39,15 @@ class Feet extends React.Component{
 
   submit(){
     var title = "Summary"
-    var date = "Date: " + this.state.month +"/"+ this.state.day +"/"+ this.state.year;
+    var date = getDate();
+    this.state.date = date;
     var product= "Product: Design: " + this.state.design + ". Color: " + this.state.color;
     var mDelivered= "Delivered: Completed: " + this.state.delivered + ". Lost: " + this.state.deliveredLost;
     var mTrim= "Trim: Completed: " + this.state.trim + ". Lost: " + this.state.trimLost;
     var mScrew= "Screw: Completed: " + this.state.screw + ". Lost: " + this.state.screwLost;
     var mPackaing= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
     var message= title +"\n"+ date + "\n" + product+"\n"+mDelivered+"\n"+mTrim+"\n"+mScrew+"\n"+mPackaing;
-    var show = "Puppy|" + this.state.color+ "|D:"+ this.state.delivered+ "-" + this.state.deliveredLost + "|T:" + this.state.trim + "-" + this.state.trimLost + "|S:" + this.state.screw + "-" + this.state.screwLost + "|P:" + this.state.packaging + "-" + this.state.packagingLost;
+    var show = "Feet|" + this.state.color+ "|Del:"+ this.state.delivered+ "-" + this.state.deliveredLost + "|Trm:" + this.state.trim + "-" + this.state.trimLost + "|Srw:" + this.state.screw + "-" + this.state.screwLost + "|Pac:" + this.state.packaging + "-" + this.state.packagingLost;
     {/*This shows the alert with the summary*/}
     alert(message)
     {/*If click confirm add to database, click deny will not*/}
@@ -77,6 +81,7 @@ class Feet extends React.Component{
 
       <div>
         <h2 class="end">Feet</h2>
+<<<<<<< HEAD
         <form method="POST" action="/endOfDay/update-feet">
           <div class="inline-date">
             <label>Date: </label>
@@ -157,6 +162,27 @@ class Feet extends React.Component{
             <label for="feet_pac">Packaging: </label>
             <input id="packaging" type="text"
             name="packaging"
+=======
+
+        <div class="form-inline">
+          <label for="puppy_color">Colors: </label>
+          <select id="puppy_color"
+            name="design"
+            value={this.name}
+            onChange={this.handleChange}>{colorsList}</select>
+        </div>
+
+        <div class="form-inline">
+          <label><b>Process</b></label>
+          <label><b>Completed</b></label>
+          <label><b>Lost</b></label>
+        </div>
+
+        <div class="form-inline">
+          <label for="feet_deliv">Delivered: </label>
+          <input id="delivered" type="text"
+            name="delivered"
+>>>>>>> d40e7bb13ddf9278f1e0ccd017b5f65aebdf666e
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
