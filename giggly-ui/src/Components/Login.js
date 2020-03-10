@@ -35,7 +35,7 @@ class Login extends React.Component {
       <div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="giggly_logo" />
-        <form method="POST" action="/login">
+        <form method="POST" action="/login/post-login">
           <label for="username">Username </label>
           <br />
           <input

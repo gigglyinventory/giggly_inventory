@@ -2,6 +2,40 @@
   text-align: center;
 }
 
+nav{
+  display: flex;
+  justify-content: space-evenly;
+  min-height: 5px;
+  background: #232f3e;
+  padding: 20px;
+  color: white;
+}
+
+.nav-links{
+  width: 80%;
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+  text-decoration: none;
+}
+
+.kcHNbD {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+}
+
+.img-top { 
+  justify-content: space-evenly;
+  height: 10%; 
+  width: 10%;
+  display: flex;
+} 
+
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -26,11 +60,11 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: black;
+  color: rgb(70, 68, 68);
 }
 
 .App-link {
-  color: red;
+  color: rgb(38, 38, 189);
 }
 
 .credentials{
@@ -56,10 +90,34 @@ tr{
 }
 
 Button {
-  border: 1px solid lightgray;
-  background-color: lightsteelblue;
+  font-size: medium;
+  border: 1px solid rgb(95, 89, 89);
+  background-color:rgb(113, 121, 134);
+  color: white;
   margin-top: 10px;
   width: 175px;
   padding: 10px;
   border-radius: 4px;   
+}
+
+.style-main {
+  background-color: white;
+  margin: auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #efefef;
+  box-shadow:
+  /* The top layer shadow */
+      0 1px 1px rgba(0,0,0,0.15),
+          /* The second layer */
+      0 10px 0 -5px #eee,
+          /* The second layer shadow */
+      0 10px 1px -4px rgba(0,0,0,0.15),
+          /* The third layer */
+      0 20px 0 -10px #eee,
+          /* The third layer shadow */
+      0 20px 1px -9px rgba(0,0,0,0.15);
+  padding: 50px;
 }

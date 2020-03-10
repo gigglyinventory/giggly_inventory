@@ -1,6 +1,7 @@
 const User = require('../models/user');
 
 const bcrypt = require('bcryptjs');
+const loginGate = require('../../giggly-ui/src/login-gate');
 
 var isLogged;
 
@@ -22,29 +23,33 @@ exports.getSignup = (req,res,next) => {
 
 exports.postLogin = (req, res, next) => {
   const username = req.body.username;
-  const password = req.body.password;
+  const loginPassword = req.body.password;
     User.findById(username) // database query
-      .then(user => {
-        if (!user){
+      .then(dbPassword => {
+        if (!dbPassword){
+          console.log('not dbPaswword')
           return res.redirect('/login');
         }
         bcrypt
-        .compare(password, user.password)
+        .compare(loginPassword, dbPassword[0].password)
         .then(doMatch => {
+          console.log('loginPassword',loginPassword)
+          console.log('dbpassword', dbPassword[0].password)
+          console.log(doMatch)
           if (doMatch){
+            console.log('they do match')
             req.session.isLoggedIn = true;
-            isLogged = true;
-            req.session.user = user;
+            req.session.user = username;
             return req.session.save(err => {
-              console.log(err);
+              //console.log(err);
               res.redirect('/');
             });          
           }
-          res.redirect('/login');
+          res.redirect('/');
         })
         .catch(err => {
           console.log(err);
-          res.redirect('/login');
+          res.redirect('/');
         })
         
       })
@@ -84,7 +89,3 @@ exports.postLogin = (req, res, next) => {
       res.redirect('/');
     });
   };
-
-  module.exports = {
-    authController: authController
-  }

@@ -1,6 +1,7 @@
 import React from "react";
 import "./InventoryTable.css";
-import InventoryChild from './InventoryChild'
+import { Table } from 'reactstrap';
+
 
 class InventoryTable extends React.Component{
   constructor(props){
@@ -32,37 +33,58 @@ class InventoryTable extends React.Component{
   }
 
   render(){
-    //{console.log('in render ', this.state)}
+    {console.log('in render ', this.state)}
     const materials = this.state.materials.map((item, index) =>{
       return(
-        <div>
-          <ul>
-          {/*<Item key={index} item={item}/>*/}
-            <li>{`${item.materialName} in stock: ${item.inStock}`} </li>
-          </ul>
-        </div>
+        <tr>
+        <td key={index}>{item.MaterialName}</td>
+          <td key={index}> {item.InStock}</td>
+        </tr>
         )})
       const products = this.state.products.map((item, index) =>{
           return(
-            <div>
-              <ul>
-              {/*<Item key={index} item={item}/>*/}
-              <li key={index}>{`${item.ProductName}   Ready to ship:   ${item.ReadyShip}`} </li>
-              </ul>
-            </div>
+            <tr>
+              <td key={index}> {item.ProductName}</td>
+              <td key={index}> {item.ReadyShip}</td>
+            </tr>
             )})
 
 
     return(
       <div>
-      <h1>Products Inventory</h1>
+      <Table striped bordered hover variant="dark">
+      <thead>
+        <tr>
+          <th>Products</th>
+          <th>Ready to ship</th>
+        </tr>
+        </thead>
+        <tbody>
         {products}
-      <h1>Raw Materials</h1>
+        </tbody>
+      </Table>
+      <br />
+      <Table striped bordered hover variant="dark">
+      <thead>
+        <tr>
+          <th>Raw Materials</th>
+          <th>In Stock</th>
+        </tr>
+        </thead>
+        <tbody>
         {materials}
+        </tbody>
+      </Table>
+
       </div>
     ) 
   }
 }
+
+
+
+
+
 
   //   <div>
   //   {this.state.materials.map((item) =>
