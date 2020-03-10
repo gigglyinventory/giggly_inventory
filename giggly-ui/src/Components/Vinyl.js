@@ -2,11 +2,7 @@ import React from "react";
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import "./EndOfDay.css";
-<<<<<<< HEAD
-import {Button} from "reactstrap";
-=======
 import EndOfDay, {getDate} from './EndOfDay';
->>>>>>> d40e7bb13ddf9278f1e0ccd017b5f65aebdf666e
 import Output, {addMessage} from './Output'
 
 class Vinyl extends React.Component{
@@ -25,7 +21,6 @@ class Vinyl extends React.Component{
   }
 
   sendToSummary(message){
-    alert(message)
     addMessage(message)
   }
 
@@ -71,83 +66,6 @@ class Vinyl extends React.Component{
     return(
 
       <div>
-<<<<<<< HEAD
-        <h2 className="inventory">Vinyl</h2>
-          <form method="POST" action="/endOfDay/update-feet">        
-            <div class="form-inlineEnd">
-              <label for="puppy_color">Colors: </label>
-              <select id="puppy_color"
-                name="design"
-                value={this.name}
-                onChange={this.handleChange}>{colorsList}</select>
-            </div>
-
-            <div class="form-inlineEnd">
-            <label style={{marginRight:"30px"}}><b></b></label>
-              <label style={{marginRight:"20px"}}><b>Completed</b></label>
-              <label><b>Lost</b></label>
-            </div>
-
-            <div class="form-inlineEnd">
-              <label for="feet_deliv">Delivered: </label>
-              <input id="delivered" type="text"
-                name="delivered"
-                value={this.name}
-                defualtValue="" maxlength="5" size="8"
-                onChange={this.handleChange}/>
-              <input id="deliveredLost" type="text"
-                name="deliveredLost"
-                value={this.name}
-                defualtValue="" maxlength="5" size="8"
-                onChange={this.handleChange}/>
-            </div>
-
-            <div class="form-inlineEnd">
-              <label for="feet_trim">Trim: </label>
-              <input id="trim" type="text"
-                name="trim"
-                value={this.name}
-                defualtValue="" maxlength="5" size="8"
-                onChange={this.handleChange}/>
-              <input id="trimLost" type="text"
-                name="trimLost"
-                value={this.name}
-                defualtValue="" maxlength="5" size="8"
-                onChange={this.handleChange}/>
-            </div>
-
-            <div class="form-inlineEnd">
-              <label for="feet_screw">Screw: </label>
-              <input id="screw" type="text"
-                name="screw"
-                value={this.name}
-                defualtValue="" maxlength="5" size="8"
-                onChange={this.handleChange}/>
-              <input id="screwLost" type="text"
-                name="screwLost"
-                value={this.name}
-                defualtValue="" maxlength="5" size="8"
-                onChange={this.handleChange}/>
-            </div>
-
-            <div class="form-inlineEnd">
-              <label for="feet_pac">Packaging: </label>
-              <input id="packaging" type="text"
-              name="packaging"
-              value={this.name}
-              defualtValue="" maxlength="5" size="8"
-              onChange={this.handleChange}/>
-              <input id="packagingLost" type="text"
-              name="packagingLost"
-              defualtValue="" maxlength="10" size="8"
-              onChange={this.handleChange}/>
-            </div>
-            <div class="form-inline">
-              <Button onClick={this.submit}>Add</Button>
-            </div>
-        </form>
-
-=======
         <h2 class="end">Vinyls</h2>
 
         <div class="form-inline">
@@ -174,7 +92,6 @@ class Vinyl extends React.Component{
         </div>
 
         <button onClick={this.submit}>Add</button>
->>>>>>> d40e7bb13ddf9278f1e0ccd017b5f65aebdf666e
       </div>
     );
   }
