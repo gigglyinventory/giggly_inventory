@@ -11,6 +11,7 @@ let loginRouter = require('./routes/login');
 let endOfDayRouter = require('./routes/endOfDay');
 let adminRouter = require('./routes/admin');
 let inventoryRouter = require('./routes/inventory');
+let productRouter = require('./routes/product');
 
 let session = require('express-session')
 // let knexSessionStore = require('connect-session-knex')(session);
@@ -40,6 +41,7 @@ app.use('/endOfDay', endOfDayRouter);
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
 app.use('/inventory', inventoryRouter);
+app.use('/product', productRouter);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler

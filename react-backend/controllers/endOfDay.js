@@ -3,6 +3,7 @@ const Product = require('../models/product');
 
 exports.postUpdateGrills = (req, res, next) => {
   const date = req.body.date
+  console.log(date)
   const design = req.body.design
   const color = req.body.color
   const belovacCompleted = req.body.belovacCompleted
@@ -20,16 +21,16 @@ exports.postUpdateGrills = (req, res, next) => {
   const PackagingCompleted = req.body.PackagingCompleted
   const PackagingLost = req.body.PackagingLost
 
-  // Product.updateGrills(date, design, color, "GrillBelovac", "GrillGuillotine", belovacCompleted, belovacLost)
-  //   .then(Product.updateGrills(date, design, color, "GrillGuillotine", "GrillRotozip", guillotineCompleted, guillotineLost)
-  //   .then(Product.updateGrills(date, design, color, "GrillRotozip", "GrillSanding", RotozipCompleted, RotozipLost)
-  //   .then(Product.updateGrills(date, design, color, "GrillSanding", "GrillVelcro", SandingCompleted, SandingLost)
-  //   .then(Product.updateGrills(date, design, color, "GrillVelcro", "GrillStickers", VelcroCompleted, VelcroLost)
-  //   .then(Product.updateGrills(date, design, color, "GrillStickers", "GrillPackaging", StickersCompleted, StickersLost)
-  //   .then(Product.updateGrills(date, design, color, "GrillPackaging", "GrillReadyShip", PackagingCompleted, PackagingLost)
-  //   ))))))
-  //   .catch(err => console.log(err))
-    res.redirect('/')
+  Product.updateGrills(date, design, color, "GrillBelovac", "GrillGuillotine", belovacCompleted, belovacLost)
+    .then(Product.updateGrills(date, design, color, "GrillGuillotine", "GrillRotozip", guillotineCompleted, guillotineLost)
+    .then(Product.updateGrills(date, design, color, "GrillRotozip", "GrillSanding", RotozipCompleted, RotozipLost)
+    .then(Product.updateGrills(date, design, color, "GrillSanding", "GrillVelcro", SandingCompleted, SandingLost)
+    .then(Product.updateGrills(date, design, color, "GrillVelcro", "GrillStickers", VelcroCompleted, VelcroLost)
+    .then(Product.updateGrills(date, design, color, "GrillStickers", "GrillPackaging", StickersCompleted, StickersLost)
+    .then(Product.updateGrills(date, design, color, "GrillPackaging", "GrillReadyShip", PackagingCompleted, PackagingLost)
+    ))))))
+    .catch(err => console.log(err))
+    res.redirect('/endOfDay')
 };
 
 exports.postUpdateFeet = (req, res, next) => {

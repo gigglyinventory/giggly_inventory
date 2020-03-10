@@ -206,9 +206,8 @@ module.exports = class Product {
       ) \
       SELECT MaterialName, InStock, Lost \
       FROM temp INNER JOIN amounts ON temp.DepartmentID = amounts.DepID AND temp.MatID = amounts.MatID \
-      WHERE ProductName LIKE ? AND ProductName LIKE ? \
-        AND Date = (Select Date(CURRENT_TIMESTAMP() - INTERVAL 8 HOUR))',
-      ["%"+department+"%", "%"+name+"%", "%"+color+"%"])
+      WHERE Date = (Select Date(CURRENT_TIMESTAMP() - INTERVAL 8 HOUR))',
+      ["%"+name+"%", "%"+color+"%", "%"+department+"%"])
   }
 
   static discontinue(name) {

@@ -7,15 +7,17 @@ import Production from "./Components/Production"
 import Admin from "./Components/Admin"
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import EndOfDay from './Components/EndOfDay';
+import 'bootstrap/dist/css/bootstrap.min.css';
 let loginGate = require('./login-gate');
-
+sessionStorage.setItem('loggedIn', 'false')
 class App extends React.Component{
   constructor(){
     super()
+    this.loggedIn = sessionStorage.getItem('loggedIn') === true;
   }
 /*This is where it starts by calling TabContent.js in Components*/
   render(){
-    if (loginGate){
+    if (!this.loggedIn){
       return(
         <Router>
         <div className="App">

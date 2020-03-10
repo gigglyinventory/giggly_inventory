@@ -2,6 +2,7 @@ import React from "react";
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import "./EndOfDay.css";
+import {Button} from "reactstrap"
 import Output, {addMessage} from './Output'
 
 class Feet extends React.Component{
@@ -76,103 +77,102 @@ class Feet extends React.Component{
 
       <div>
         <h2 class="end">Feet</h2>
+        <form method="POST" action="/endOfDay/update-feet">
+          <div class="inline-date">
+            <label>Date: </label>
+            <input type="type"
+              name="month"
+              value={this.name}
+              placeholder="MM" maxlength="2" size="2"
+              onChange={this.handleChange}/>
+            <input type="type"
+              name="day"
+              value={this.name}
+              placeholder="DD" maxlength="2" size="2"
+              onChange={this.handleChange}/>
+            <input type="type"
+              name="year"
+              value={this.name}
+              placeholder="YYYY" maxlength="4" size="2"
+              onChange={this.handleChange}/>
+          </div>
 
-        <div class="inline-date">
-          <label>Date: </label>
-          <input type="type"
-            name="month"
-            value={this.name}
-            placeholder="MM" maxlength="2" size="2"
-            onChange={this.handleChange}/>
-          <input type="type"
-            name="day"
-            value={this.name}
-            placeholder="DD" maxlength="2" size="2"
-            onChange={this.handleChange}/>
-          <input type="type"
-            name="year"
-            value={this.name}
-            placeholder="YYYY" maxlength="4" size="2"
-            onChange={this.handleChange}/>
-        </div>
+          <div class="form-inline">
+            <label for="puppy_color">Colors: </label>
+            <select id="puppy_color"
+              name="design"
+              value={this.name}
+              onChange={this.handleChange}>{colorsList}</select>
+          </div>
 
-        <div class="form-inline">
-          <label for="puppy_color">Colors: </label>
-          <select id="puppy_color"
-            name="design"
-            value={this.name}
-            onChange={this.handleChange}>{colorsList}</select>
-        </div>
+          <div class="form-inline">
+            <label><b>Process</b></label>
+            <label><b>Completed</b></label>
+            <label><b>Lost</b></label>
+          </div>
 
-        <div class="form-inline">
-          <label><b>Process</b></label>
-          <label><b>Completed</b></label>
-          <label><b>Lost</b></label>
-        </div>
+          <div class="form-inline">
+            <label for="feet_deliv">Delivered: </label>
+            <input id="delivered" type="text"
+              name="delivered"
+              value={this.name}
+              defualtValue="" maxlength="5" size="8"
+              onChange={this.handleChange}/>
+            <input id="deliveredLost" type="text"
+              name="deliveredLost"
+              value={this.name}
+              defualtValue="" maxlength="5" size="8"
+              onChange={this.handleChange}/>
+          </div>
 
-        <div class="form-inline">
-          <label for="feet_deliv">Delivered: </label>
-          <input id="delivered" type="text"
-            name="delivered"
+          <div class="form-inline">
+            <label for="feet_trim">Trim: </label>
+            <input id="trim" type="text"
+              name="trim"
+              value={this.name}
+              defualtValue="" maxlength="5" size="8"
+              onChange={this.handleChange}/>
+            <input id="trimLost" type="text"
+              name="trimLost"
+              value={this.name}
+              defualtValue="" maxlength="5" size="8"
+              onChange={this.handleChange}/>
+          </div>
+
+          <div class="form-inline">
+            <label for="feet_screw">Screw: </label>
+            <input id="screw" type="text"
+              name="screw"
+              value={this.name}
+              defualtValue="" maxlength="5" size="8"
+              onChange={this.handleChange}/>
+            <input id="screwLost" type="text"
+              name="screwLost"
+              value={this.name}
+              defualtValue="" maxlength="5" size="8"
+              onChange={this.handleChange}/>
+          </div>
+
+          <div class="form-inline">
+            <label for="feet_pac">Packaging: </label>
+            <input id="packaging" type="text"
+            name="packaging"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
-          <input id="deliveredLost" type="text"
-            name="deliveredLost"
-            value={this.name}
-            defualtValue="" maxlength="5" size="8"
+            <input id="packagingLost" type="text"
+            name="packagingLost"
+            defualtValue="" maxlength="10" size="8"
             onChange={this.handleChange}/>
-        </div>
-
-        <div class="form-inline">
-          <label for="feet_trim">Trim: </label>
-          <input id="trim" type="text"
-            name="trim"
-            value={this.name}
-            defualtValue="" maxlength="5" size="8"
-            onChange={this.handleChange}/>
-          <input id="trimLost" type="text"
-            name="trimLost"
-            value={this.name}
-            defualtValue="" maxlength="5" size="8"
-            onChange={this.handleChange}/>
-        </div>
-
-        <div class="form-inline">
-          <label for="feet_screw">Screw: </label>
-          <input id="screw" type="text"
-            name="screw"
-            value={this.name}
-            defualtValue="" maxlength="5" size="8"
-            onChange={this.handleChange}/>
-          <input id="screwLost" type="text"
-            name="screwLost"
-            value={this.name}
-            defualtValue="" maxlength="5" size="8"
-            onChange={this.handleChange}/>
-        </div>
-
-        <div class="form-inline">
-          <label for="feet_pac">Packaging: </label>
-          <input id="packaging" type="text"
-          name="packaging"
-          value={this.name}
-          defualtValue="" maxlength="5" size="8"
-          onChange={this.handleChange}/>
-          <input id="packagingLost" type="text"
-          name="packagingLost"
-          defualtValue="" maxlength="10" size="8"
-          onChange={this.handleChange}/>
-        </div>
-        <div class="form-inline">
-          <button onClick={this.submit}>Add</button>
-        </div>
-
+          </div>
+          <div class="form-inline">
+            <Button type="submit" onClick={this.submit}>Add</Button>
+          </div>
+        </form>
 
       </div>
     );
   }
-
 }
 
 export default Feet

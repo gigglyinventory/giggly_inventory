@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import "./EndOfDay.css";
+import {Button} from "reactstrap"
 import Output, {addMessage} from './Output'
 //import * as utils from './Output.js';
 //import {addMessage} from './Output.js';
@@ -250,7 +251,7 @@ render() {
 
         {/*This button takes all information inputed form the input fields and calls the alert*/}
           <div class="form-inline">
-            <button type="submit" onClick={this.submit}>Add</button>
+            <Button type="submit" onClick={this.submit}>Add</Button>
           </div>
 
       </form>
