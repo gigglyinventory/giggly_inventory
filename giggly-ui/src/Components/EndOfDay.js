@@ -17,7 +17,7 @@ function EndOfDay(){
     {/*These are arrays for the drop down selections for designs/colors/vinyls*/}
 
   return(
-    <div>
+    <div class="todo-list"> 
       <div class="top">
         <div class="sections">
           <div>

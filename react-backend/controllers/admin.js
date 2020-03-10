@@ -4,6 +4,7 @@
 const User = require('../models/user')
 const Product = require('../models/product')
 const Material = require('../models/material')
+const bcrypt = require('bcryptjs')
 
 //functions that we want the website to be able to do
 exports.getUsers = (req, res, next) => {
@@ -14,13 +15,14 @@ exports.getUsers = (req, res, next) => {
     .catch(err => console.log(err));
 };
 
-exports.postAddUser = (req, res, next) => {
+async function postAddUser(req, res, next){
   const username = req.body.username;
   const password = req.body.password;
   const fName = req.body.userFirstName;
   const lName = req.body.userLastName;
   const email = req.body.email;
-  const user = new User(username, password, fName, lName, email, null);
+  const hashedPassword = await bcrypt.hash(password, 12)
+  const user = new User(username, hashedPassword, fName, lName, email, null);
   user.save()
     .catch(err => console.log(err))
     res.redirect('/')
@@ -57,3 +59,5 @@ exports.postDiscontinueProduct = (req, res, next) => {
     .catch(err => console.log(err))
     res.redirect('/')
 };
+
+module.exports.postAddUser = postAddUser

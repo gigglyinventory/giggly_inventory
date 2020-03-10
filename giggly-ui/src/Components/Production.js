@@ -57,24 +57,24 @@ function Production(){
     }, this)
 
         return(
-        <div>
-           <h2>Productions</h2>
-            <div class="form_inline">
+        <div className="productionStyle">
+           <h2 className="inventory">Productions </h2>
+            <div className="formatInlinePro">
                 <label for="products">Products: </label>
                 <select class="fontSize" id="design">{productsList}</select>
             </div>
 
-            <div class="form_inline">
-                <label>Production Steps: </label>
+            <div className="formatInlinePro">
+                <label>Steps: </label>
                 <select class="fontSize" id="design">{productionList}</select>
             </div>
 
-            <div class="form_inline">
+            <div className="formatInlinePro">
                 <label for="color">Color: </label>
                 <select class="fontSize" id="design">{colorsList}</select>
             </div>
 
-            <button class="button">Retrieve</button>
+            <button class="Button">Retrieve</button>
         </div>
     )
 }

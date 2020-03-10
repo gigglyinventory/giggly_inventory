@@ -14,16 +14,16 @@ module.exports = class User {
     this.lastLogon = lastLogon;
   } 
 
-  // functions that we know we need to use. Will often contain SQL queries
+  // functions that we need to use. Will often contain SQL queries
   // since we're interacting with a database
   save() {
-    return db.query('INSERT INTO users VALUES (?, ?, "salt", ?, ?, ?, ?)',
+    return db.query('INSERT INTO users VALUES (?, ?, ?, ?, ?, ?)',
       [this.id, this.password, this.fname, this.lname, this.email, this.lastLogon]
     )
   }
 
   static deleteByID(id) {
-      return db.query('DELETE FROM users WHERE userID = ?', [id])
+      return db.query('DELETE FROM users WHERE userID like ?', [id])
   }
 
   static fetchAll() {
@@ -31,14 +31,6 @@ module.exports = class User {
   }
 
   static findById(id) {
-    return db.execute('SELECT * FROM users WHERE userID = ?', [id]) // change to distinct?
-      .findOne( {userID: id} )
-      .then(user => {
-        console.log(user);
-        return user
-      })
-      .catch(err => {
-        console.log(err);
-      }); 
+    return db.query('SELECT password FROM users WHERE UserID like ?', [id])
   }
-};
+}

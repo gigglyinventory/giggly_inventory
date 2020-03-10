@@ -1,5 +1,6 @@
 let createError = require('http-errors');
 let express = require('express');
+let app = express();
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
@@ -9,18 +10,28 @@ let usersRouter = require('./routes/users');
 let loginRouter = require('./routes/login');
 let endOfDayRouter = require('./routes/endOfDay');
 let adminRouter = require('./routes/admin');
-let inventoryRouter = require('./routes/inventory')
+let inventoryRouter = require('./routes/inventory');
 
-let app = express();
+let session = require('express-session')
+// let knexSessionStore = require('connect-session-knex')(session);
+// let store = new knexSessionStore('mysql');
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.use(session({
+  secret: 'gigglyinventory',
+  resave: true,
+  saveUninitialized: true,
+  isLoggedIn: false
+}))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+//app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // route setup

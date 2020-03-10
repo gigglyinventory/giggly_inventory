@@ -20,11 +20,12 @@ ul.elements{
   width: 175px;
 }
 
-.form-inline {
+.form-inlineEnd {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   margin-bottom: 10px;
+  font-size: 20px;
 }
 
 .form-inline label {
@@ -63,4 +64,15 @@ ul.elements{
 
 .inline-date input{
   text-align: center;
+}
+
+.todo-list {
+  background-color: white;
+  margin: auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #efefef;
+  padding: 30px;
 }

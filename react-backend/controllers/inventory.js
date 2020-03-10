@@ -12,18 +12,10 @@ exports.getInventory = (req, res, next) => {
     .catch(err => console.log(err));
 }
 
-exports.getProducts = (req, res, next) => {
-  Product.fetchReadyShip()
-    .then(inventory => {
-      res.json(inventory)
-    })
-    .catch(err => console.log(err));
-}
-
-exports.getMaterials = (req, res, next) => {
-  Material.fetchPreProduction()
-    .then(inventory => {
-      res.json(inventory)
+exports.getProductionStepMaterials = (req, res, next) => {
+  Product.fetchProductionStep()
+    .then(materials => {
+      res.json(materials)
     })
     .catch(err => console.log(err));
 }
