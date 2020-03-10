@@ -63,7 +63,7 @@ class Grills extends React.Component{
     var mStickers= "Stickers: Completed: " + this.state.stickers + ". Lost: " + this.state.stickersLost;
     var mPackaing= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
     var message= title +"\n"+ date + "\n" + product+"\n"+mBelovac+"\n"+mGuillotine+"\n"+mRotozip+"\n"+mSanding+"\n"+mVelcro+"\n"+mStickers+"\n"+mPackaing;
-    var show = "Grill|" + this.state.design+ "|" + this.state.color + "|Bel:" + this.state.belovac +"-"+this.state.belovacLost+"|Gui:"+this.state.guillotine+"-"+this.state.guillotineLost+"|Rto:"+this.state.rotozip+"-"+this.state.rotozipLost+"|Snd:"+this.state.sanding+"-"+this.state.sandingLost+"|Vlc:"+this.state.velcro+"-"+this.state.velcroLost+"|Stk:"+this.state.stickers+"-"+this.statestickersLost+"|Pac:"+this.state.packaging+"-"+this.state.packagingLost;
+    var show = "Grill | " + this.state.design+ " | " + this.state.color + " | Bel:" + this.state.belovac +"-"+this.state.belovacLost+" | Gui:"+this.state.guillotine+"-"+this.state.guillotineLost+" | Rto:"+this.state.rotozip+"-"+this.state.rotozipLost+" | Snd:"+this.state.sanding+"-"+this.state.sandingLost+" | Vlc:"+this.state.velcro+"-"+this.state.velcroLost+" | Stk:"+this.state.stickers+"-"+this.statestickersLost+" | Pac:"+this.state.packaging+"-"+this.state.packagingLost;
     {/*This shows the alert with the summary*/}
     alert(message)
     {/*If click confirm add to database, click deny will not*/}

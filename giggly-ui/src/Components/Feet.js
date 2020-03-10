@@ -41,7 +41,7 @@ class Feet extends React.Component{
     var mScrew= "Screw: Completed: " + this.state.screw + ". Lost: " + this.state.screwLost;
     var mPackaing= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
     var message= title +"\n"+ date + "\n" + product+"\n"+mDelivered+"\n"+mTrim+"\n"+mScrew+"\n"+mPackaing;
-    var show = "Feet|" + this.state.color+ "|Del:"+ this.state.delivered+ "-" + this.state.deliveredLost + "|Trm:" + this.state.trim + "-" + this.state.trimLost + "|Srw:" + this.state.screw + "-" + this.state.screwLost + "|Pac:" + this.state.packaging + "-" + this.state.packagingLost;
+    var show = "Feet | " + this.state.color+ " | Del:"+ this.state.delivered+ "-" + this.state.deliveredLost + " | Trm:" + this.state.trim + "-" + this.state.trimLost + " | Srw:" + this.state.screw + "-" + this.state.screwLost + " | Pac:" + this.state.packaging + "-" + this.state.packagingLost;
     {/*This shows the alert with the summary*/}
     alert(message)
     {/*If click confirm add to database, click deny will not*/}

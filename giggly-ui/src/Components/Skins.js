@@ -39,7 +39,7 @@ class Skins extends React.Component{
     var mCutting= "Cutting: Completed: " + this.state.cutting + ". Lost: " + this.state.cuttingLost;
     var mPackaing= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
     var message= title +"\n"+ date + "\n" + product+"\n"+mPrinting+"\n"+mCutting+"\n"+mPackaing;
-    var show = "Skin|" + this.state.print + "|" + this.state.type + "|Prt:" + this.state.printing + "-" + this.state.printingLost +"|Cut:" + this.state.cutting + "-" + this.state.cuttingLost + "|Pac:" + this.state.packaging + "-" + this.state.packagingLost;
+    var show = "Skin | " + this.state.print + " | " + this.state.type + " | Prt:" + this.state.printing + "-" + this.state.printingLost +" | Cut:" + this.state.cutting + "-" + this.state.cuttingLost + " | Pac:" + this.state.packaging + "-" + this.state.packagingLost;
     {/*This shows the alert with the summary*/}
     alert(message)
     {/*If click confirm add to database, click deny will not*/}

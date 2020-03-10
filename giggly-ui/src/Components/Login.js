@@ -70,8 +70,7 @@ class Login extends React.Component {
           className="App-link"
           href="https://www.lifeimprovedmedical.com/"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
           Go to Life Improved Medical.com
         </a>
       </header>

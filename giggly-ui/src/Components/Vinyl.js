@@ -31,7 +31,7 @@ class Vinyl extends React.Component{
     var product= "Vinyl: " + this.state.vinyl;
     var mDelivered= "Delivered:" + this.state.delivered + ". used: " + this.state.used;
     var message= title +"\n"+ date + "\n" + product+"\n"+mDelivered;
-    var show = "Vinyl|" + this.state.material + "|" + "Del:" + this.state.delivered + "-" + this.state.used;
+    var show = "Vinyl | " + this.state.material + " | " + "Del:" + this.state.delivered + "-" + this.state.used;
     {/*This shows the alert with the summary*/}
     alert(message)
     {/*If click confirm add to database, click deny will not*/}
