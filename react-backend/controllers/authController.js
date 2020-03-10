@@ -39,6 +39,7 @@ exports.postLogin = (req, res, next) => {
           if (doMatch){
             console.log('they do match')
             req.session.isLoggedIn = true;
+            sessionStorage.setItem('loggedIn', 'true');
             req.session.user = username;
             return req.session.save(err => {
               //console.log(err);

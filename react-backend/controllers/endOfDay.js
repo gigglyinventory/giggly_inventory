@@ -2,34 +2,35 @@ const Material = require('../models/material');
 const Product = require('../models/product');
 
 exports.postUpdateGrills = (req, res, next) => {
-  const date = req.body.date
+  const date = req.body.year + "-" + req.body.month + "-" + req.body.day
+  console.log(date)
   const design = req.body.design
   const color = req.body.color
-  const belovacCompleted = req.body.belovacCompleted
+  const belovacCompleted = req.body.belovac
   const belovacLost = req.body.belovacLost
-  const guillotineCompleted = req.body.guillotineCompleted
+  const guillotineCompleted = req.body.guillotine
   const guillotineLost = req.body.guillotineLost
-  const RotozipCompleted = req.body.RotozipCompleted
-  const RotozipLost = req.body.RotozipLost
-  const SandingCompleted = req.body.SandingCompleted
-  const SandingLost = req.body.SandingLost
-  const VelcroCompleted = req.body.VelcroCompleted
-  const VelcroLost = req.body.VelcroLost
-  const StickersCompleted = req.body.StickersCompleted
-  const StickersLost = req.body.StickersLost
-  const PackagingCompleted = req.body.PackagingCompleted
-  const PackagingLost = req.body.PackagingLost
+  const RotozipCompleted = req.body.rotozip
+  const RotozipLost = req.body.rotozipLost
+  const SandingCompleted = req.body.sanding
+  const SandingLost = req.body.sandingLost
+  const VelcroCompleted = req.body.velcro
+  const VelcroLost = req.body.velcroLost
+  const StickersCompleted = req.body.stickers
+  const StickersLost = req.body.stickersLost
+  const PackagingCompleted = req.body.packaging
+  const PackagingLost = req.body.packagingLost
 
-  // Product.updateGrills(date, design, color, "GrillBelovac", "GrillGuillotine", belovacCompleted, belovacLost)
-  //   .then(Product.updateGrills(date, design, color, "GrillGuillotine", "GrillRotozip", guillotineCompleted, guillotineLost)
-  //   .then(Product.updateGrills(date, design, color, "GrillRotozip", "GrillSanding", RotozipCompleted, RotozipLost)
-  //   .then(Product.updateGrills(date, design, color, "GrillSanding", "GrillVelcro", SandingCompleted, SandingLost)
-  //   .then(Product.updateGrills(date, design, color, "GrillVelcro", "GrillStickers", VelcroCompleted, VelcroLost)
-  //   .then(Product.updateGrills(date, design, color, "GrillStickers", "GrillPackaging", StickersCompleted, StickersLost)
-  //   .then(Product.updateGrills(date, design, color, "GrillPackaging", "GrillReadyShip", PackagingCompleted, PackagingLost)
-  //   ))))))
-  //   .catch(err => console.log(err))
-    res.redirect('/')
+  Product.updateGrills(date, design, color, "GrillBelovac", "GrillGuillotine", belovacCompleted, belovacLost)
+    .then(Product.updateGrills(date, design, color, "GrillGuillotine", "GrillRotozip", guillotineCompleted, guillotineLost)
+    .then(Product.updateGrills(date, design, color, "GrillRotozip", "GrillSanding", RotozipCompleted, RotozipLost)
+    .then(Product.updateGrills(date, design, color, "GrillSanding", "GrillVelcro", SandingCompleted, SandingLost)
+    .then(Product.updateGrills(date, design, color, "GrillVelcro", "GrillStickers", VelcroCompleted, VelcroLost)
+    .then(Product.updateGrills(date, design, color, "GrillStickers", "GrillPackaging", StickersCompleted, StickersLost)
+    .then(Product.updateGrills(date, design, color, "GrillPackaging", "GrillReadyShip", PackagingCompleted, PackagingLost)
+    ))))))
+    .catch(err => console.log(err))
+    res.redirect('/endOfDay')
 };
 
 exports.postUpdateFeet = (req, res, next) => {
@@ -40,7 +41,7 @@ exports.postUpdateFeet = (req, res, next) => {
   Product
     .update(name, department, gain, loss)
     .catch(err => console.log(err))
-    res.redirect('/')
+    res.redirect('/endOfDay')
 };
 
 exports.postUpdateSkins = (req, res, next) => {
@@ -51,7 +52,7 @@ exports.postUpdateSkins = (req, res, next) => {
   Product
     .update(name, department, gain, loss)
     .catch(err => console.log(err))
-    res.redirect('/')
+    res.redirect('/endOfDay')
 };
 
 exports.postUpdateMaterials = (req, res, next) => {
@@ -63,5 +64,5 @@ exports.postUpdateMaterials = (req, res, next) => {
   Material
     .update(date, name, gain, loss, department)
     .catch(err => console.log(err))
-    res.redirect('/')
+    res.redirect('/endOfDay')
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import "./EndOfDay.css";
+import {Button} from "reactstrap"
 //import {baseUrl} from '../../config.json';
 
 class Admin extends React.Component{
@@ -102,22 +103,22 @@ class Admin extends React.Component{
             onChange={this.handleChange}>{permissionsList}</select>
         </div>
         <div class="enter_user">
-          <button type="submit">Sign-up</button>
+          <Button type="submit">Sign-up</Button>
         </div>
         </form>
         <br></br>
         <form method="POST" action="/admin/delete-user">
           <div class="enter_user">
           <label>Username</label>
-          <input type="text" name="username"></input> <button type="submit">Delete</button>
+          <input type="text" name="username"></input> <Button type="submit">Delete</Button>
           </div>
         </form>
-        <form method="GET" action="/admin/get-users">
+        {/*<form method="GET" action="/admin/get-users">
           <div class="enter_user">
           <h2>{this.state.users[0].UserFirstName}</h2> <h2>{this.state.users[0].UserLastName}</h2>
           <button type="submit">Display User List</button>
           </div>
-        </form>
+    </form>*/}
       </div>
 
     );

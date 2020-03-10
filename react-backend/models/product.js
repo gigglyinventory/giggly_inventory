@@ -32,13 +32,12 @@ module.exports = class Product {
       WHERE amounts.Date = temp.Date AND amounts.DepID = temp.DepartmentID AND amounts.MatID = temp.MatID',
       [date, completed + lost, "%"+design+"%", "%"+color+"%", "%"+department+"%"])
     db.query(
-      'WITH temp AS ( \
+      'INSERT INTO amounts (Date, DepID, MatID, InStock, Lost) \
+      SELECT * FROM ( \
         SELECT ? AS Date, DepartmentID, MatID, MaterialAmount * ? AS NumMats, 0 \
         FROM departments, productmaterials INNER JOIN products ON productmaterials.ProdID = products.ProductID \
         WHERE ProductName LIKE ? AND ProductName LIKE ? AND DepartmentName LIKE ? \
-      ) \
-      INSERT INTO amounts (Date, DepID, MatID, InStock, Lost) \
-      SELECT * FROM temp \
+      ) AS temp \
       ON DUPLICATE KEY UPDATE InStock = InStock + temp.NumMats',
       [date, completed, "%"+design+"%", "%"+color+"%", "%"+nextDepartment+"%"])
     if (department == "GrillVelcro" || department == "GrillStickers" || department == "GrillPackaging"){
@@ -56,16 +55,16 @@ module.exports = class Product {
         [date, "%"+design+"%", "%"+color+"%", "%"+department+"%", "%"+color+"%", "%plastic%", "%grommet%", lost])
       return db.query( // Pre-production departmentID for Grills is 18.
         'UPDATE amounts, ( \
-          SELECT ? AS Date, 18, MatID, MaterialAmount * ? AS NumMats \
+          SELECT ? AS Date, 18 AS DepartmentID, MatID, MaterialAmount * ? AS NumMats \
           FROM productmaterials INNER JOIN products ON productmaterials.ProdID = products.ProductID \
-          WHERE ProductName LIKE ? AND ProductName LIKE ? AND DepartmentName LIKE ? AND MatID NOT IN ( \
+          WHERE ProductName LIKE ? AND ProductName LIKE ? AND MatID NOT IN ( \
             SELECT MaterialID FROM materials \
             WHERE MaterialName LIKE ? AND MaterialName LIKE ? OR MaterialName LIKE ? \
           ) \
         ) AS temp  \
         SET amounts.InStock = amounts.InStock + temp.NumMats \
         WHERE amounts.Date = temp.Date AND amounts.DepID = temp.DepartmentID AND amounts.MatID = temp.MatID',
-        [date, lost, "%"+design+"%", "%"+color+"%", "%"+department+"%", "%"+color+"%", "%plastic%", "%grommet%"])
+        [date, lost, "%"+design+"%", "%"+color+"%", "%"+color+"%", "%plastic%", "%grommet%"])
     } else {
       db.query(
         'UPDATE amounts, ( \
@@ -81,16 +80,16 @@ module.exports = class Product {
         [date, "%"+design+"%", "%"+color+"%", "%"+department+"%", "%"+color+"%", "%plastic%", lost])
       return db.query( // Pre-production departmentID for Grills is 18.
         'UPDATE amounts, ( \
-          SELECT ? AS Date, 18, MatID, MaterialAmount * ? AS NumMats \
+          SELECT ? AS Date, 18 AS DepartmentID, MatID, MaterialAmount * ? AS NumMats \
           FROM productmaterials INNER JOIN products ON productmaterials.ProdID = products.ProductID \
-          WHERE ProductName LIKE ? AND ProductName LIKE ? AND DepartmentName LIKE ? AND MatID NOT IN ( \
+          WHERE ProductName LIKE ? AND ProductName LIKE ? AND MatID NOT IN ( \
             SELECT MaterialID FROM materials \
             WHERE MaterialName LIKE ? AND MaterialName LIKE ? \
           ) \
         ) AS temp  \
         SET amounts.InStock = amounts.InStock + temp.NumMats \
         WHERE amounts.Date = temp.Date AND amounts.DepID = temp.DepartmentID AND amounts.MatID = temp.MatID',
-        [date, lost, "%"+design+"%", "%"+color+"%", "%"+department+"%", "%"+color+"%", "%plastic%"])
+        [date, lost, "%"+design+"%", "%"+color+"%", "%"+color+"%", "%plastic%"])
     }
   }
 
@@ -113,16 +112,15 @@ module.exports = class Product {
       WHERE amounts.Date = temp.Date AND amounts.DepID = temp.DepartmentID AND amounts.MatID = temp.MatID',
       [date, completed + lost, "%paw%", "%"+color+"%", "%"+department+"%"])
     db.query(
-      'WITH temp AS ( \
+      'INSERT INTO amounts (Date, DepID, MatID, InStock, Lost) \
+      SELECT * FROM ( \
         SELECT ? AS Date, DepartmentID, MatID, MaterialAmount * ? AS NumMats, 0 \
         FROM departments, productmaterials INNER JOIN products ON productmaterials.ProdID = products.ProductID \
         WHERE ProductName LIKE ? AND ProductName LIKE ? AND DepartmentName LIKE ? \
-      ) \
-      INSERT INTO amounts (Date, DepID, MatID, InStock, Lost) \
-      SELECT * FROM temp \
+      ) AS temp \
       ON DUPLICATE KEY UPDATE InStock = InStock + temp.NumMats',
       [date, completed, "%paw%", "%"+color+"%", "%"+nextDepartment+"%"])
-    if (department == "FeetKnobRemoval"){
+    if (department == "FeetPackaging"){
       db.query( // continue updating from here
         'UPDATE amounts, ( \
           SELECT ? AS Date, DepartmentID, MatID \
@@ -137,16 +135,16 @@ module.exports = class Product {
         [date, "%"+design+"%", "%"+color+"%", "%"+department+"%", "%"+color+"%", "%plastic%", "%grommet%", lost])
       return db.query( // Pre-production departmentID for Feet is 25.
         'UPDATE amounts, ( \
-          SELECT ? AS Date, 25, MatID, MaterialAmount * ? AS NumMats \
+          SELECT ? AS Date, 25 AS DepartmentID, MatID, MaterialAmount * ? AS NumMats \
           FROM productmaterials INNER JOIN products ON productmaterials.ProdID = products.ProductID \
-          WHERE ProductName LIKE ? AND ProductName LIKE ? AND DepartmentName LIKE ? AND MatID NOT IN ( \
+          WHERE ProductName LIKE ? AND ProductName LIKE ? AND MatID NOT IN ( \
             SELECT MaterialID FROM materials \
             WHERE MaterialName LIKE ? AND MaterialName LIKE ? OR MaterialName LIKE ? \
           ) \
         ) AS temp  \
         SET amounts.InStock = amounts.InStock + temp.NumMats \
         WHERE amounts.Date = temp.Date AND amounts.DepID = temp.DepartmentID AND amounts.MatID = temp.MatID',
-        [date, lost, "%"+design+"%", "%"+color+"%", "%"+department+"%", "%"+color+"%", "%plastic%", "%grommet%"])
+        [date, lost, "%"+design+"%", "%"+color+"%", "%"+color+"%", "%plastic%", "%grommet%"])
     } else {
       db.query(
         'UPDATE amounts, ( \
@@ -162,16 +160,16 @@ module.exports = class Product {
         [date, "%"+design+"%", "%"+color+"%", "%"+department+"%", "%"+color+"%", "%plastic%", lost])
       return db.query( // Pre-production departmentID for Feet is 25.
         'UPDATE amounts, ( \
-          SELECT ? AS Date, 25, MatID, MaterialAmount * ? AS NumMats \
+          SELECT ? AS Date, 25 AS DepartmentID, MatID, MaterialAmount * ? AS NumMats \
           FROM productmaterials INNER JOIN products ON productmaterials.ProdID = products.ProductID \
-          WHERE ProductName LIKE ? AND ProductName LIKE ? AND DepartmentName LIKE ? AND MatID NOT IN ( \
+          WHERE ProductName LIKE ? AND ProductName LIKE ? AND MatID NOT IN ( \
             SELECT MaterialID FROM materials \
             WHERE MaterialName LIKE ? AND MaterialName LIKE ? \
           ) \
         ) AS temp  \
         SET amounts.InStock = amounts.InStock + temp.NumMats \
         WHERE amounts.Date = temp.Date AND amounts.DepID = temp.DepartmentID AND amounts.MatID = temp.MatID',
-        [date, lost, "%"+design+"%", "%"+color+"%", "%"+department+"%", "%"+color+"%", "%plastic%"])
+        [date, lost, "%"+design+"%", "%"+color+"%", "%"+color+"%", "%plastic%"])
     }
   }
   
@@ -206,9 +204,8 @@ module.exports = class Product {
       ) \
       SELECT MaterialName, InStock, Lost \
       FROM temp INNER JOIN amounts ON temp.DepartmentID = amounts.DepID AND temp.MatID = amounts.MatID \
-      WHERE ProductName LIKE ? AND ProductName LIKE ? \
-        AND Date = (Select Date(CURRENT_TIMESTAMP() - INTERVAL 8 HOUR))',
-      ["%"+department+"%", "%"+name+"%", "%"+color+"%"])
+      WHERE Date = (Select Date(CURRENT_TIMESTAMP() - INTERVAL 8 HOUR))',
+      ["%"+name+"%", "%"+color+"%", "%"+department+"%"])
   }
 
   static discontinue(name) {

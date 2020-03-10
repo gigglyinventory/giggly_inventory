@@ -29,7 +29,7 @@ async function postAddUser(req, res, next){
 };
 
 exports.postAddProduct = (req, res, next) => {
-  const name = req.body.productName;
+  const name = req.body.ProductName;
   const discontinued = req.body.discontinued;
   const product = new Product(name, discontinued);
   product.save()
@@ -38,7 +38,7 @@ exports.postAddProduct = (req, res, next) => {
 };
 
 exports.postAddMaterial = (req, res, next) => {
-  const name = req.body.materialName;
+  const name = req.body.MaterialName;
   const material = new Material(name);
   material.save()
     .catch(err => console.log(err));
@@ -46,7 +46,6 @@ exports.postAddMaterial = (req, res, next) => {
 };
 
 exports.postDeleteUser = (req, res, next) => {
-  console.log('the req body', req.body)
   const username = req.body.username
   User.deleteByID(username)
     .catch(err => console.log(err))
@@ -54,8 +53,8 @@ exports.postDeleteUser = (req, res, next) => {
 };
 
 exports.postDiscontinueProduct = (req, res, next) => {
-  const productName = req.body.productID;
-  Product.discontinue(productName)
+  const ProductName = req.body.ProductID;
+  Product.discontinue(ProductName)
     .catch(err => console.log(err))
     res.redirect('/')
 };
