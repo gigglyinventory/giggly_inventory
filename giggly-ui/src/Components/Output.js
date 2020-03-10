@@ -116,7 +116,6 @@ class Output extends React.Component{
   }
 
   handleSubmit = (event) =>{
-    alert("Submit");
       this.workSubmit();
   }
 
