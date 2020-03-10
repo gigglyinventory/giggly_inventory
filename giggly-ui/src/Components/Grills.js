@@ -113,7 +113,30 @@ render() {
     <div>
       <h2 class="end">Grill</h2>
       {/*I use forms for each row of inputs to unify the spacing and positions*/}
+<<<<<<< HEAD
       <form method="POST" action="/endOfDay">
+=======
+      <form method="POST" action="/endOfDay/update-grills">
+        <div class="form-inline">
+          <label>Date: </label>
+          <input type="type"
+            name="month"
+            value={this.name}
+            placeholder="MM" maxlength="2" size="2"
+            onChange={this.handleChange}/>
+          <input type="type"
+            name="day"
+            value={this.name}
+            placeholder="DD" maxlength="2" size="2"
+            onChange={this.handleChange}/>
+          <input type="type"
+            name="year"
+            value={this.name}
+            placeholder="YYYY" maxlength="4" size="2"
+            onChange={this.handleChange}/>
+        </div>
+
+>>>>>>> 26b68e1866ffc0c947c75891b7acafa698aba27d
 
         <div class="form-inline">
           <label for="grill_design">Design: </label>

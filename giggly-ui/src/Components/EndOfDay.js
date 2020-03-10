@@ -13,6 +13,7 @@ import "./EndOfDay.css"
   Plans for Sales.js but don't know how to implement yet*/}
 var date = "";
 
+<<<<<<< HEAD
 class EndOfDay extends React.Component{
   constructor(props){
     super(props);
@@ -33,6 +34,23 @@ class EndOfDay extends React.Component{
     this.setState({value});
     this.updateDate(value);
   }
+=======
+function EndOfDay(){
+  {/*List of all raw materials for deliveries section.
+    Will move to Deliveries.js*/}
+    {/*These are arrays for the drop down selections for designs/colors/vinyls*/}
+
+  return(
+    <div class="todo-list"> 
+      <div class="top">
+        <div class="sections">
+          <div>
+            <Grills />
+          </div>
+          <div>
+            <Feet />
+          </div>
+>>>>>>> 26b68e1866ffc0c947c75891b7acafa698aba27d
 
   render(){
     return(

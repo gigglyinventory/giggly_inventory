@@ -1,28 +1,60 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import "./EndOfDay.css";
 //import {baseUrl} from '../../config.json';
 
 class Admin extends React.Component{
   constructor(props){
-    super(props);
+    super(props)
+    this.state = {
+      users: [{
+        UserID: '',
+        Password:'',
+        UserEmail:'',
+        UserFirstName:'',
+        UserLastName:''
+      }]
+    } 
+    //this.fetch = this.fetch.bind(this)
+
   }
 
-  // state = {
-  //    users = []
-  // }
-  
+//   handleClick() {
+//     this.setState(prevState => {
+//         return {
+//             
+//         }
+//     })
+// }
+
   async componentDidMount() {
     try {
       let response = await fetch(`/admin/get-users`);
-      let resJson = await response.json();
-      //console.log(resJson);
-      //this.setState(users, resJson);
+      let users = await response.json();
+      console.log(users);
+      this.setState({users});
     } catch (error) {
       console.log(error);
     }
   }
 
+  // async handleDelete(event){
+  //   try{
+  //       event.preventDefault();
+  //       let username = document.getElementById('username1').value
+  //       await fetch('/admin/delete-user', {
+  //         method: 'POST',
+  //         body: JSON.stringify({username: username})
+  //       })
+  //   }catch(error){
+  //     console.log(error)
+  //   }
+  // }
+//   <form onSubmit={this.handleDelete.bind(this)}>
+//   <div class="enter_user">
+//   <label>Username</label>
+//   <input id="username1" name="username1"></input> <button type="submit">Delete</button>
+//   </div>
+// </form>
   render(){
 
     const permissions = [
@@ -36,7 +68,7 @@ class Admin extends React.Component{
     }, this)
 
     return(
-      <div>
+      <div className="productionStyle">
       <form method="POST" action="/admin/add-user">
         <div class="enter_user">
           <label>First Name</label>
@@ -82,7 +114,7 @@ class Admin extends React.Component{
         </form>
         <form method="GET" action="/admin/get-users">
           <div class="enter_user">
-          <input type="text"></input>
+          <h2>{this.state.users[0].UserFirstName}</h2> <h2>{this.state.users[0].UserLastName}</h2>
           <button type="submit">Display User List</button>
           </div>
         </form>
@@ -91,5 +123,6 @@ class Admin extends React.Component{
     );
   }
 }
+//<!-- Should add a handleClick method to handle the button -->
 
 export default Admin
