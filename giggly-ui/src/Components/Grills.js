@@ -54,7 +54,7 @@ class Grills extends React.Component{
     Will look into Modal for a possible replacement*/
   submit(){
     var title = "Summary"
-    var date = this.state.month +"/"+ this.state.day +"/"+ this.state.year;
+    var date = this.state.year + "-" + this.state.month + "-" + this.state.day  ;
     var product= "Product: Design: " + this.state.design + ". Color: " + this.state.color;
     var mBelovac= "Belovac: Completed: " + this.state.belovac + ". Lost: " + this.state.belovacLost;
     var mGuillotine= "Guillotine: Completed: " + this.state.guillotine + ". Lost: " + this.state.guillotineLost;
@@ -177,7 +177,7 @@ render() {
               value={this.name}
               name="guillotine" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
-            <input id="guil_lost" type="text"
+            <input id="guillotineLost" type="text"
               value={this.name}
               name="guillotineLost" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
@@ -211,14 +211,14 @@ render() {
 
 
           <div class="form-inline">
-            <label for="grill_assem">Assembly: </label>
+            <label for="grill_assem">Velcro: </label>
             <input id="grill_assem" type="text"
               value={this.name}
-              name="assembly" defualtValue="" maxlength="10" size="8"
+              name="velcro" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
             <input id="assem_lost" type="text"
               value={this.name}
-              name="assemblyLost" defualtValue="" maxlength="10" size="8"
+              name="velcroLost" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
           </div>
 
@@ -227,11 +227,11 @@ render() {
             <label for="grill_vin">Vinyl: </label>
             <input id="grill_vin" type="text"
               value={this.name}
-              name="vinyl" defualtValue="" maxlength="10" size="8"
+              name="stickers" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
             <input id="vin_lost" type="text"
               value={this.name}
-              name="vinylLost" defualtValue="" maxlength="10" size="8"
+              name="stickersLost" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
           </div>
 
