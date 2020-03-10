@@ -3,11 +3,7 @@ import ReactDOM from 'react-dom';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import "./EndOfDay.css";
-<<<<<<< HEAD
-import {Button} from "reactstrap"
-=======
 import EndOfDay, {getDate} from './EndOfDay';
->>>>>>> d40e7bb13ddf9278f1e0ccd017b5f65aebdf666e
 import Output, {addMessage} from './Output'
 //import * as utils from './Output.js';
 //import {addMessage} from './Output.js';
@@ -56,12 +52,8 @@ class Grills extends React.Component{
     Will look into Modal for a possible replacement*/
   submit(){
     var title = "Summary"
-<<<<<<< HEAD
-    var date = this.state.year + "-" + this.state.month + "-" + this.state.day  ;
-=======
     var date = getDate();
     this.state.date = date;
->>>>>>> d40e7bb13ddf9278f1e0ccd017b5f65aebdf666e
     var product= "Product: Design: " + this.state.design + ". Color: " + this.state.color;
     var mBelovac= "Belovac: Completed: " + this.state.belovac + ". Lost: " + this.state.belovacLost;
     var mGuillotine= "Guillotine: Completed: " + this.state.guillotine + ". Lost: " + this.state.guillotineLost;
@@ -168,7 +160,7 @@ render() {
               value={this.name}
               name="guillotine" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
-            <input id="guillotineLost" type="text"
+            <input id="guil_lost" type="text"
               value={this.name}
               name="guillotineLost" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
@@ -205,11 +197,11 @@ render() {
             <label for="grill_assem">Velcro: </label>
             <input id="grill_assem" type="text"
               value={this.name}
-              name="velcro" defualtValue="" maxlength="10" size="8"
+              name="assembly" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
             <input id="assem_lost" type="text"
               value={this.name}
-              name="velcroLost" defualtValue="" maxlength="10" size="8"
+              name="assemblyLost" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
           </div>
 
@@ -218,11 +210,11 @@ render() {
             <label for="grill_vin">Stickers: </label>
             <input id="grill_vin" type="text"
               value={this.name}
-              name="stickers" defualtValue="" maxlength="10" size="8"
+              name="vinyl" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
             <input id="vin_lost" type="text"
               value={this.name}
-              name="stickersLost" defualtValue="" maxlength="10" size="8"
+              name="vinylLost" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
           </div>
 
@@ -242,7 +234,7 @@ render() {
 
         {/*This button takes all information inputed form the input fields and calls the alert*/}
           <div class="form-inline">
-            <Button type="submit" onClick={this.submit}>Add</Button>
+            <button type="submit" onClick={this.submit}>Add</button>
           </div>
       </form>
       </form>
