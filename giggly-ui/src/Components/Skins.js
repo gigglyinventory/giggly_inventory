@@ -1,23 +1,22 @@
 import React from "react";
+import ReactDOM from 'react-dom';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import "./EndOfDay.css";
-import Output, {addMessage} from './Output';
-import EndOfDay, {getDate} from './EndOfDay'
+import EndOfDay, {getDate} from './EndOfDay';
+import Output, {addMessage} from './Output'
 
-class Feet extends React.Component{
+class Skins extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       date: "",
-      design: "Puppy",
-      color: "Black",
-      delivered: "5",
-      deliveredLost: "2",
-      trim: "6",
-      trimLost: "1",
-      screw: "4",
-      screwLost: "0",
+      print: "Camo",
+      type: "2-Wheels",
+      printing: "5",
+      printingLost: "2",
+      cutting: "6",
+      cuttingLost: "1",
       packaging: "10",
       packagingLost: "5"
     };
@@ -36,13 +35,12 @@ class Feet extends React.Component{
     var title = "Summary"
     var date = getDate();
     this.state.date = date;
-    var product= "Product: Design: " + this.state.design + ". Color: " + this.state.color;
-    var mDelivered= "Delivered: Completed: " + this.state.delivered + ". Lost: " + this.state.deliveredLost;
-    var mTrim= "Trim: Completed: " + this.state.trim + ". Lost: " + this.state.trimLost;
-    var mScrew= "Screw: Completed: " + this.state.screw + ". Lost: " + this.state.screwLost;
+    var product= "Product: Skin: " + this.state.print + ". Walker: " + this.state.type;
+    var mPrinting= "Printing: Completed: " + this.state.printing + ". Lost: " + this.state.printingLost;
+    var mCutting= "Cutting: Completed: " + this.state.cutting + ". Lost: " + this.state.cuttingLost;
     var mPackaing= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
-    var message= title +"\n"+ date + "\n" + product+"\n"+mDelivered+"\n"+mTrim+"\n"+mScrew+"\n"+mPackaing;
-    var show = "Feet|" + this.state.color+ "|Del:"+ this.state.delivered+ "-" + this.state.deliveredLost + "|Trm:" + this.state.trim + "-" + this.state.trimLost + "|Srw:" + this.state.screw + "-" + this.state.screwLost + "|Pac:" + this.state.packaging + "-" + this.state.packagingLost;
+    var message= title +"\n"+ date + "\n" + product+"\n"+mPrinting+"\n"+mCutting+"\n"+mPackaing;
+    var show = "Skin|" + this.state.print + "|" + this.state.type + "|Prt:" + this.state.printing + "-" + this.state.printingLost +"|Cut:" + this.state.cutting + "-" + this.state.cuttingLost + "|Pac:" + this.state.packaging + "-" + this.state.packagingLost;
     {/*This shows the alert with the summary*/}
     alert(message)
     {/*If click confirm add to database, click deny will not*/}
@@ -62,27 +60,44 @@ class Feet extends React.Component{
 
   render(){
 
-    const colors = [
+    const walker = [
       {id: 'em', name: ''},
-      {id: 'rd', name: 'Red'},
-      {id: 'bu', name: 'Blue'},
-      {id: 'bk', name: 'Black'}
+      {id: 'w2', name: '2-Wheels'},
+      {id: 'w4', name: '4-Wheels'}
     ];
-    let colorsList = colors.length > 0 && colors.map((item, i) => {
+
+    let walkerList = walker.length > 0 && walker.map((item, i) => {
+      return (<option key={i} value={item.id}>{item.name}</option>)
+    }, this)
+
+    const skin = [
+      {id: 'em', name: ''},
+      {id: 'cm', name: 'Camo'},
+      {id: 'fl', name: 'Flag'},
+      {id: 'br', name: 'Bark'},
+      {id: 'fl', name: 'Flower'},
+      {id: 'wo', name: 'Wonder'}
+    ];
+    let skinList = skin.length > 0 && skin.map((item, i) => {
       return (<option key={i} value={item.id}>{item.name}</option>)
     }, this)
 
     return(
 
       <div>
-        <h2 class="end">Feet</h2>
+        <h2 class="end">Skin</h2>
 
         <div class="form-inline">
-          <label for="puppy_color">Colors: </label>
-          <select id="puppy_color"
-            name="design"
+          <label for="skin_pattern">Skins: </label>
+          <select id="skin_pattern"
+            name="print"
             value={this.name}
-            onChange={this.handleChange}>{colorsList}</select>
+            onChange={this.handleChange}>{skinList}</select>
+          <label for="walker_type">Walker: </label>
+          <select id="walker_type"
+            name="type"
+            value={this.name}
+            onChange={this.handleChange}>{walkerList}</select>
         </div>
 
         <div class="form-inline">
@@ -92,49 +107,35 @@ class Feet extends React.Component{
         </div>
 
         <div class="form-inline">
-          <label for="feet_deliv">Delivered: </label>
-          <input id="delivered" type="text"
-            name="delivered"
+          <label for="printing">Printing: </label>
+          <input id="printing" type="text"
+            name="printing"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
-          <input id="deliveredLost" type="text"
-            name="deliveredLost"
+          <input id="printingLost" type="text"
+            name="printingLost"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
         </div>
 
         <div class="form-inline">
-          <label for="feet_trim">Trim: </label>
+          <label for="trim">Assembly: </label>
           <input id="trim" type="text"
-            name="trim"
+            name="cutting"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
           <input id="trimLost" type="text"
-            name="trimLost"
+            name="cuttingLost"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
         </div>
 
         <div class="form-inline">
-          <label for="feet_screw">Screw: </label>
-          <input id="screw" type="text"
-            name="screw"
-            value={this.name}
-            defualtValue="" maxlength="5" size="8"
-            onChange={this.handleChange}/>
-          <input id="screwLost" type="text"
-            name="screwLost"
-            value={this.name}
-            defualtValue="" maxlength="5" size="8"
-            onChange={this.handleChange}/>
-        </div>
-
-        <div class="form-inline">
-          <label for="feet_pac">Packaging: </label>
+          <label for="packaging">Packaging: </label>
           <input id="packaging" type="text"
           name="packaging"
           value={this.name}
@@ -145,7 +146,7 @@ class Feet extends React.Component{
           defualtValue="" maxlength="10" size="8"
           onChange={this.handleChange}/>
         </div>
-        <div class="form-inline">
+        <div>
           <button onClick={this.submit}>Add</button>
         </div>
 
@@ -156,4 +157,4 @@ class Feet extends React.Component{
 
 }
 
-export default Feet
+export default Skins
