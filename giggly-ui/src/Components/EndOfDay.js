@@ -2,49 +2,82 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import Grills from "./Grills"
 import Feet from "./Feet"
-import Vinyl from "./Vinyl"
+import Skins from "./Skins"
 import Output from "./Output"
 import Materials from "./Materials"
+import Vinyl from "./Vinyl"
 import "./EndOfDay.css"
 
 {/*Will be moving the bulk of of EndOfDay to their own .js file.
   will be creating Deliveries.js, Feet.js, Vinyls.js.
   Plans for Sales.js but don't know how to implement yet*/}
+var date = "";
 
-function EndOfDay(){
-  {/*List of all raw materials for deliveries section.
-    Will move to Deliveries.js*/}
-    {/*These are arrays for the drop down selections for designs/colors/vinyls*/}
+class EndOfDay extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      submitDate: ""
+    };
+    this.updateDate = this.updateDate.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-  return(
-    <div>
-      <div class="top">
-        <div class="sections">
-          <div>
-            <Grills />
-          </div>
-          <div>
-            <Feet />
-          </div>
+  updateDate(value){
+    date = value;
+  }
+  handleChange(evt){
+    console.log(evt.target.value);
+    const value = evt.target.value;
 
-          {/*Will place in a dive then make it function just like Grills.js*/}
-          <div>
-            <Vinyl />
+    this.setState({value});
+    this.updateDate(value);
+  }
+
+  render(){
+    return(
+      <div>
+        <div>
+          <label>Date: </label>
+          <input class="calender" type="date" name="submitDate" value={this.name} onChange={this.handleChange}></input>
+        </div>
+        <div class="top">
+          <div class="sections">
+            <div>
+              <Grills />
+            </div>
+            <div>
+              <Feet />
+            </div>
+
+            {/*Will place in a dive then make it function just like Grills.js*/}
+            <div>
+              <Skins />
+            </div>
+            <div>
+              <Materials />
+            </div>
+            <div>
+              <Vinyl />
+            </div>
           </div>
-          <div>
-            <Materials />
+          {/*Will be adding Deliveries and Sales div at the bottom and both Will
+            reference a .js file for the functionality.*/}
+          <div class="sections">
+            <Output />
           </div>
         </div>
-        {/*Will be adding Deliveries and Sales div at the bottom and both Will
-          reference a .js file for the functionality.*/}
-        <div class="sections">
-          <Output />
-        </div>
+
       </div>
 
-    </div>
+    );
+  }
 
-  )
 }
 
-export default EndOfDay
+export function getDate(){
+  var getDate = date;
+  return(getDate);
+}
+
+export default EndOfDay;

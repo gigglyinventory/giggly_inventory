@@ -27,7 +27,7 @@ function Sales() {
         {id: 'wf4', name: '4-wheel WonderFall'},
         {id: 'mi2', name: '4-wheel Military'}
     ];
-    
+
     let productsList = products.length > 0 && products.map((item, i) => {
         return (<option key={i} value={item.id}>{item.name}</option>)
     }, this)
@@ -37,39 +37,33 @@ function Sales() {
 
         let newdiv;
         let newdiv1;
-        
+
         newdiv = document.createElement('div');
         newdiv1 = document.createElement('div');
 
         newdiv.innerHTML = "Product Name: " +  "<select id='products'>{productsList}</select>";
         newdiv1.innerHTML = "Quantity: " + "<input type='text' name='myInputs[]'/>";
-        
+
         document.getElementById("addMore").appendChild(newdiv).appendChild(newdiv1);
 
     }
 
-    
+
     return(
         <div>
 
-            <h2>Products Ordered:</h2>  
+            <h2>Products Ordered:</h2>
 
                 <div class="form_inline" id="addMore">
                     <label for="design">Product name: </label>
                     <select id="design">{productsList}</select>
-                
+
                     <label>Quantity: </label>
                     <input/>
                 </div>
                 <button class="button_link" onClick= "addButton()">
                     Add another product
                 </button>
-                
-               
-
-
-
-
 
             <h2>Customer Details:</h2>
 
@@ -112,7 +106,7 @@ function Sales() {
                 </div>
 
         </div>
-        
+
     )
 }
 

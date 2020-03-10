@@ -3,15 +3,14 @@ import ReactDOM from 'react-dom';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import "./EndOfDay.css";
+import EndOfDay, {getDate} from './EndOfDay';
 import Output, {addMessage} from './Output'
 
 class Materials extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      month: "01",
-      day: "20",
-      year: "2017",
+      date: "",
       material: "Velcro",
       delivered: "304",
       deliveredLost: "227"
@@ -29,7 +28,8 @@ class Materials extends React.Component{
 
   submit(){
     var title = "Summary"
-    var date = "Date: " + this.state.month +"/"+ this.state.day +"/"+ this.state.year;
+    var date = getDate();
+    this.state.date = date;
     var product= "Material: " + this.state.material;
     var mDelivered= "Delivered:" + this.state.delivered + ". Lost: " + this.state.deliveredLost;
     var message= title +"\n"+ date + "\n" + product+"\n"+mDelivered;
@@ -77,7 +77,17 @@ class Materials extends React.Component{
     ];
 
     let materialsList = rawMaterials.length > 0 && rawMaterials.map((item, i) => {
-      return (<option key={i} value={item.id}>{item.name}</option>)
+      return (<option key={i} value={item.name}>{item.name}</option>)
+    }, this)
+
+    const department = [
+      {id: '', name: ''},
+      {id: 'one', name: 'Main'},
+      {id: 'two', name: 'Vinyl'}
+    ];
+
+    let departmentList = department.length > 0 && department.map((item, i) => {
+      return (<option key={i} value={item.name}>{item.name}</option>)
     }, this)
 
     return(
@@ -85,34 +95,20 @@ class Materials extends React.Component{
       <div>
         <h2 class="end">Deliveries</h2>
 
-        <form class="inline-date">
-          <label>Date: </label>
-          <input type="type"
-            name="month"
-            value={this.name}
-            placeholder="MM" maxlength="2" size="2"
-            onChange={this.handleChange}/>
-          <input type="type"
-            name="day"
-            value={this.name}
-            placeholder="DD" maxlength="2" size="2"
-            onChange={this.handleChange}/>
-          <input type="type"
-            name="year"
-            value={this.name}
-            placeholder="YYYY" maxlength="4" size="2"
-            onChange={this.handleChange}/>
-        </form>
-
-        <form class="form-inline">
+        <div class="form-inline">
           <label for="materials">Delivered: </label>
           <select id="materials"
             name="material"
             value={this.name}
             onChange={this.handleChange}>{materialsList}</select>
-        </form>
+          <label for="departments">Department: </label>
+          <select id="departments"
+            name="department"
+            value={this.name}
+            onChange={this.handleChange}>{departmentList}</select>
+        </div>
 
-        <form class="form-inline">
+        <div class="form-inline">
           <label for="delivered">Delivered: </label>
           <input id="delivered" type="text"
             name="delivered"
@@ -125,7 +121,7 @@ class Materials extends React.Component{
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
-        </form>
+        </div>
 
         <button onClick={this.submit}>Add</button>
 
