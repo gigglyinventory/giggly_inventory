@@ -22,6 +22,7 @@ class Materials extends React.Component{
   }
 
   sendToSummary(message){
+    alert(message)
     addMessage(message)
   }
 
