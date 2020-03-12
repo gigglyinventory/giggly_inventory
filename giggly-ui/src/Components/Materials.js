@@ -34,7 +34,7 @@ class Materials extends React.Component{
     var product= "Material: " + this.state.material;
     var mDelivered= "Delivered:" + this.state.delivered + ". Lost: " + this.state.deliveredLost;
     var message= title +"\n"+ date + "\n" + product+"\n"+mDelivered;
-    var show = "Material|" + this.state.material + "|" + "D:" + this.state.delivered + "-" + this.state.deliveredLost;
+    var show = "Material | " + this.state.material + " | " + "D:" + this.state.delivered + "-" + this.state.deliveredLost;
     {/*This shows the alert with the summary*/}
     alert(message)
     {/*If click confirm add to database, click deny will not*/}
