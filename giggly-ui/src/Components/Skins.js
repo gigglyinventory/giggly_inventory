@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from 'react-dom';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import "./EndOfDay.css";
@@ -11,14 +12,14 @@ class Skins extends React.Component{
     super(props);
     this.state = {
       date: "",
-      print: "Camo",
-      type: "2-Wheels",
-      printing: "5",
-      printingLost: "2",
-      cutting: "6",
-      cuttingLost: "1",
-      packaging: "10",
-      packagingLost: "5"
+      print: "",
+      type: "",
+      printing: "0",
+      printingLost: "0",
+      cutting: "0",
+      cuttingLost: "0",
+      packaging: "0",
+      packagingLost: "0"
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -35,7 +36,7 @@ class Skins extends React.Component{
     var title = "Summary"
     var date = getDate();
     this.state.date = date;
-    var product= "Product: Skin: " + this.state.print + ". Walker: " + this.state.type;
+    var product= "Skin: " + this.state.print + ". Walker: " + this.state.type;
     var mPrinting= "Printing: Completed: " + this.state.printing + ". Lost: " + this.state.printingLost;
     var mCutting= "Cutting: Completed: " + this.state.cutting + ". Lost: " + this.state.cuttingLost;
     var mPackaing= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
@@ -82,16 +83,16 @@ class Skins extends React.Component{
       return (<option key={i} value={item.id}>{item.name}</option>)
     }, this)
 
+    const globalDate = getDate();
+
     return(
 
       <div>
-        <h2 className="inventory">Skin</h2>
-
-        <div className="form-inlineEnd">
-        <input className="inputStyle" name= "date" value={getDate()}></input>
+        <h2 class="end">Skin</h2>
+        <div class="form-inline">
+          <input className="inputStyle" name= "date" value={getDate()}></input>
         </div>
-
-        <div className="form-inlineEnd">
+        <div class="form-inline">
           <label for="skin_pattern">Skins: </label>
           <select id="skin_pattern"
             name="print"
@@ -104,59 +105,51 @@ class Skins extends React.Component{
             onChange={this.handleChange}>{walkerList}</select>
         </div>
 
-        <div className="form-inlineEnd">
-        <label style={{marginRight:"100px"}}></label>
-          <label style={{marginRight:"150px"}}><b>Completed</b></label>
+        <div class="form-inline">
+          <label><b>Process</b></label>
+          <label><b>Completed</b></label>
           <label><b>Lost</b></label>
         </div>
 
-   
-
-        <div className="form-inlineEnd">
+        <div class="form-inline">
           <label for="printing">Printing: </label>
           <input id="printing" type="text"
             name="printing"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
-            onChange={this.handleChange}
-            className="inputStyle"/>
+            onChange={this.handleChange}/>
           <input id="printingLost" type="text"
             name="printingLost"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
-            onChange={this.handleChange}
-            className="inputStyle"/>
+            onChange={this.handleChange}/>
         </div>
 
-        <div className="form-inlineEnd">
+        <div class="form-inline">
           <label for="trim">Assembly: </label>
           <input id="trim" type="text"
             name="cutting"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
-            onChange={this.handleChange}
-            className="inputStyle"/>
+            onChange={this.handleChange}/>
           <input id="trimLost" type="text"
             name="cuttingLost"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
-            onChange={this.handleChange}
-            className="inputStyle"/>
+            onChange={this.handleChange}/>
         </div>
 
-        <div className="form-inlineEnd">
+        <div class="form-inline">
           <label for="packaging">Packaging: </label>
           <input id="packaging" type="text"
           name="packaging"
           value={this.name}
           defualtValue="" maxlength="5" size="8"
-          onChange={this.handleChange}
-          className="inputStyle"/>
+          onChange={this.handleChange}/>
           <input id="packagingLost" type="text"
           name="packagingLost"
           defualtValue="" maxlength="10" size="8"
-          onChange={this.handleChange}
-          className="inputStyle"/>
+          onChange={this.handleChange}/>
         </div>
         <div>
           <Button onClick={this.submit}>Add</Button>
