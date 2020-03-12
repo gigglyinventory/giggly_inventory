@@ -4,7 +4,7 @@ var adminController = require('../controllers/admin');
 const isAuth = require('../middleware/is-auth');
 
 router.get('/get-users', adminController.getUsers);
-router.post('/add-user',  adminController.postAddUser);
+router.post('/add-user',  isAuth, adminController.postAddUser);
 router.post('/add-product', isAuth, adminController.postAddProduct);
 router.post('/delete-user', isAuth, adminController.postDeleteUser);
 router.post('/discontinue-product', isAuth, adminController.postDiscontinueProduct);
