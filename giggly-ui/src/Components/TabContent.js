@@ -12,7 +12,7 @@ const Navbar = () => {
     color: '#f2f2f2',
     textDecoration: 'none',
     fontFamily: 'Helvetica Neue',
-    fontWeight: 'bold',
+    fontWeight: 'normal',
     fontSize: '25px'
 
   };
@@ -20,9 +20,6 @@ const Navbar = () => {
   return(
     <nav >
       <ul className= "nav-links">
-        <Link style={navStyle} to="./">
-        </Link>
-
         <Link style={navStyle} to="/InventoryTable">
           <li>Inventory</li>
         </Link>

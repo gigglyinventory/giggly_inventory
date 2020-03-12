@@ -1,5 +1,7 @@
 import React from "react"
 import "./Sales.css"
+import {Button} from "reactstrap";
+
 
 
 class Sales extends React.Component{
@@ -59,7 +61,7 @@ class Sales extends React.Component{
                         <label style={{fontSize: "20px"}}>Product: </label>
                         <select id="design">{this.productsMenue}</select>
                         <label style={{fontSize: "20px"}}>Quantity: </label>
-                        <input />
+                        <input className="inputStyle" style={{marginLeft:"10px"}}/>
                     </div>
                             {
                                 this.state.productList.map((prod, index) => {
@@ -68,21 +70,21 @@ class Sales extends React.Component{
                                         <div className="formatInline">
 
                                             <div key={index}>
-                                                <label>Product: </label>
+                                                <label style={{marginLeft:"10px"}}>Product: </label>
                                                 <select id="design">{this.productsMenue}</select>
                                                 <label>Quantity: </label>
-                                                <input onChange={(e)=>this.handleChange(e, index)} value={prod}/>
+                                                <input className="inputStyle" onChange={(e)=>this.handleChange(e, index)} value={prod}/>
                                             </div>
                                         </div>
 
                                     )
                                 })
                             }
-                        <button onClick= {(e) => this.addProduct(e)}> Add Product </button>
+                        <Button onClick= {(e) => this.addProduct(e)}> Add Product </Button>
 
-
+                    <div style={{marginTop:"30px"}}>
                     <h2 className="inventory">Customer Details</h2>
-
+                    </div>
                     <div style={{fontSize: "19px"}}>
                         <label>Order date:</label>
                         <input class="calender" type="date" name="order-date"></input>
@@ -90,42 +92,42 @@ class Sales extends React.Component{
 
                     <div style={{fontSize: "20px"}}>
                         <label>Firstname: </label>
-                        <input type="text" firstName="firstName"/>
+                        <input className="inputStyle" type="text" firstName="firstName"/>
                     </div>
 
                     <div style={{fontSize: "20px"}}>
                         <label>Lastname: </label>
-                        <input/>
+                        <input className="inputStyle"/>
                     </div>
 
                     <div style={{fontSize: "20px"}}>
                         <label>Email: </label>
-                        <input/>
+                        <input className="inputStyle"/>
                     </div>
 
                     <div style={{fontSize: "20px"}}>
                         <label>Address: </label>
-                        <input/>
+                        <input className="inputStyle"/>
                     </div>
 
                     <div style={{fontSize: "20px"}}>
                         <label>City: </label>
-                        <input/>
+                        <input className="inputStyle"/>
                     </div>
 
                     <div style={{fontSize: "20px"}}>
                         <label>Zip: </label>
-                        <input/>
+                        <input className="inputStyle"/>
                     </div>
 
                     <div style={{fontSize: "20px"}}>
                         <label>State: </label>
-                        <input/>
+                        <input className="inputStyle"/>
                     </div>
 
-                    <button>
+                    <Button>
                         Submit
-                    </button>
+                    </Button>
 
             </div>
     )

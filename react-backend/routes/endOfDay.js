@@ -7,5 +7,6 @@ router.post('/update-grills', /*isAuth,*/ endOfDayController.postUpdateGrills);
 router.post('/update-feet', /*isAuth,*/ endOfDayController.postUpdateFeet);
 router.post('/update-skins',/*isAuth,*/ endOfDayController.postUpdateSkins);
 router.post('/update-materials', /*isAuth,*/ endOfDayController.postUpdateMaterials);
+router.post('/rollback-All', /*isAuth,*/ endOfDayController.postRollbackAll);
 
 module.exports = router;

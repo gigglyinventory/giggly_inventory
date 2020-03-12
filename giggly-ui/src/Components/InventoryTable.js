@@ -81,22 +81,4 @@ class InventoryTable extends React.Component{
   }
 }
 
-
-
-
-
-
-  //   <div>
-  //   {this.state.materials.map((item) =>
-  //     <div>
-  //     <h5>{item.materialName}</h5>
-  //     <h5>{item.inStock}</h5>
-  //     </div>)}
-  // </div>
-
-    // )
-    
-
-
-
 export default InventoryTable

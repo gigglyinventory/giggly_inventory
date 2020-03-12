@@ -1,11 +1,11 @@
-
+/* 
 .left-margin{
   display: flex;
   align-items: center;
   text-indent: 60px;
   margin-bottom: 20px;
 
-}
+} */
 
 .productionStyle {
   background-color: white;
@@ -21,7 +21,10 @@
 
 .fontSize{
   margin-top: 15px;
-font-size: medium;
+  margin-bottom: 15px;
+  font-size: 19px;
+  flex-flow: row wrap;
+  align-items: center; 
 }
 
 .formatInlinePro{

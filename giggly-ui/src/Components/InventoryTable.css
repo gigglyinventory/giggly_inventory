@@ -1,12 +1,38 @@
+h2.inventory{
+  font-weight: normal;
+  font-size: 40px;
+  background-color: #b5c2d8;
+  /* background-color: #bdc0c5; */
+  text-align: center;
+  align-self: auto;
+  color: #33445a;
+  border-radius: 5%;
+  padding-left: 20px;
+  padding-right: 20px;
+  
+}
 
-.inventoryStyle {
+div.across{
+  font-size: 120%;
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 10px;
+}
+
+.column{
+  font-size: 100%;
+  margin: 60px 30px 60px 30px;
+  width: 250px;
+  align-content: center;
+}
+
+.InventoryStyle {
   background-color: white;
   margin: auto;
   width: 50%;
-  height: 3800px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid #efefef;
-  padding: 50px;
+  padding: 30px;
 }
