@@ -1,10 +1,11 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import "./EndOfDay.css";
 import EndOfDay, {getDate} from './EndOfDay';
-import Output, {addMessage} from './Output'
+import {addMessage} from './Output'
+import {Button} from "reactstrap";
+
 
 class Materials extends React.Component{
   constructor(props){
@@ -22,6 +23,7 @@ class Materials extends React.Component{
   }
 
   sendToSummary(message){
+    alert(message)
     addMessage(message)
   }
 
@@ -92,9 +94,11 @@ class Materials extends React.Component{
     return(
 
       <div>
-        <h2 class="end">Deliveries</h2>
-
-        <div class="form-inline">
+        <h2 className="inventory">Deliveries</h2>
+        <div className="form-inlineEnd">
+        <input className="inputStyle" name= "date" value={getDate()}></input>
+        </div>
+        <div className="form-inlineEnd">
           <label for="materials">Delivered: </label>
           <select id="materials"
             name="material"
@@ -107,22 +111,22 @@ class Materials extends React.Component{
             onChange={this.handleChange}>{departmentList}</select>
         </div>
 
-        <div class="form-inline">
+        <div className="form-inlineEnd">
           <label for="delivered">Delivered: </label>
-          <input id="delivered" type="text"
+          <input className="inputStyle" id="delivered" type="text"
             name="delivered"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
           <label for="deliveriesLost">Scrap: </label>
-          <input id="deliveriesLost" type="text"
+          <input className="inputStyle" id="deliveriesLost" type="text"
             name="deliveredLost"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
         </div>
 
-        <button onClick={this.submit}>Add</button>
+        <Button onClick={this.submit}>Add</Button>
 
 
       </div>

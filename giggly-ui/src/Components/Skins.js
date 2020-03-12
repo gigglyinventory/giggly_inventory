@@ -1,8 +1,8 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import "./EndOfDay.css";
+import {Button} from "reactstrap";
 import EndOfDay, {getDate} from './EndOfDay';
 import Output, {addMessage} from './Output'
 
@@ -27,6 +27,7 @@ class Skins extends React.Component{
   }
 
   sendToSummary(message){
+    alert(message)
     addMessage(message)
   }
 
@@ -84,9 +85,13 @@ class Skins extends React.Component{
     return(
 
       <div>
-        <h2 class="end">Skin</h2>
+        <h2 className="inventory">Skin</h2>
 
-        <div class="form-inline">
+        <div className="form-inlineEnd">
+        <input className="inputStyle" name= "date" value={getDate()}></input>
+        </div>
+
+        <div className="form-inlineEnd">
           <label for="skin_pattern">Skins: </label>
           <select id="skin_pattern"
             name="print"
@@ -99,54 +104,62 @@ class Skins extends React.Component{
             onChange={this.handleChange}>{walkerList}</select>
         </div>
 
-        <div class="form-inline">
-          <label><b>Process</b></label>
-          <label><b>Completed</b></label>
+        <div className="form-inlineEnd">
+        <label style={{marginRight:"100px"}}></label>
+          <label style={{marginRight:"150px"}}><b>Completed</b></label>
           <label><b>Lost</b></label>
         </div>
 
-        <div class="form-inline">
+   
+
+        <div className="form-inlineEnd">
           <label for="printing">Printing: </label>
           <input id="printing" type="text"
             name="printing"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
-            onChange={this.handleChange}/>
+            onChange={this.handleChange}
+            className="inputStyle"/>
           <input id="printingLost" type="text"
             name="printingLost"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
-            onChange={this.handleChange}/>
+            onChange={this.handleChange}
+            className="inputStyle"/>
         </div>
 
-        <div class="form-inline">
+        <div className="form-inlineEnd">
           <label for="trim">Assembly: </label>
           <input id="trim" type="text"
             name="cutting"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
-            onChange={this.handleChange}/>
+            onChange={this.handleChange}
+            className="inputStyle"/>
           <input id="trimLost" type="text"
             name="cuttingLost"
             value={this.name}
             defualtValue="" maxlength="5" size="8"
-            onChange={this.handleChange}/>
+            onChange={this.handleChange}
+            className="inputStyle"/>
         </div>
 
-        <div class="form-inline">
+        <div className="form-inlineEnd">
           <label for="packaging">Packaging: </label>
           <input id="packaging" type="text"
           name="packaging"
           value={this.name}
           defualtValue="" maxlength="5" size="8"
-          onChange={this.handleChange}/>
+          onChange={this.handleChange}
+          className="inputStyle"/>
           <input id="packagingLost" type="text"
           name="packagingLost"
           defualtValue="" maxlength="10" size="8"
-          onChange={this.handleChange}/>
+          onChange={this.handleChange}
+          className="inputStyle"/>
         </div>
         <div>
-          <button onClick={this.submit}>Add</button>
+          <Button onClick={this.submit}>Add</Button>
         </div>
 
 

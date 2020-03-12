@@ -1,7 +1,8 @@
 h2.inventory{
   font-weight: normal;
   font-size: 40px;
-  background-color: #bdc0c5;
+  background-color: #b5c2d8;
+  /* background-color: #bdc0c5; */
   text-align: center;
   align-self: auto;
   color: #33445a;
@@ -23,4 +24,15 @@ div.across{
   margin: 60px 30px 60px 30px;
   width: 250px;
   align-content: center;
+}
+
+.InventoryStyle {
+  background-color: white;
+  margin: auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #efefef;
+  padding: 30px;
 }

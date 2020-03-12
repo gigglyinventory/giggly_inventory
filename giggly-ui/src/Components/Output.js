@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from 'react-dom';
+import {Button} from "reactstrap";
 import EndOfDay, {getDate} from './EndOfDay';
 import "./EndOfDay.css"
 
@@ -116,6 +116,7 @@ class Output extends React.Component{
   }
 
   handleSubmit = (event) =>{
+    alert("Submit");
       this.workSubmit();
   }
 
@@ -129,7 +130,7 @@ class Output extends React.Component{
 
       <div>
       <div>
-        <button onClick={this.forceUpdateHandler}>View</button>
+        <Button onClick={this.forceUpdateHandler}>View</Button>
       </div>
       <div class="final-display">
           <ul class="elements">
@@ -139,8 +140,12 @@ class Output extends React.Component{
           </ul>
 
       </div>
-      <button onClick={this.clearHandler}>Clear</button>
+      <br />
+      <Button onClick={this.clearHandler}>Clear</Button>
 
+      <form method="POST" action="/endOfDay/rollback-All">
+      <Button type="submit">Revert</Button>
+      </form>
       </div>
 
     );

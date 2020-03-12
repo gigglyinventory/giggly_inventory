@@ -1,6 +1,7 @@
 let createError = require('http-errors');
 let express = require('express');
 let app = express();
+const bodyParser = require('body-parser')
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
@@ -13,24 +14,28 @@ let adminRouter = require('./routes/admin');
 let inventoryRouter = require('./routes/inventory');
 
 let session = require('express-session')
-// let knexSessionStore = require('connect-session-knex')(session);
-// let store = new knexSessionStore('mysql');
 
-
-
+const TWO_HOURS = 1000 * 60 * 60 * 2
+const SESS_NAME = 'sid'
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.use(bodyParser.urlencoded({ extended: true}))
 app.use(session({
+  name: SESS_NAME,
+  cookie:{
+    maxAge: TWO_HOURS,
+    sameSite: true,
+  },
   secret: 'gigglyinventory',
   resave: true,
   saveUninitialized: true,
-  isLoggedIn: false
+  loggedIn: false
 }))
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 //app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -40,7 +45,7 @@ app.use('/endOfDay', endOfDayRouter);
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
 app.use('/inventory', inventoryRouter);
-app.use('/', indexRouter);
+app.use('/App', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

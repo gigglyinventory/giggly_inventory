@@ -1,32 +1,48 @@
 
 .calender{
-    font: .8rem 'Fira Sans', sans-serif;
-    margin: 60px 5px 10px 5px 0;
+  font: 19px 'Fira Sans', sans-serif;
+  margin: 60px 5px 10px 5px 0;
+  width: 190px !important;
+  height: 30px !important;
+  font-size: 19px;
+  border-radius: 10%;
+  background-color: #edf2fc;
 }
 
-  .salesStyle {
-    background-color: white;
-    margin: auto;
-    width: 50%;
-    height: 770px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid #efefef;
-    padding: 50px;
-  }
+.salesStyle {
+  background-color: white;
+  margin: auto;
+  width: 50%;
+  height: 2000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #efefef;
+  padding: 50px;
+}
 
 .formatInline{
-  display: flex;
-  font-size: large;
-  flex-flow: row wrap;
-  align-items: center;
-  margin-bottom: 20px;
-  margin-left: 80px;
-  margin: 10px 5px 10px 5px 0;
+display: flex;
+font-size: 20px;
+flex-flow: row wrap;
+align-items: center;
+margin-bottom: 20px;
+margin-left: 80px;
+margin: 10px 5px 10px 5px 0;
 }
 
-.dropdown-menu {
-  width: 300px !important;
-  height: 400px !important;
+select {
+width: 190px !important;
+height: 30px !important;
+font-size: 19px;
+border: 1px solid rgb(134, 132, 153);
+background-color: #edf2fc;
+}
+
+.inputStyle{
+width: 190px !important;
+height: 30px !important;
+font-size: 19px;
+border-radius: 10%;
+background-color: #edf2fc;
 }

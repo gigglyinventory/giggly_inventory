@@ -1,5 +1,6 @@
 import React from "react";
 import "./EndOfDay.css";
+import {Button} from "reactstrap"
 //import {baseUrl} from '../../config.json';
 
 class Admin extends React.Component{
@@ -69,55 +70,61 @@ class Admin extends React.Component{
 
     return(
       <div className="productionStyle">
+      <h2 className="inventory">Add user</h2>
+
       <form method="POST" action="/admin/add-user">
-        <div class="enter_user">
+        <div className="form-inlineAdmin">
           <label>First Name</label>
           <input type="text" name="userFirstName"></input>
         </div>
-        <div class="enter_user">
+        <div className="form-inlineAdmin">
           <label>Last Name</label>
           <input type="text" name="userLastName"></input>
         </div>
-        <div class="enter_user">
+        <div className="form-inlineAdmin">
           <label>E-mail Address</label>
           <input type="text" name="email"></input>
         </div>
-        <div class="enter_user">
+        <div className="form-inlineAdmin">
           <label>Username</label>
           <input type="text" name="username"></input>
         </div>
-        <div class="enter_user">
+        <div className="form-inlineAdmin">
           <label>Enter Password</label>
           <input type="text" name="password"></input>
         </div>
-        <div class="enter_user">
+        <div className="form-inlineAdmin">
           <label>Re-Enter Password</label>
           <input type="text" name="passwordConf"></input>
         </div>
-        <div class="enter_user">
+        <div className="form-inlineAdmin">
           <label for="permissions">Permissions</label>
           <select id="permissions"
             name="design"
             value={this.name}
             onChange={this.handleChange}>{permissionsList}</select>
         </div>
-        <div class="enter_user">
-          <button type="submit">Sign-up</button>
+        <div className="form-inlineAdmin">
+          <Button type="submit">Sign-up</Button>
         </div>
+        <br />
         </form>
         <br></br>
+        <h2 className="inventory">Delete user</h2>
         <form method="POST" action="/admin/delete-user">
-          <div class="enter_user">
+        <div className="form-inlineAdmin">
           <label>Username</label>
-          <input type="text" name="username"></input> <button type="submit">Delete</button>
+          <input type="text" name="username"></input> 
+          <br />
+          <Button type="submit">Delete user</Button>
           </div>
         </form>
-        <form method="GET" action="/admin/get-users">
+        {/*<form method="GET" action="/admin/get-users">
           <div class="enter_user">
           <h2>{this.state.users[0].UserFirstName}</h2> <h2>{this.state.users[0].UserLastName}</h2>
           <button type="submit">Display User List</button>
           </div>
-        </form>
+    </form>*/}
       </div>
 
     );

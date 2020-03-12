@@ -36,27 +36,27 @@ class InventoryTable extends React.Component{
     {console.log('in render ', this.state)}
     const materials = this.state.materials.map((item, index) =>{
       return(
-        <tr>
-        <td key={index}>{item.MaterialName}</td>
-          <td key={index}> {item.InStock}</td>
+        <tr key={index}>
+        <td >{item.MaterialName}</td>
+          <td > {item.InStock}</td>
         </tr>
         )})
       const products = this.state.products.map((item, index) =>{
           return(
-            <tr>
-              <td key={index}> {item.ProductName}</td>
-              <td key={index}> {item.ReadyShip}</td>
+            <tr key={index}>
+              <td > {item.ProductName}</td>
+              <td > {item.ReadyShip}</td>
             </tr>
             )})
 
 
     return(
-      <div>
-      <Table striped bordered hover variant="dark">
+      <div className="inventoryStyle">
+      <Table striped bordered hover>
       <thead>
         <tr>
-          <th>Products</th>
-          <th>Ready to ship</th>
+          <th>Product Name</th>
+          <th>Ready - Ship</th>
         </tr>
         </thead>
         <tbody>
@@ -64,11 +64,11 @@ class InventoryTable extends React.Component{
         </tbody>
       </Table>
       <br />
-      <Table striped bordered hover variant="dark">
+      <Table striped bordered hover>
       <thead>
         <tr>
           <th>Raw Materials</th>
-          <th>In Stock</th>
+          <th>  In - Stock </th>
         </tr>
         </thead>
         <tbody>
@@ -80,23 +80,5 @@ class InventoryTable extends React.Component{
     ) 
   }
 }
-
-
-
-
-
-
-  //   <div>
-  //   {this.state.materials.map((item) =>
-  //     <div>
-  //     <h5>{item.materialName}</h5>
-  //     <h5>{item.inStock}</h5>
-  //     </div>)}
-  // </div>
-
-    // )
-    
-
-
 
 export default InventoryTable
