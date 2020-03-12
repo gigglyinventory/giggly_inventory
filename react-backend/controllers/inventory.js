@@ -13,9 +13,12 @@ exports.getInventory = (req, res, next) => {
 }
 
 exports.getProductionStepMaterials = (req, res, next) => {
-  Product.fetchProductionStep()
-    .then(materials => {
-      res.json(materials)
-    })
-    .catch(err => console.log(err));
-}
+  console.log('############### in controllers fetchProductionStep ##################', req.body)
+  const ProductName = req.body.ProductName;
+  const ProductColor = req.body.ProductColor
+  const ProductDepartment = req.body.ProductDepartment
+  response = Product.fetchProductionStep(ProductName, ProductColor, ProductDepartment)
+  res.send(response)
+    .catch(err => console.log(err))
+    res.redirect('/production')
+};

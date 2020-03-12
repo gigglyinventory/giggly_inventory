@@ -1,14 +1,11 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import "./EndOfDay.css";
-<<<<<<< HEAD
-import {Button} from "reactstrap"
-=======
 import EndOfDay, {getDate} from './EndOfDay';
->>>>>>> d40e7bb13ddf9278f1e0ccd017b5f65aebdf666e
 import Output, {addMessage} from './Output'
+import {Button} from "reactstrap";
+
 //import * as utils from './Output.js';
 //import {addMessage} from './Output.js';
 //const addMessage = require("./Output").addMessage;
@@ -56,12 +53,8 @@ class Grills extends React.Component{
     Will look into Modal for a possible replacement*/
   submit(){
     var title = "Summary"
-<<<<<<< HEAD
-    var date = this.state.year + "-" + this.state.month + "-" + this.state.day  ;
-=======
     var date = getDate();
     this.state.date = date;
->>>>>>> d40e7bb13ddf9278f1e0ccd017b5f65aebdf666e
     var product= "Product: Design: " + this.state.design + ". Color: " + this.state.color;
     var mBelovac= "Belovac: Completed: " + this.state.belovac + ". Lost: " + this.state.belovacLost;
     var mGuillotine= "Guillotine: Completed: " + this.state.guillotine + ". Lost: " + this.state.guillotineLost;
@@ -118,15 +111,14 @@ render() {
 
   return (
 
-    <div>
-      <h2 class="end">Grill</h2>
+    <div className="form-inlineEnd">
+      <h2 className="inventory">Grill</h2>
       {/*I use forms for each row of inputs to unify the spacing and positions*/}
 
-      <form method="POST" action="/endOfDay">
-
       <form method="POST" action="/endOfDay/update-grills">
+        <input className="inputStyle" name= "date" value={getDate()}></input>
 
-        <div class="form-inline">
+        <div className="form-inlineEnd">
           <label for="grill_design">Design: </label>
           <select id="grill_design"
             name="design"
@@ -140,111 +132,111 @@ render() {
         </div>
 
         {/*Headers for the production steps*/}
-        <div class="form-inline">
-          <label><b>Process</b></label>
-          <label><b>Completed</b></label>
+        <div class="form-inlineEnd">
+        <label style={{marginRight:"100px"}}></label>
+          <label style={{marginRight:"150px"}}><b>Completed</b></label>
           <label><b>Lost</b></label>
         </div>
 
+
         {/*Below is the input fields for all the production steps for the Grills
           Each step is in a form that contains a label, completed, and lost*/}
-          <div class="form-inline">
+          <div className="form-inlineEnd">
             <label for="grill_vac">Belovac: </label>
-            <input id="grill_vac" type="text"
+            <input className="inputStyle" id="grill_vac" type="text"
               name="belovac"
               value={this.name}
               defualtValue="" maxlength="5" size="8"
               onChange={this.handleChange}/>
-            <input id="vac_lost" type="text"
+            <input className="inputStyle" id="vac_lost" type="text"
               name="belovacLost"
               value={this.name}
               defualtValue="" maxlength="5" size="8"
               onChange={this.handleChange}/>
           </div>
 
-          <div class="form-inline">
+          <div className="form-inlineEnd">
             <label for="grill_guil">Guillotine: </label>
-            <input id="grill_guil" type="text"
+            <input className="inputStyle" id="grill_guil" type="text"
               value={this.name}
               name="guillotine" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
-            <input id="guillotineLost" type="text"
+            <input className="inputStyle" id="guil_lost" type="text"
               value={this.name}
               name="guillotineLost" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
           </div>
 
 
-          <div class="form-inline">
+          <div className="form-inlineEnd">
             <label for="grill_zip">RotoZip: </label>
-            <input id="grill_zip" type="text"
+            <input className="inputStyle" id="grill_zip" type="text"
               value={this.name}
               name="rotozip" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
-            <input id="zip_lost" type="text"
+            <input className="inputStyle" id="zip_lost" type="text"
               value={this.name}
               name="rotozipLost" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
           </div>
 
 
-          <div class="form-inline">
+          <div className="form-inlineEnd">
             <label for="grill_sand">Sanding: </label>
-            <input id="grill_sand" type="text"
+            <input className="inputStyle" id="grill_sand" type="text"
               value={this.name}
               name="sanding" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
-            <input id="sand_lost" type="text"
+            <input className="inputStyle" id="sand_lost" type="text"
               value={this.name}
               name="sandingLost" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
           </div>
 
 
-          <div class="form-inline">
+          <div className="form-inlineEnd">
             <label for="grill_assem">Velcro: </label>
-            <input id="grill_assem" type="text"
+            <input className="inputStyle" id="grill_assem" type="text"
               value={this.name}
               name="velcro" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
-            <input id="assem_lost" type="text"
+            <input className="inputStyle" id="assem_lost" type="text"
               value={this.name}
               name="velcroLost" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
           </div>
 
 
-          <div class="form-inline">
+          <div className="form-inlineEnd">
             <label for="grill_vin">Stickers: </label>
-            <input id="grill_vin" type="text"
+            <input className="inputStyle" id="grill_vin" type="text"
               value={this.name}
               name="stickers" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
-            <input id="vin_lost" type="text"
+            <input className="inputStyle" id="vin_lost" type="text"
               value={this.name}
               name="stickersLost" defualtValue="" maxlength="10" size="8"
               onChange={this.handleChange}/>
           </div>
 
 
-          <div class="form-inline">
+          <div className="form-inlineEnd">
             <label for="grill_pac">Packaging: </label>
-            <input id="grill_pac" type="text"
+            <input className="inputStyle" id="grill_pac" type="text"
             value={this.name}
             name="packaging" defualtValue="" maxlength="10" size="8"
             onChange={this.handleChange}/>
-            <input id="pac_lost" type="text"
+            <input className="inputStyle" id="pac_lost" type="text"
             value={this.name}
             name="packagingLost" defualtValue="" maxlength="10" size="8"
             onChange={this.handleChange}/>
           </div>
 
 
-        {/*This button takes all information inputed form the input fields and calls the alert*/}
-          <div class="form-inline">
+        {/*This Button takes all information inputed form the input fields and calls the alert*/}
+          <div className="form-inlineEnd">
             <Button type="submit" onClick={this.submit}>Add</Button>
           </div>
-      </form>
       </form>
     </div>
   );

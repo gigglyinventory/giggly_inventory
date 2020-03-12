@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import Grills from "./Grills"
 import Feet from "./Feet"
 import Skins from "./Skins"
@@ -27,7 +26,6 @@ class EndOfDay extends React.Component{
     date = value;
   }
   handleChange(evt){
-    console.log(evt.target.value);
     const value = evt.target.value;
 
     this.setState({value});
@@ -36,13 +34,15 @@ class EndOfDay extends React.Component{
 
   render(){
     return(
-      <div>
+      <div className="endOfDayStyle">
         <div>
+        <div  style={{marginBottom:"30px"}}>
           <label>Date: </label>
-          <input class="calender" type="date" name="submitDate" value={this.name} onChange={this.handleChange}></input>
+          <input className="calender" type="date" name="submitDate" value={this.name} onChange={this.handleChange}></input>
         </div>
-        <div class="top">
-          <div class="sections">
+        </div>
+        <div className="top">
+          <div className="sections">
             <div>
               <Grills />
             </div>

@@ -2,19 +2,17 @@ import React from "react";
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import "./EndOfDay.css";
-<<<<<<< HEAD
+import EndOfDay, {getDate} from './EndOfDay';
 import {Button} from "reactstrap"
 import Output, {addMessage} from './Output'
-=======
-import Output, {addMessage} from './Output';
-import EndOfDay, {getDate} from './EndOfDay'
->>>>>>> d40e7bb13ddf9278f1e0ccd017b5f65aebdf666e
 
 class Feet extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      date: "",
+      month: "07",
+      day: "17",
+      year: "1998",
       design: "Puppy",
       color: "Black",
       delivered: "5",
@@ -39,15 +37,14 @@ class Feet extends React.Component{
 
   submit(){
     var title = "Summary"
-    var date = getDate();
-    this.state.date = date;
+    var date = "Date: " + this.state.month +"/"+ this.state.day +"/"+ this.state.year;
     var product= "Product: Design: " + this.state.design + ". Color: " + this.state.color;
     var mDelivered= "Delivered: Completed: " + this.state.delivered + ". Lost: " + this.state.deliveredLost;
     var mTrim= "Trim: Completed: " + this.state.trim + ". Lost: " + this.state.trimLost;
     var mScrew= "Screw: Completed: " + this.state.screw + ". Lost: " + this.state.screwLost;
     var mPackaing= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
     var message= title +"\n"+ date + "\n" + product+"\n"+mDelivered+"\n"+mTrim+"\n"+mScrew+"\n"+mPackaing;
-    var show = "Feet|" + this.state.color+ "|Del:"+ this.state.delivered+ "-" + this.state.deliveredLost + "|Trm:" + this.state.trim + "-" + this.state.trimLost + "|Srw:" + this.state.screw + "-" + this.state.screwLost + "|Pac:" + this.state.packaging + "-" + this.state.packagingLost;
+    var show = "Puppy|" + this.state.color+ "|D:"+ this.state.delivered+ "-" + this.state.deliveredLost + "|T:" + this.state.trim + "-" + this.state.trimLost + "|S:" + this.state.screw + "-" + this.state.screwLost + "|P:" + this.state.packaging + "-" + this.state.packagingLost;
     {/*This shows the alert with the summary*/}
     alert(message)
     {/*If click confirm add to database, click deny will not*/}
@@ -80,29 +77,13 @@ class Feet extends React.Component{
     return(
 
       <div>
-        <h2 class="end">Feet</h2>
-<<<<<<< HEAD
+        <h2 className="inventory">Feet</h2>
         <form method="POST" action="/endOfDay/update-feet">
-          <div class="inline-date">
-            <label>Date: </label>
-            <input type="type"
-              name="month"
-              value={this.name}
-              placeholder="MM" maxlength="2" size="2"
-              onChange={this.handleChange}/>
-            <input type="type"
-              name="day"
-              value={this.name}
-              placeholder="DD" maxlength="2" size="2"
-              onChange={this.handleChange}/>
-            <input type="type"
-              name="year"
-              value={this.name}
-              placeholder="YYYY" maxlength="4" size="2"
-              onChange={this.handleChange}/>
+          <div className="form-inlineEnd">
+            <input className="inputStyle" name= "date" value={getDate()}></input>
           </div>
 
-          <div class="form-inline">
+          <div className="form-inlineEnd">
             <label for="puppy_color">Colors: </label>
             <select id="puppy_color"
               name="design"
@@ -110,88 +91,67 @@ class Feet extends React.Component{
               onChange={this.handleChange}>{colorsList}</select>
           </div>
 
-          <div class="form-inline">
-            <label><b>Process</b></label>
-            <label><b>Completed</b></label>
+          <div class="form-inlineEnd">
+          <label style={{marginRight:"100px"}}></label>
+            <label style={{marginRight:"150px"}}><b>Completed</b></label>
             <label><b>Lost</b></label>
           </div>
-
-          <div class="form-inline">
+  
+          <div className="form-inlineEnd">
             <label for="feet_deliv">Delivered: </label>
-            <input id="delivered" type="text"
+            <input className="inputStyle" id="delivered" type="text"
               name="delivered"
               value={this.name}
               defualtValue="" maxlength="5" size="8"
               onChange={this.handleChange}/>
-            <input id="deliveredLost" type="text"
+            <input className="inputStyle" id="deliveredLost" type="text"
               name="deliveredLost"
               value={this.name}
               defualtValue="" maxlength="5" size="8"
               onChange={this.handleChange}/>
           </div>
 
-          <div class="form-inline">
+          <div className="form-inlineEnd">
             <label for="feet_trim">Trim: </label>
-            <input id="trim" type="text"
+            <input className="inputStyle" id="trim" type="text"
               name="trim"
               value={this.name}
               defualtValue="" maxlength="5" size="8"
               onChange={this.handleChange}/>
-            <input id="trimLost" type="text"
+            <input className="inputStyle" id="trimLost" type="text"
               name="trimLost"
               value={this.name}
               defualtValue="" maxlength="5" size="8"
               onChange={this.handleChange}/>
           </div>
 
-          <div class="form-inline">
+          <div className="form-inlineEnd">
             <label for="feet_screw">Screw: </label>
-            <input id="screw" type="text"
+            <input className="inputStyle" id="screw" type="text"
               name="screw"
               value={this.name}
               defualtValue="" maxlength="5" size="8"
               onChange={this.handleChange}/>
-            <input id="screwLost" type="text"
+            <input className="inputStyle" id="screwLost" type="text"
               name="screwLost"
               value={this.name}
               defualtValue="" maxlength="5" size="8"
               onChange={this.handleChange}/>
           </div>
 
-          <div class="form-inline">
+          <div className="form-inlineEnd">
             <label for="feet_pac">Packaging: </label>
-            <input id="packaging" type="text"
+            <input className="inputStyle" id="packaging" type="text"
             name="packaging"
-=======
-
-        <div class="form-inline">
-          <label for="puppy_color">Colors: </label>
-          <select id="puppy_color"
-            name="design"
-            value={this.name}
-            onChange={this.handleChange}>{colorsList}</select>
-        </div>
-
-        <div class="form-inline">
-          <label><b>Process</b></label>
-          <label><b>Completed</b></label>
-          <label><b>Lost</b></label>
-        </div>
-
-        <div class="form-inline">
-          <label for="feet_deliv">Delivered: </label>
-          <input id="delivered" type="text"
-            name="delivered"
->>>>>>> d40e7bb13ddf9278f1e0ccd017b5f65aebdf666e
             value={this.name}
             defualtValue="" maxlength="5" size="8"
             onChange={this.handleChange}/>
-            <input id="packagingLost" type="text"
+            <input className="inputStyle" id="packagingLost" type="text"
             name="packagingLost"
             defualtValue="" maxlength="10" size="8"
             onChange={this.handleChange}/>
           </div>
-          <div class="form-inline">
+          <div className="form-inlineEnd">
             <Button type="submit" onClick={this.submit}>Add</Button>
           </div>
         </form>

@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import logo from './giggly_logo.PNG';
 import "./App.css";
 
@@ -32,13 +31,13 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>
-      <header className="App-header">
+      <div className="style-main">
+      <header>
         <img src={logo} className="App-logo" alt="giggly_logo" />
         <form method="POST" action="/login/post-login">
           <label for="username">Username </label>
           <br />
-          <input
+          <input style={{fontSize: "20px", backgroundColor: "edf2fc"}}
             id="enter_username"
             type="text"
             name="username"
@@ -50,7 +49,7 @@ class Login extends React.Component {
           <br />
           <label for="password">Password </label>
           <br />
-          <input
+          <input style={{fontSize: "20px", backgroundColor: "edf2fc"}}
             id="enter_password"
             type={this.state.hidden ? "password" : "text"}
             name="password"
@@ -63,7 +62,8 @@ class Login extends React.Component {
           <br />
           <button type="submit" class="button">Login</button>
           <br />
-          <input type="checkbox" onClick={this.toggleShow} />Show Password
+          <input type="checkbox" onClick={this.toggleShow} />
+          <label style={{fontSize: "small"}}>Show Password</label>
         </form>
         {/*This is the link for the main store website*/}
         <a
