@@ -1,8 +1,9 @@
 const User = require('../models/user');
 
 const bcrypt = require('bcryptjs');
-const loginGate = require('../../giggly-ui/src/login-gate');
-
+import loginGate from '../../giggly-ui/src/login-gate';
+import userSession from '../../giggly-ui/src/userSession';
+import Login from '../../giggly-ui/src/Components/Login';
 var isLogged;
 
 exports.getLogin = (req, res, next) => {
@@ -13,13 +14,13 @@ exports.getLogin = (req, res, next) => {
     });
 };
 
-exports.getSignup = (req,res,next) => {
-    res.render('auth/signup', {
-        path: '/signup',
-        pageTitle: 'Signup',
-        isAuthenticated: false
-    });
-};
+// exports.getSignup = (req,res,next) => {
+//     res.render('auth/signup', {
+//         path: '/signup',
+//         pageTitle: 'Signup',
+//         isAuthenticated: false
+//     });
+// };
 
 exports.postLogin = (req, res, next) => {
   const username = req.body.username;
@@ -39,6 +40,10 @@ exports.postLogin = (req, res, next) => {
           if (doMatch){
             console.log('they do match')
             req.session.isLoggedIn = true;
+            userSession.setSession = true;
+            userSession.setUsername = username;
+            res.render('/');
+            sessionStorage.setItem('isLoggedIn', 'true');
             req.session.user = username;
             return req.session.save(err => {
               //console.log(err);
