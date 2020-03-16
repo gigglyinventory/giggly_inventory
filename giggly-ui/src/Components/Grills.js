@@ -18,15 +18,9 @@ class Grills extends React.Component{
   /*Variables for the Grills.js input. have data hardcoded for time save*/
     this.state = {
       date: "",
-<<<<<<< HEAD
-      design: "Truck",
-      color: "Black",
-      belovac: "",
-=======
       design: "",
       color: "",
       belovac: "0",
->>>>>>> gigglyinventory-master
       belovacLost: "0",
       guillotine: "0",
       guillotineLost: "0",
@@ -55,11 +49,7 @@ class Grills extends React.Component{
     you will get an alert with a summary then a confirmation popup to confirm.
     Will look into Modal for a possible replacement*/
   submit(event){
-<<<<<<< HEAD
-    //event.preventDefault()
-=======
     event.preventDefault();
->>>>>>> gigglyinventory-master
     var title = "Summary"
     var date = getDate();
     this.state.date = date;
@@ -70,15 +60,9 @@ class Grills extends React.Component{
     var mSanding= "Sanding: Completed: " + this.state.sanding + ". Lost: " + this.state.sandingLost;
     var mVelcro= "Velcro: Completed: " + this.state.velcro + ". Lost: " + this.state.velcroLost;
     var mStickers= "Stickers: Completed: " + this.state.stickers + ". Lost: " + this.state.stickersLost;
-<<<<<<< HEAD
-    var mPackaging= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
-    var message= title +"\n"+ date + "\n" + product+"\n"+mBelovac+"\n"+mGuillotine+"\n"+mRotozip+"\n"+mSanding+"\n"+mVelcro+"\n"+mStickers+"\n"+mPackaging;
-    var show = "Grill|" + this.state.design+ "|" + this.state.color + "|Bel:" + this.state.belovac +"-"+this.state.belovacLost+"|Gui:"+this.state.guillotine+"-"+this.state.guillotineLost+"|Rto:"+this.state.rotozip+"-"+this.state.rotozipLost+"|Snd:"+this.state.sanding+"-"+this.state.sandingLost+"|Vlc:"+this.state.velcro+"-"+this.state.velcroLost+"|Stk:"+this.state.stickers+"-"+this.statestickersLost+"|Pac:"+this.state.packaging+"-"+this.state.packagingLost;
-=======
     var mPackaing= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
     var message= title +"\n"+ date + "\n" + product+"\n"+mBelovac+"\n"+mGuillotine+"\n"+mRotozip+"\n"+mSanding+"\n"+mVelcro+"\n"+mStickers+"\n"+mPackaing;
     var show = "Grill | " + this.state.design+ " | " + this.state.color + " | Bel:" + this.state.belovac +"-"+this.state.belovacLost+" | Gui:"+this.state.guillotine+"-"+this.state.guillotineLost+" | Rto:"+this.state.rotozip+"-"+this.state.rotozipLost+" | Snd:"+this.state.sanding+"-"+this.state.sandingLost+" | Vlc:"+this.state.velcro+"-"+this.state.velcroLost+" | Stk:"+this.state.stickers+"-"+this.state.stickersLost+" | Pac:"+this.state.packaging+"-"+this.state.packagingLost;
->>>>>>> gigglyinventory-master
     {/*This shows the alert with the summary*/}
     alert(message)
     {/*If click confirm add to database, click deny will not*/}
@@ -127,21 +111,10 @@ render() {
 
   return (
 
-<<<<<<< HEAD
-    <div >
-      <h2 className="inventory">Grill</h2>
-      {/*I use forms for each row of inputs to unify the spacing and positions*/}
-
-      <form method="POST" action="/endOfDay/update-grills" onSubmit={this.submit}>
-        <div className="form-inlineEnd">
-        <input className="inputStyle" name= "date" value={getDate()}></input>
-        </div>
-=======
     <div>
       <h2 class="end">Grill</h2>
       {/*I use forms for each row of inputs to unify the spacing and positions*/}
 
->>>>>>> gigglyinventory-master
 
       <form method="POST" action="/endOfDay/update-grills" onSubmit={this.submit}>
         <div class="form-inline">
@@ -161,15 +134,9 @@ render() {
         </div>
 
         {/*Headers for the production steps*/}
-<<<<<<< HEAD
-        <div class="form-inlineEnd">
-        <label style={{marginRight:"40px"}}></label>
-          <label style={{marginRight:"70px"}}><b>Completed</b></label>
-=======
         <div class="form-inline">
           <label><b>Process</b></label>
           <label><b>Completed</b></label>
->>>>>>> gigglyinventory-master
           <label><b>Lost</b></label>
         </div>
 
@@ -267,18 +234,10 @@ render() {
           </div>
 
 
-<<<<<<< HEAD
-        {/*This Button takes all information inputed form the input fields and calls the alert*/}
-        <div class ="form-inline">
-        <Button type="submit">Add</Button>
-        </div>
-
-=======
         {/*This button takes all information inputed form the input fields and calls the alert*/}
           <div class="form-inline">
             <Button type="submit">Add</Button>
           </div>
->>>>>>> gigglyinventory-master
       </form>
     </div>
   );

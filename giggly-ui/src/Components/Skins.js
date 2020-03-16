@@ -105,15 +105,9 @@ class Skins extends React.Component{
             onChange={this.handleChange}>{walkerList}</select>
         </div>
 
-<<<<<<< HEAD
         <div className="form-inlineEnd">
         <label style={{marginRight:"40px"}}></label>
           <label style={{marginRight:"70px"}}><b>Completed</b></label>
-=======
-        <div class="form-inline">
-          <label><b>Process</b></label>
-          <label><b>Completed</b></label>
->>>>>>> gigglyinventory-master
           <label><b>Lost</b></label>
         </div>
 

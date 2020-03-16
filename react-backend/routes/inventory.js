@@ -4,6 +4,6 @@ var inventoryController = require('../controllers/inventory');
 
 router.get('/get-inventory', inventoryController.getInventory);
 router.post('/fetch-production-step', inventoryController.getProductionStepMaterials)
-router.post('/updateReadyShip', inventoryController.updateReadyShip)
+router.post('/update-ready-ship', inventoryController.PostUpdateReadyShip)
 
 module.exports = router;

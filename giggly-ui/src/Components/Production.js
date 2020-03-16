@@ -1,7 +1,6 @@
 import React from "react"
 import "./Production.css";
-import {Button, Form} from "reactstrap"
-import axios from 'axios'
+import {Button, Form, Table} from "reactstrap"
 
 const products = [
     {id: '0', name: 'Select'},
@@ -100,15 +99,14 @@ class Production extends React.Component{
     
 
     render(){
-        // const productions = this.state.productions.map((item, index) =>{
-        //     return(
-        //       <tr key={index}>
-        //       <td >{item.}</td>
-        //       <td >{item.}</td>
-        //       <td >{item.}</td>
-        //       <td >{item.}</td>
-        //       </tr>
-        //       )})
+        const productions = this.state.productionList.map((item, index) =>{
+            return(
+              <tr key={index}>
+              <td >{item.MaterialName}</td>
+              <td >{item.InStock}</td>
+              <td >{item.Lost}</td>
+              </tr>
+              )})
         return(
         <div className="productionStyle">
            <h2 className="inventory">Productions </h2>
@@ -132,6 +130,19 @@ class Production extends React.Component{
             <br/>
             <h2 className="inventory">Productions List</h2>
             </div>
+            <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>MaterialName</th>
+                <th>In stock</th>
+                <th>Lost</th>
+              </tr>
+              </thead>
+              <tbody>
+              {productions}
+              </tbody>
+            </Table>
+            
             </div>
     )
 }
