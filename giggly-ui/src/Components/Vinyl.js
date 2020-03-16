@@ -10,19 +10,10 @@ class Vinyl extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      month: "07",
-      day: "17",
-      year: "1998",
-      design: "Puppy",
-      color: "Black",
-      delivered: "5",
-      deliveredLost: "2",
-      trim: "6",
-      trimLost: "1",
-      screw: "4",
-      screwLost: "0",
-      packaging: "10",
-      packagingLost: "5"
+      date: "",
+      vinyl: "",
+      delivered: "0",
+      used: "0"
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -31,20 +22,17 @@ class Vinyl extends React.Component{
   }
 
   sendToSummary(message){
-    alert(message)
     addMessage(message)
   }
 
   submit(){
-    var title = "Summary"
-    var date = "Date: " + this.state.month +"/"+ this.state.day +"/"+ this.state.year;
-    var product= "Product: Design: " + this.state.design + ". Color: " + this.state.color;
-    var mDelivered= "Delivered: Completed: " + this.state.delivered + ". Lost: " + this.state.deliveredLost;
-    var mTrim= "Trim: Completed: " + this.state.trim + ". Lost: " + this.state.trimLost;
-    var mScrew= "Screw: Completed: " + this.state.screw + ". Lost: " + this.state.screwLost;
-    var mPackaing= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
-    var message= title +"\n"+ date + "\n" + product+"\n"+mDelivered+"\n"+mTrim+"\n"+mScrew+"\n"+mPackaing;
-    var show = "Puppy|" + this.state.color+ "|D:"+ this.state.delivered+ "-" + this.state.deliveredLost + "|T:" + this.state.trim + "-" + this.state.trimLost + "|S:" + this.state.screw + "-" + this.state.screwLost + "|P:" + this.state.packaging + "-" + this.state.packagingLost;
+    var title = "Summary";
+    var date = getDate();
+    this.state.date = date;
+    var product= "Vinyl: " + this.state.vinyl;
+    var mDelivered= "Delivered:" + this.state.delivered + ". used: " + this.state.used;
+    var message= title +"\n"+ date + "\n" + product+"\n"+mDelivered;
+    var show = "Vinyl | " + this.state.material + " | " + "Del:" + this.state.delivered + "-" + this.state.used;
     {/*This shows the alert with the summary*/}
     alert(message)
     {/*If click confirm add to database, click deny will not*/}
@@ -64,14 +52,16 @@ class Vinyl extends React.Component{
 
   render(){
 
-    const colors = [
-      {id: 'em', name: 'Select'},
-      {id: 'rd', name: 'Red'},
-      {id: 'bu', name: 'Blue'},
-      {id: 'bk', name: 'Black'}
+    const vinyls = [
+      {id: '', name: ''},
+      {id: 'gen', name: 'General'},
+      {id: '105', name: '1105'},
+      {id: '106', name: '1106'},
+      {id: 'lam', name: 'Laminat'},
     ];
-    let colorsList = colors.length > 0 && colors.map((item, i) => {
-      return (<option key={i} value={item.id}>{item.name}</option>)
+
+    let vinylsList = vinyls.length > 0 && vinyls.map((item, i) => {
+      return (<option key={i} value={item.name}>{item.name}</option>)
     }, this)
 
     return(
@@ -84,82 +74,28 @@ class Vinyl extends React.Component{
 
           <form method="POST" action="/endOfDay/update-feet">        
             <div class="form-inlineEnd">
-              <label for="puppy_color">Colors: </label>
-              <select id="puppy_color"
-                name="design"
-                value={this.name}
-                onChange={this.handleChange}>{colorsList}</select>
+            <label for="materials">Vinyl Type: </label>
+            <select id="materials"
+              name="material"
+              value={this.name}
+              onChange={this.handleChange}>{vinylsList}</select>
             </div>
-
-            <div class="form-inlineEnd">
-              <label style={{marginRight:"40px"}}></label>
-              <label style={{marginRight:"70px"}}><b>Completed</b></label>
-              <label><b>Lost</b></label>
-            </div>
-
-            <div class="form-inlineEnd">
-              <label for="feet_deliv">Delivered: </label>
-              <input id="delivered" type="text"
-                name="delivered"
-                value={this.name}
-                defualtValue="" maxlength="5" size="8"
-                onChange={this.handleChange}
-                className="inputStyle"/>
-              <input id="deliveredLost" type="text"
-                name="deliveredLost"
-                value={this.name}
-                defualtValue="" maxlength="5" size="8"
-                onChange={this.handleChange}
-                className="inputStyle"/>
-            </div>
-
-            <div class="form-inlineEnd">
-              <label for="feet_trim">Trim: </label>
-              <input id="trim" type="text"
-                name="trim"
-                value={this.name}
-                defualtValue="" maxlength="5" size="8"
-                onChange={this.handleChange}
-                className="inputStyle"/>
-              <input id="trimLost" type="text"
-                name="trimLost"
-                value={this.name}
-                defualtValue="" maxlength="5" size="8"
-                onChange={this.handleChange}
-                className="inputStyle"/>
-            </div>
-
-            <div class="form-inlineEnd">
-              <label for="feet_screw">Screw: </label>
-              <input id="screw" type="text"
-                name="screw"
-                value={this.name}
-                defualtValue="" maxlength="5" size="8"
-                onChange={this.handleChange}
-                className="inputStyle"/>
-              <input id="screwLost" type="text"
-                name="screwLost"
-                value={this.name}
-                defualtValue="" maxlength="5" size="8"
-                onChange={this.handleChange}
-                className="inputStyle"/>
-            </div>
-
-            <div class="form-inlineEnd">
-              <label for="feet_pac">Packaging: </label>
-              <input id="packaging" type="text"
-              name="packaging"
+  
+          <div class="form-inline">
+            <label for="delivered">Delivered: </label>
+            <input id="delivered" type="text"
+              name="delivered"
               value={this.name}
               defualtValue="" maxlength="5" size="8"
-              onChange={this.handleChange}
-              className="inputStyle"/>
-              <input id="packagingLost" type="text"
-              name="packagingLost"
-              defualtValue="" maxlength="10" size="8"
-              onChange={this.handleChange}
-              className="inputStyle"/>
-            </div>
-              <Button onClick={this.submit}>Add</Button>
+              onChange={this.handleChange}/>
+            <label for="used">Used: </label>
+            <input id="used" type="text"
+              name="used"
+              value={this.name}
+              defualtValue="" maxlength="5" size="8"
+              onChange={this.handleChange}/>
+          </div>              
+          <Button onClick={this.submit}>Add</Button>
         </form>
 
       </div>

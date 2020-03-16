@@ -148,7 +148,6 @@ class Admin extends React.Component{
             {userList}
             </tbody>
           </Table>
-    
           </div>
     </form>
       </div>
