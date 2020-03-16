@@ -1,6 +1,7 @@
 import React from "react"
 import "./Production.css";
-import {Button} from "reactstrap"
+import {Button, Form} from "reactstrap"
+import axios from 'axios'
 
 const products = [
     {id: '0', name: 'Select'},
@@ -59,31 +60,79 @@ class Production extends React.Component{
     
     constructor(props){
         super(props);
-    
+        this.state = {ProductName: '',
+            ProductDepartment:'' ,
+            ProductColor: ''
+        }
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
+
+    handleChange(event){
+        console.log(event)
+        this.setState({ ProductName: event.target.ProductName,
+                        ProductDepartment: event.target.ProductDepartment,
+                        ProductColor: event.target.ProductColor})
+        console.log(this.state)
+    }
+
+    async handleSubmit(){
+        try{
+            //console.log('in handle submit ', this.state.ProductDepartment)
+            let url = '/inventory/fetch-production-step'
+            let ProductName = this.state.ProductName
+            let ProductDepartment = this.state.ProductDepartment
+            let ProductColor = this.state.ProductColor    
+            let response = await fetch(url, 
+                {method: 'POST',
+                body: JSON.stringify({ProductName: ProductName,
+                ProductDepartment:ProductDepartment ,
+                ProductColor: ProductColor
+                }),
+                headers:{ 'Content-Type': 'application/json'}})
+            let respnseJSON = await response.json()
+            this.setState(respnseJSON)
+            console.log('in handlesubmit the response is ',respnseJSON)
+        } catch (error){
+            console.log(error)
+        }
+    }
+    
+
     render(){
+        // const productions = this.state.productions.map((item, index) =>{
+        //     return(
+        //       <tr key={index}>
+        //       <td >{item.}</td>
+        //       <td >{item.}</td>
+        //       <td >{item.}</td>
+        //       <td >{item.}</td>
+        //       </tr>
+        //       )})
         return(
         <div className="productionStyle">
            <h2 className="inventory">Productions </h2>
 
-            <form method="POST" action="/product/fetch-production-step">
+            <Form >
                 <div className="formatInlinePro">
-                    <label for="products">Products: </label>
-                    <select class="fontSize" id="design" name="ProductName">{productsList}</select>
+                    <label>Products: </label>
+                    <select className="fontSize" id="ProductName"  name="ProductName" onChange={(e) => this.setState({ ProductName: e.target.value })}>{productsList}</select>
                 </div>
-
                 <div className="formatInlinePro">
                     <label>Steps: </label>
-                    <select class="fontSize" id="design" name="ProductDepartment">{productionList}</select>
+                    <select className="fontSize" id="ProductDepartment"  name="ProductDepartment" onChange={(e) => this.setState({ ProductDepartment: e.target.value })}>{productionList}</select>
                 </div>
-
                 <div className="formatInlinePro">
-                    <label for="color">Color: </label>
-                    <select class="fontSize" id="design" name="ProductCo0lor">{colorsList}</select>
+                    <label>Color: </label>
+                    <select className="fontSize" id="ProductColor"  name="ProductColor" onChange={(e) => this.setState({ ProductColor: e.target.value })}>{colorsList}</select>
                 </div>
-                <Button type="submit">Retrieve</Button>
-            </form>
-        </div>
+                <Button onClick = {this.handleSubmit}>Retrieve</Button>
+            </Form>
+            <div>
+            <br/>
+            <h2 className="inventory">Productions List</h2>
+            </div>
+            </div>
     )
 }
 }

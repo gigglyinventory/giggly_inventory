@@ -1,6 +1,7 @@
 import React from "react";
 import "./EndOfDay.css";
-import {Button} from "reactstrap"
+import "./App.css"
+import {Table, Button} from "reactstrap"
 //import {baseUrl} from '../../config.json';
 
 class Admin extends React.Component{
@@ -8,11 +9,11 @@ class Admin extends React.Component{
     super(props)
     this.state = {
       users: [{
-        UserID: '',
-        Password:'',
-        UserEmail:'',
-        UserFirstName:'',
-        UserLastName:''
+        userID: '',
+        password:'',
+        userEmail:'',
+        userFirstName:'',
+        userLastName:''
       }]
     } 
     //this.fetch = this.fetch.bind(this)
@@ -38,6 +39,7 @@ class Admin extends React.Component{
     }
   }
 
+  
   // async handleDelete(event){
   //   try{
   //       event.preventDefault();
@@ -57,6 +59,15 @@ class Admin extends React.Component{
 //   </div>
 // </form>
   render(){
+    const userList = this.state.users.map((item, index) =>{
+      return(
+        <tr key={index}>
+        <td >{item.userID}</td>
+        <td >{item.userEmail}</td>
+        <td >{item.userFirstName}</td>
+        <td >{item.userLastName}</td>
+        </tr>
+        )})
 
     const permissions = [
       {id: 'em', name: ''},
@@ -75,27 +86,27 @@ class Admin extends React.Component{
       <form method="POST" action="/admin/add-user">
         <div className="form-inlineAdmin">
           <label>First Name</label>
-          <input type="text" name="userFirstName"></input>
+          <input className="inputStyle" type="text" name="userFirstName"></input>
         </div>
         <div className="form-inlineAdmin">
           <label>Last Name</label>
-          <input type="text" name="userLastName"></input>
+          <input className="inputStyle" type="text" name="userLastName"></input>
         </div>
         <div className="form-inlineAdmin">
           <label>E-mail Address</label>
-          <input type="text" name="email"></input>
+          <input className="inputStyle" type="text" name="email"></input>
         </div>
         <div className="form-inlineAdmin">
           <label>Username</label>
-          <input type="text" name="username"></input>
+          <input className="inputStyle" type="text" name="username"></input>
         </div>
         <div className="form-inlineAdmin">
           <label>Enter Password</label>
-          <input type="text" name="password"></input>
+          <input className="inputStyle" type="text" name="password"></input>
         </div>
         <div className="form-inlineAdmin">
           <label>Re-Enter Password</label>
-          <input type="text" name="passwordConf"></input>
+          <input className="inputStyle" type="text" name="passwordConf"></input>
         </div>
         <div className="form-inlineAdmin">
           <label for="permissions">Permissions</label>
@@ -115,16 +126,31 @@ class Admin extends React.Component{
         <div className="form-inlineAdmin">
           <label>Username</label>
           <input type="text" name="username"></input> 
+          </div>
+          <div className="form-inlineAdmin">
           <br />
           <Button type="submit">Delete user</Button>
           </div>
         </form>
-        {/*<form method="GET" action="/admin/get-users">
+        <form method="GET" action="/admin/get-users">
           <div class="enter_user">
-          <h2>{this.state.users[0].UserFirstName}</h2> <h2>{this.state.users[0].UserLastName}</h2>
-          <button type="submit">Display User List</button>
+          <h2 className="inventory">Users List</h2>
+          <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>User ID</th>
+              <th>User Email</th>
+              <th>User First Name</th>
+              <th>User Last Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            {userList}
+            </tbody>
+          </Table>
+    
           </div>
-    </form>*/}
+    </form>
       </div>
 
     );

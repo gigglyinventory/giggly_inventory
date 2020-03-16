@@ -13,12 +13,30 @@ exports.getInventory = (req, res, next) => {
 }
 
 exports.getProductionStepMaterials = (req, res, next) => {
-  console.log('############### in controllers fetchProductionStep ##################', req.body)
+  console.log('############### in controllers fetchProductionStep ##################', req.body.ProductName, req.method, req.body)
   const ProductName = req.body.ProductName;
   const ProductColor = req.body.ProductColor
   const ProductDepartment = req.body.ProductDepartment
-  response = Product.fetchProductionStep(ProductName, ProductColor, ProductDepartment)
-  res.send(response)
+  Product.fetchProductionStep(ProductName, ProductColor, ProductDepartment)
+  .then(productions => {
+    console.log('The response is ', productions)
+    res.json({productions})
+  })
     .catch(err => console.log(err))
-    res.redirect('/production')
+   // res.redirect('/production')
 };
+
+exports.updateReadyShip = (req, res, next) => {
+  console.log('####################### in updateReadyShip #')
+  const date = req.body.date 
+  const name = req.body.name
+  const amount = req.body.quantity
+  console.log(date, name, amount)
+  if(name === "RedTruck"){ // ReadyShip departmentID for Grills is 35
+    Product.updateGrills(date, "Truck", "Red", 35, 39, amount, 0)
+      .catch(err => console.log(err))
+      res.redirect('/Sales')
+  } else{
+    res.redirect('/Sales')
+  }
+}

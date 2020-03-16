@@ -35,7 +35,6 @@ class Login extends React.Component {
       <header>
         <img src={logo} className="App-logo" alt="giggly_logo" />
         <form method="POST" action="/login/post-login">
-          <label for="username">Username </label>
           <br />
           <input style={{fontSize: "20px", backgroundColor: "edf2fc"}}
             id="enter_username"
@@ -47,7 +46,6 @@ class Login extends React.Component {
             placeholder="Username"
             />
           <br />
-          <label for="password">Password </label>
           <br />
           <input style={{fontSize: "20px", backgroundColor: "edf2fc"}}
             id="enter_password"

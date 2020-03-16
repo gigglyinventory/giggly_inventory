@@ -12,26 +12,26 @@ class Sales extends React.Component{
             productList: [],
         }
          this.products = [
-            {id: '', name: ''},
-            {id: 'pr', name: 'Paw Red'},
-            {id: 'pb', name: 'Paw Blue'},
-            {id: 'pbl', name: 'Paw Black'},
-            {id: 'tr', name: 'Truck Red'},
-            {id: 'tb', name: 'Truck Blue'},
-            {id: 'tbl', name: 'Truck Black'},
-            {id: 'nr', name: 'Noteboard Red'},
-            {id: 'nb', name: 'Noteboard Blue'},
-            {id: 'nbl', name: 'Noteboard Black'},
-            {id: 'sp', name: 'Sticker Packs'},
-            {id: 'fl2', name: '2-wheel Flowerific'},
-            {id: 'mi2', name: '2-wheel Military'},
-            {id: 'pa2', name: '2-wheel Patriotic'},
-            {id: 'wf2', name: '2-wheel WonderFall'},
-            {id: 'b2', name: '2-wheel Barktastic'},
-            {id: 'b4', name: '4-wheel Barktastic'},
-            {id: 'fl4', name: '4-wheel Flowerific'},
-            {id: 'wf4', name: '4-wheel WonderFall'},
-            {id: 'mi2', name: '4-wheel Military'}
+            {id: '', name: 'Select'},
+            {id: 'RedPaws', name: 'Paw Red'},
+            {id: 'BluePaws', name: 'Paw Blue'},
+            {id: 'BlackPaws', name: 'Paw Black'},
+            {id: 'RedTruck', name: 'Truck Red'},
+            {id: 'BlueTruck', name: 'Truck Blue'},
+            {id: 'BlackTruck', name: 'Truck Black'},
+            {id: 'RedNoteboard', name: 'Noteboard Red'},
+            {id: 'BlueNoteboard', name: 'Noteboard Blue'},
+            {id: 'BlackNoteboard', name: 'Noteboard Black'},
+            {id: 'WalkerTwoWheelFlowerific', name: 'Sticker Packs'},
+            {id: 'WalkerFourWheelFlowerific', name: '2-wheel Flowerific'},
+            {id: 'WalkerTwoWheelMilitary', name: '2-wheel Military'},
+            {id: 'WalkerTwoWheelPatriotic', name: '2-wheel Patriotic'},
+            {id: 'WalkerTwoWheelWonderFall', name: '2-wheel WonderFall'},
+            {id: 'WalkerTwoWheelBarktastic', name: '2-wheel Barktastic'},
+            {id: 'WalkerFourWheelBarktastic', name: '4-wheel Barktastic'},
+            {id: 'WalkerFourWheelFlowerific', name: '4-wheel Flowerific'},
+            {id: 'WalkerFourWheelWonderFall', name: '4-wheel WonderFall'},
+            {id: 'WalkerFourWheelMilitary', name: '4-wheel Military'}
         ];
 
         this.productsMenue = this.products.length > 0 && this.products.map((item, i) => {
@@ -57,9 +57,10 @@ class Sales extends React.Component{
         return(
             <div class="salesStyle">
                     <h2 className="inventory">Products Ordered</h2>
+                    <form method="POST" action="/inventory/updateReadyShip">
                     <div className="formatInline">
                         <label style={{fontSize: "20px"}}>Product: </label>
-                        <select id="design">{this.productsMenue}</select>
+                        <select id="design" name="name" value={this.id} onChange={(e) => this.setState({ ProductName: e.target.ProductName })}>{this.productsMenue}</select>
                         <label style={{fontSize: "20px"}}>Quantity: </label>
                         <input className="inputStyle" style={{marginLeft:"10px"}}/>
                     </div>
@@ -73,7 +74,7 @@ class Sales extends React.Component{
                                                 <label style={{marginLeft:"10px"}}>Product: </label>
                                                 <select id="design">{this.productsMenue}</select>
                                                 <label>Quantity: </label>
-                                                <input className="inputStyle" onChange={(e)=>this.handleChange(e, index)} value={prod}/>
+                                                <input className="inputStyle" name="quantity" onChange={(e)=>this.handleChange(e, index)} value={prod}/>
                                             </div>
                                         </div>
 
@@ -87,7 +88,7 @@ class Sales extends React.Component{
                     </div>
                     <div style={{fontSize: "19px"}}>
                         <label>Order date:</label>
-                        <input class="calender" type="date" name="order-date"></input>
+                        <input class="calender" type="date" name="date"></input>
                     </div>
 
                     <div style={{fontSize: "20px"}}>
@@ -128,6 +129,7 @@ class Sales extends React.Component{
                     <Button>
                         Submit
                     </Button>
+                    </form>
 
             </div>
     )

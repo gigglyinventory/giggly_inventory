@@ -9,6 +9,14 @@ class Feet extends React.Component{
   constructor(props){
     super(props);
     this.state = {
+<<<<<<< HEAD
+      design: "",
+      color: "",
+      trim: "0",
+      trimLost: "0",
+      assembly: "0",
+      assemblyLost: "0",
+=======
       date: "",
       design: "",
       color: "",
@@ -18,6 +26,7 @@ class Feet extends React.Component{
       trimLost: "0",
       screw: "0",
       screwLost: "0",
+>>>>>>> gigglyinventory-master
       packaging: "0",
       packagingLost: "0"
     };
@@ -35,6 +44,13 @@ class Feet extends React.Component{
     event.preventDefault();
     var title = "Summary"
     var date = getDate();
+<<<<<<< HEAD
+    var mTrim= "Trim: Completed: " + this.state.trim + ". Lost: " + this.state.trimLost;
+    var mAssembly= "assembly: Completed: " + this.state.assembly + ". Lost: " + this.state.assemblyLost;
+    var mPackaging= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
+    var message= title +"\n"+ date + "\n"+mTrim+"\n"+mAssembly+"\n"+mPackaging;
+    var show = "Puppy|" + this.state.color+ "|T:" + this.state.trim + "-" + this.state.trimLost + "|S:" + this.state.assembly + "-" + this.state.assemblyLost + "|P:" + this.state.packaging + "-" + this.state.packagingLost;
+=======
     this.state.date = date;
     var product= "Color: " + this.state.color;
     var mDelivered= "Delivered: Completed: " + this.state.delivered + ". Lost: " + this.state.deliveredLost;
@@ -43,6 +59,7 @@ class Feet extends React.Component{
     var mPackaing= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
     var message= title +"\n"+ date + "\n" + product+"\n"+mDelivered+"\n"+mTrim+"\n"+mScrew+"\n"+mPackaing;
     var show = "Feet | " + this.state.color+ " | Del:"+ this.state.delivered+ "-" + this.state.deliveredLost + " | Trm:" + this.state.trim + "-" + this.state.trimLost + " | Srw:" + this.state.screw + "-" + this.state.screwLost + " | Pac:" + this.state.packaging + "-" + this.state.packagingLost;
+>>>>>>> gigglyinventory-master
     {/*This shows the alert with the summary*/}
     alert(message)
     {/*If click confirm add to database, click deny will not*/}
@@ -63,10 +80,10 @@ class Feet extends React.Component{
   render(){
 
     const colors = [
-      {id: 'em', name: ''},
-      {id: 'rd', name: 'Red'},
-      {id: 'bu', name: 'Blue'},
-      {id: 'bk', name: 'Black'}
+      {id: 'em', name: 'Select'},
+      {id: 'Red', name: 'Red'},
+      {id: 'Blue', name: 'Blue'},
+      {id: 'Black', name: 'Black'}
     ];
     let colorsList = colors.length > 0 && colors.map((item, i) => {
       return (<option key={i} value={item.name}>{item.name}</option>)
@@ -77,6 +94,70 @@ class Feet extends React.Component{
     return(
 
       <div>
+<<<<<<< HEAD
+        <h2 className="inventory">Feet</h2>
+        <form method="POST" action="/endOfDay/update-feet">
+          <div className="form-inlineEnd">
+            <input className="inputStyle" name= "date" value={getDate()}></input>
+          </div>
+
+          <div className="form-inlineEnd">
+            <label for="puppy_color">Colors: </label>
+            <select id="puppy_color"
+              name="color"
+              value={this.name}
+              onChange={this.handleChange}>{colorsList}</select>
+          </div>
+
+          <div class="form-inlineEnd">
+          <label style={{marginRight:"40px"}}></label>
+            <label style={{marginRight:"70px"}}><b>Completed</b></label>
+            <label><b>Lost</b></label>
+          </div>
+
+          <div className="form-inlineEnd">
+            <label for="feet_trim">Trim: </label>
+            <input className="inputStyle" id="trim" type="text"
+              name="trim"
+              value={this.name}
+              defualtValue="" maxlength="5" size="8"
+              onChange={this.handleChange}/>
+            <input className="inputStyle" id="trimLost" type="text"
+              name="trimLost"
+              value={this.name}
+              defualtValue="" maxlength="5" size="8"
+              onChange={this.handleChange}/>
+          </div>
+
+          <div className="form-inlineEnd">
+            <label for="feet_assembly">Assembly: </label>
+            <input className="inputStyle" id="assembly" type="text"
+              name="assembly"
+              value={this.name}
+              defualtValue="" maxlength="5" size="8"
+              onChange={this.handleChange}/>
+            <input className="inputStyle" id="assemblyLost" type="text"
+              name="assemblyLost"
+              value={this.name}
+              defualtValue="" maxlength="5" size="8"
+              onChange={this.handleChange}/>
+          </div>
+
+          <div className="form-inlineEnd">
+            <label for="feet_pac">Packaging: </label>
+            <input className="inputStyle" id="packaging" type="text"
+            name="packaging"
+            value={this.name}
+            defualtValue="" maxlength="5" size="8"
+            onChange={this.handleChange}/>
+            <input className="inputStyle" id="packagingLost" type="text"
+            name="packagingLost"
+            defualtValue="" maxlength="10" size="8"
+            onChange={this.handleChange}/>
+          </div>
+          <Button type="submit" onClick={this.submit}>Add</Button>
+        </form>
+=======
       <h2 class="end">Feet</h2>
       <form>
       <div class="form-inline">
@@ -158,6 +239,7 @@ class Feet extends React.Component{
 
 
 
+>>>>>>> gigglyinventory-master
 
       </div>
     );

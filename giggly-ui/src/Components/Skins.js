@@ -62,7 +62,7 @@ class Skins extends React.Component{
   render(){
 
     const walker = [
-      {id: 'em', name: ''},
+      {id: 'em', name: 'Select'},
       {id: 'w2', name: '2-Wheels'},
       {id: 'w4', name: '4-Wheels'}
     ];
@@ -72,7 +72,7 @@ class Skins extends React.Component{
     }, this)
 
     const skin = [
-      {id: 'em', name: ''},
+      {id: 'em', name: 'Select'},
       {id: 'cm', name: 'Camo'},
       {id: 'fl', name: 'Flag'},
       {id: 'br', name: 'Bark'},
@@ -105,9 +105,15 @@ class Skins extends React.Component{
             onChange={this.handleChange}>{walkerList}</select>
         </div>
 
+<<<<<<< HEAD
+        <div className="form-inlineEnd">
+        <label style={{marginRight:"40px"}}></label>
+          <label style={{marginRight:"70px"}}><b>Completed</b></label>
+=======
         <div class="form-inline">
           <label><b>Process</b></label>
           <label><b>Completed</b></label>
+>>>>>>> gigglyinventory-master
           <label><b>Lost</b></label>
         </div>
 

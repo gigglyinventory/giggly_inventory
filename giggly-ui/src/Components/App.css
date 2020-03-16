@@ -7,7 +7,7 @@ nav{
   justify-content: space-evenly;
   min-height: 5px;
   background: #232f3e;
-  padding: 15px;
+  padding: 25px;
   color: white;
 }
 
@@ -30,6 +30,7 @@ Button {
   width: 175px;
   padding: 10px;
   border-radius: 4px;   
+  margin-bottom: 30px;
 }
 
 .style-main {

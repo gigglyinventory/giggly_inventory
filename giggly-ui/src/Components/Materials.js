@@ -55,8 +55,7 @@ class Materials extends React.Component{
   render(){
 
     const rawMaterials = [
-      {id: '', name: ''},
-      {id: 'vin', name: 'Vinyl'},
+      {id: '', name: 'Select'},
       {id: 'grd', name: 'Grill Plastic Red'},
       {id: 'gbu', name: 'Grill Plastic Blue'},
       {id: 'gbk', name: 'Grill Plastic Black'},
@@ -82,7 +81,7 @@ class Materials extends React.Component{
     }, this)
 
     const department = [
-      {id: '', name: ''},
+      {id: '', name: 'Select'},
       {id: 'one', name: 'Main'},
       {id: 'two', name: 'Vinyl'}
     ];
@@ -99,12 +98,12 @@ class Materials extends React.Component{
         <input className="inputStyle" name= "date" value={getDate()}></input>
         </div>
         <div className="form-inlineEnd">
-          <label for="materials">Delivered: </label>
+          <label for="materials">Raw materials: </label>
           <select id="materials"
             name="material"
             value={this.name}
             onChange={this.handleChange}>{materialsList}</select>
-          <label for="departments">Department: </label>
+          <label for="departments">Location: </label>
           <select id="departments"
             name="department"
             value={this.name}

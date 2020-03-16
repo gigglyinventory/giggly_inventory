@@ -10,26 +10,31 @@ module.exports = class Material {
   }
 
   // Inserts a new record. Overwrites any previous record with the same date, depID, and matID.
-  static update(date, location, name, gain, loss) {
+  static update(date, location, name, gain, lost) {
     const depID = 13
-    if (name === "" ||
-      name === "" ||
-      name === "")
+    if (name === "RedPaw" || name === "BluePay" || name === "BlackPaw" ||
+      name === "RedPawUPC" || name === "BluePayUPC" || name === "BlackPawUPC" ||
+      name === "Core" || name === "Screw" || name === "ShippingEnvelope" ||
+      name === "Blister" || name === "BlisterCard")
       depID = 25
-    else if (name === "" ||
-      name === "" ||
-      name === "")
+    else if (name === "RedPlasticSheet" || name === "BluePlasticSheet" || name === "BlackPlasticSheet" ||
+      name === "RedTruckUPC" || name === "BlueTruckUPC" || name === "BlackTruckUPC" ||
+      name === "RedNoteboardUPC" || name === "BlueNoteboardUPC" || name === "BlackNoteboardUPC" ||
+      name === "Grommet" || name === "Velcro" || name === "TruckStickerSet" ||
+      name === "GrillBox" || name === "NoteboardSticker")
       depID = 18
-    return db.query(
+    else if (location === "Main")
+      depID = 29
+    return db.query( 
       'INSERT INTO amounts (Date, DepID, MatID, InStock, Lost) \
       SELECT * FROM ( \
-        SELECT DISTINCT ? AS Date, DepartmentID, MaterialID, ? AS InStock, ? AS Lost \
+        SELECT DISTINCT ? AS Date, ? AS Department, MaterialID, ? AS InStock, ? AS Lost \
         FROM departments INNER JOIN amounts ON DepartmentID = DepID \
           INNER JOIN materials ON MaterialID = MatID \
-        WHERE MaterialName LIKE ? AND Location LIKE ? \
+        WHERE MaterialName LIKE ? \
       ) AS temp \
       ON DUPLICATE KEY UPDATE InStock = temp.InStock, Lost = temp.Lost',
-    [date, gain, loss, name, location])
+    [date, depID, gain, lost, name])
   }
 
   // Returns the amount of materials in pre-production 

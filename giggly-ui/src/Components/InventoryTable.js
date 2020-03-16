@@ -6,6 +6,7 @@ import { Table } from 'reactstrap';
 class InventoryTable extends React.Component{
   constructor(props){
     super(props);
+    
     this.state = {
         materials:[
           {
