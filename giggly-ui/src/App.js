@@ -6,10 +6,9 @@ import Sales from "./Components/Sales"
 import Production from "./Components/Production"
 import Admin from "./Components/Admin"
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {Button} from "reactstrap";
 import EndOfDay from './Components/EndOfDay';
-import 'bootstrap/dist/css/bootstrap.min.css';
 let loginGate = require('./login-gate');
-let session = require('express-session')
 sessionStorage.setItem('loggedIn', 'false')
 class App extends React.Component{
   constructor(){
@@ -18,7 +17,7 @@ class App extends React.Component{
   }
 /*This is where it starts by calling TabContent.js in Components*/
   render(){
-    //if (this.loggedIn){
+    if (!this.loggedIn)
       return(
         <Router>
         <div className="App">
@@ -34,13 +33,13 @@ class App extends React.Component{
           </div>
       </Router>
     );
-    // } else {
-    //   return(
-    //     //login page
-    //     <Login/>
-    //   );
-    // }
-    
+   else {
+      return(
+        //login page
+        <Login/>
+      );
+    }
+
   }
 }
 
