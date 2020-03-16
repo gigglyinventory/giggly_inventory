@@ -12,9 +12,9 @@ class Materials extends React.Component{
     super(props);
     this.state = {
       date: "",
-      material: "Velcro",
-      delivered: "304",
-      deliveredLost: "227"
+      material: "",
+      delivered: "0",
+      deliveredLost: "0"
     };
 
     this.handleChange = this.handleChange.bind(this);
