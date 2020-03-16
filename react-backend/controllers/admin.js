@@ -8,9 +8,9 @@ const bcrypt = require('bcryptjs')
 
 //functions that we want the website to be able to do
 exports.getUsers = (req, res, next) => {
-  User.fetchAll()
+  User.fetchUserList()
     .then(users => {
-      res.json(users).redirect('/')
+      res.json(users).redirect('/admin')
     })
     .catch(err => console.log(err));
 };
@@ -25,7 +25,7 @@ async function postAddUser(req, res, next){
   const user = new User(username, hashedPassword, fName, lName, email, null);
   user.save()
     .catch(err => console.log(err))
-    res.redirect('/')
+    res.redirect('/admin')
 };
 
 exports.postAddProduct = (req, res, next) => {
@@ -34,7 +34,7 @@ exports.postAddProduct = (req, res, next) => {
   const product = new Product(name, discontinued);
   product.save()
     .catch(err => console.log(err));
-    res.redirect('/')
+    res.redirect('/admin')
 };
 
 exports.postAddMaterial = (req, res, next) => {
@@ -42,21 +42,21 @@ exports.postAddMaterial = (req, res, next) => {
   const material = new Material(name);
   material.save()
     .catch(err => console.log(err));
-    res.redirect('/')
+    res.redirect('/admin')
 };
 
 exports.postDeleteUser = (req, res, next) => {
   const username = req.body.username
   User.deleteByID(username)
     .catch(err => console.log(err))
-    res.redirect('/')
+    res.redirect('/admin')
 };
 
 exports.postDiscontinueProduct = (req, res, next) => {
   const ProductName = req.body.ProductID;
   Product.discontinue(ProductName)
     .catch(err => console.log(err))
-    res.redirect('/')
+    res.redirect('/admin')
 };
 
 module.exports.postAddUser = postAddUser

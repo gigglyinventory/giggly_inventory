@@ -3,9 +3,6 @@ const Product = require('../models/product');
 
 exports.postUpdateGrills = (req, res, next) => {
   const date = req.body.date
-  // console.log("#################################################################################### \
-  //   ##############################################################################################")
-  // console.log(date)
   const design = req.body.design
   const color = req.body.color
   const belovac = req.body.belovac
@@ -36,17 +33,15 @@ exports.postUpdateGrills = (req, res, next) => {
 };
 
 exports.postUpdateFeet = (req, res, next) => {
-  const date = req.body.date
-  // console.log("#################################################################################### \
-  //   ##############################################################################################")
-  // console.log(date)
+  const date = req.body.date 
   const color = req.body.color
   const trim = req.body.trim
   const trimLost = req.body.trimLost
   const assembly = req.body.assembly
   const assemblyLost = req.body.assemblyLost
-  const packaging = req.body.packaging
+  const packaging = req.body.packaging 
   const packagingLost = req.body.packagingLost
+  console.log(date, color, trim, trimLost, assembly, assemblyLost, packaging, packagingLost)
   Product.updateFeet(date, color, "FeetKnobRemoval", "FeetScrewCoreAssembly", trim, trimLost)
     .then(Product.updateFeet(date, color, "FeetScrewCoreAssembly", "FeetPackaging", assembly, assemblyLost)
     .then(Product.updateFeet(date, color, "FeetPackaging", "FeetReadyShip", packaging, packagingLost)
@@ -57,9 +52,6 @@ exports.postUpdateFeet = (req, res, next) => {
 
 exports.postUpdateSkins = (req, res, next) => {
   const date = req.body.date
-  // console.log("#################################################################################### \
-  //   ##############################################################################################")
-  // console.log(date)
   const skin = req.body.skin
   const walker = req.body.walker
   const print = req.body.print
@@ -78,10 +70,10 @@ exports.postUpdateSkins = (req, res, next) => {
 
 exports.postUpdateMaterials = (req, res, next) => {
   const date = req.body.date
-  const location = req.body.location
-  const name = req.body.name
+  const location = req.body.department
+  const name = req.body.material
   const gain = req.body.delivered
-  const loss = req.body.scrap
+  const loss = req.body.deliveriesLost
   Material
     .update(date, location, name, gain, loss)
     .catch(err => console.log(err))

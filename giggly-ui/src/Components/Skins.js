@@ -61,7 +61,7 @@ class Skins extends React.Component{
   render(){
 
     const walker = [
-      {id: 'em', name: ''},
+      {id: 'em', name: 'Select'},
       {id: 'w2', name: '2-Wheels'},
       {id: 'w4', name: '4-Wheels'}
     ];
@@ -71,7 +71,7 @@ class Skins extends React.Component{
     }, this)
 
     const skin = [
-      {id: 'em', name: ''},
+      {id: 'em', name: 'Select'},
       {id: 'cm', name: 'Camo'},
       {id: 'fl', name: 'Flag'},
       {id: 'br', name: 'Bark'},
@@ -105,8 +105,8 @@ class Skins extends React.Component{
         </div>
 
         <div className="form-inlineEnd">
-        <label style={{marginRight:"100px"}}></label>
-          <label style={{marginRight:"150px"}}><b>Completed</b></label>
+        <label style={{marginRight:"40px"}}></label>
+          <label style={{marginRight:"70px"}}><b>Completed</b></label>
           <label><b>Lost</b></label>
         </div>
 

@@ -10,7 +10,7 @@
 .endOfDayStyle {
   background-color: white;
   margin: auto;
-  width: 80%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,7 +58,7 @@ ul.elements{
 }
 
 .final-display{
-  border: 1px solid black;
+  border: 1px solid white;
   overflow-y: scroll;
   height: 500px;
   width: 300px;

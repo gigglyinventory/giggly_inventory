@@ -10,19 +10,14 @@ class Feet extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      month: "07",
-      day: "17",
-      year: "1998",
-      design: "Puppy",
-      color: "Black",
-      delivered: "5",
-      deliveredLost: "2",
-      trim: "6",
-      trimLost: "1",
-      screw: "4",
-      screwLost: "0",
-      packaging: "10",
-      packagingLost: "5"
+      design: "",
+      color: "",
+      trim: "0",
+      trimLost: "0",
+      assembly: "0",
+      assemblyLost: "0",
+      packaging: "0",
+      packagingLost: "0"
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -37,14 +32,12 @@ class Feet extends React.Component{
 
   submit(){
     var title = "Summary"
-    var date = "Date: " + this.state.month +"/"+ this.state.day +"/"+ this.state.year;
-    var product= "Product: Design: " + this.state.design + ". Color: " + this.state.color;
-    var mDelivered= "Delivered: Completed: " + this.state.delivered + ". Lost: " + this.state.deliveredLost;
+    var date = getDate();
     var mTrim= "Trim: Completed: " + this.state.trim + ". Lost: " + this.state.trimLost;
-    var mScrew= "Screw: Completed: " + this.state.screw + ". Lost: " + this.state.screwLost;
-    var mPackaing= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
-    var message= title +"\n"+ date + "\n" + product+"\n"+mDelivered+"\n"+mTrim+"\n"+mScrew+"\n"+mPackaing;
-    var show = "Puppy|" + this.state.color+ "|D:"+ this.state.delivered+ "-" + this.state.deliveredLost + "|T:" + this.state.trim + "-" + this.state.trimLost + "|S:" + this.state.screw + "-" + this.state.screwLost + "|P:" + this.state.packaging + "-" + this.state.packagingLost;
+    var mAssembly= "assembly: Completed: " + this.state.assembly + ". Lost: " + this.state.assemblyLost;
+    var mPackaging= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
+    var message= title +"\n"+ date + "\n"+mTrim+"\n"+mAssembly+"\n"+mPackaging;
+    var show = "Puppy|" + this.state.color+ "|T:" + this.state.trim + "-" + this.state.trimLost + "|S:" + this.state.assembly + "-" + this.state.assemblyLost + "|P:" + this.state.packaging + "-" + this.state.packagingLost;
     {/*This shows the alert with the summary*/}
     alert(message)
     {/*If click confirm add to database, click deny will not*/}
@@ -65,10 +58,10 @@ class Feet extends React.Component{
   render(){
 
     const colors = [
-      {id: 'em', name: ''},
-      {id: 'rd', name: 'Red'},
-      {id: 'bu', name: 'Blue'},
-      {id: 'bk', name: 'Black'}
+      {id: 'em', name: 'Select'},
+      {id: 'Red', name: 'Red'},
+      {id: 'Blue', name: 'Blue'},
+      {id: 'Black', name: 'Black'}
     ];
     let colorsList = colors.length > 0 && colors.map((item, i) => {
       return (<option key={i} value={item.id}>{item.name}</option>)
@@ -86,29 +79,15 @@ class Feet extends React.Component{
           <div className="form-inlineEnd">
             <label for="puppy_color">Colors: </label>
             <select id="puppy_color"
-              name="design"
+              name="color"
               value={this.name}
               onChange={this.handleChange}>{colorsList}</select>
           </div>
 
           <div class="form-inlineEnd">
-          <label style={{marginRight:"100px"}}></label>
-            <label style={{marginRight:"150px"}}><b>Completed</b></label>
+          <label style={{marginRight:"40px"}}></label>
+            <label style={{marginRight:"70px"}}><b>Completed</b></label>
             <label><b>Lost</b></label>
-          </div>
-  
-          <div className="form-inlineEnd">
-            <label for="feet_deliv">Delivered: </label>
-            <input className="inputStyle" id="delivered" type="text"
-              name="delivered"
-              value={this.name}
-              defualtValue="" maxlength="5" size="8"
-              onChange={this.handleChange}/>
-            <input className="inputStyle" id="deliveredLost" type="text"
-              name="deliveredLost"
-              value={this.name}
-              defualtValue="" maxlength="5" size="8"
-              onChange={this.handleChange}/>
           </div>
 
           <div className="form-inlineEnd">
@@ -126,14 +105,14 @@ class Feet extends React.Component{
           </div>
 
           <div className="form-inlineEnd">
-            <label for="feet_screw">Screw: </label>
-            <input className="inputStyle" id="screw" type="text"
-              name="screw"
+            <label for="feet_assembly">Assembly: </label>
+            <input className="inputStyle" id="assembly" type="text"
+              name="assembly"
               value={this.name}
               defualtValue="" maxlength="5" size="8"
               onChange={this.handleChange}/>
-            <input className="inputStyle" id="screwLost" type="text"
-              name="screwLost"
+            <input className="inputStyle" id="assemblyLost" type="text"
+              name="assemblyLost"
               value={this.name}
               defualtValue="" maxlength="5" size="8"
               onChange={this.handleChange}/>
@@ -151,9 +130,7 @@ class Feet extends React.Component{
             defualtValue="" maxlength="10" size="8"
             onChange={this.handleChange}/>
           </div>
-          <div className="form-inlineEnd">
-            <Button type="submit" onClick={this.submit}>Add</Button>
-          </div>
+          <Button type="submit" onClick={this.submit}>Add</Button>
         </form>
 
       </div>

@@ -22,20 +22,20 @@ class Grills extends React.Component{
       date: "",
       design: "Truck",
       color: "Black",
-      belovac: "5",
-      belovacLost: "2",
-      guillotine: "6",
-      guillotineLost: "1",
-      rotozip: "4",
+      belovac: "",
+      belovacLost: "0",
+      guillotine: "0",
+      guillotineLost: "0",
+      rotozip: "0",
       rotozipLost: "0",
-      sanding: "6",
-      sandingLost: "3",
-      velcro: "7",
-      velcroLost: "4",
+      sanding: "0",
+      sandingLost: "0",
+      velcro: "0",
+      velcroLost: "0",
       stickers: "0",
-      stickersLost: "3",
-      packaging: "10",
-      packagingLost: "5"
+      stickersLost: "0",
+      packaging: "0",
+      packagingLost: "0"
     };
     this.outputMessage ="Checking";
     this.handleChange = this.handleChange.bind(this);
@@ -51,7 +51,8 @@ class Grills extends React.Component{
   /*Function for when you add the information for the EndOfDay Grill information.
     you will get an alert with a summary then a confirmation popup to confirm.
     Will look into Modal for a possible replacement*/
-  submit(){
+  submit(event){
+    //event.preventDefault()
     var title = "Summary"
     var date = getDate();
     this.state.date = date;
@@ -62,8 +63,8 @@ class Grills extends React.Component{
     var mSanding= "Sanding: Completed: " + this.state.sanding + ". Lost: " + this.state.sandingLost;
     var mVelcro= "Velcro: Completed: " + this.state.velcro + ". Lost: " + this.state.velcroLost;
     var mStickers= "Stickers: Completed: " + this.state.stickers + ". Lost: " + this.state.stickersLost;
-    var mPackaing= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
-    var message= title +"\n"+ date + "\n" + product+"\n"+mBelovac+"\n"+mGuillotine+"\n"+mRotozip+"\n"+mSanding+"\n"+mVelcro+"\n"+mStickers+"\n"+mPackaing;
+    var mPackaging= "Packaging: Completed: " + this.state.packaging + ". Lost: " + this.state.packagingLost;
+    var message= title +"\n"+ date + "\n" + product+"\n"+mBelovac+"\n"+mGuillotine+"\n"+mRotozip+"\n"+mSanding+"\n"+mVelcro+"\n"+mStickers+"\n"+mPackaging;
     var show = "Grill|" + this.state.design+ "|" + this.state.color + "|Bel:" + this.state.belovac +"-"+this.state.belovacLost+"|Gui:"+this.state.guillotine+"-"+this.state.guillotineLost+"|Rto:"+this.state.rotozip+"-"+this.state.rotozipLost+"|Snd:"+this.state.sanding+"-"+this.state.sandingLost+"|Vlc:"+this.state.velcro+"-"+this.state.velcroLost+"|Stk:"+this.state.stickers+"-"+this.statestickersLost+"|Pac:"+this.state.packaging+"-"+this.state.packagingLost;
     {/*This shows the alert with the summary*/}
     alert(message)
@@ -88,7 +89,7 @@ render() {
 
   {/*Array of truck designs used in the drop down selects on webpage*/}
   const grillDesign = [
-    {id: 'em', name: ''},
+    {id: 'em', name: 'Select'},
     {id: 'tr', name: 'Truck'},
     {id: 'nb', name: 'Noteboard'}
   ];
@@ -99,7 +100,7 @@ render() {
 
   {/*Array of colors*/}
   const colors = [
-    {id: 'em', name: ''},
+    {id: 'em', name: 'Select'},
     {id: 'rd', name: 'Red'},
     {id: 'bu', name: 'Blue'},
     {id: 'bk', name: 'Black'}
@@ -111,12 +112,14 @@ render() {
 
   return (
 
-    <div className="form-inlineEnd">
+    <div >
       <h2 className="inventory">Grill</h2>
       {/*I use forms for each row of inputs to unify the spacing and positions*/}
 
-      <form method="POST" action="/endOfDay/update-grills">
+      <form method="POST" action="/endOfDay/update-grills" onSubmit={this.submit}>
+        <div className="form-inlineEnd">
         <input className="inputStyle" name= "date" value={getDate()}></input>
+        </div>
 
         <div className="form-inlineEnd">
           <label for="grill_design">Design: </label>
@@ -133,8 +136,8 @@ render() {
 
         {/*Headers for the production steps*/}
         <div class="form-inlineEnd">
-        <label style={{marginRight:"100px"}}></label>
-          <label style={{marginRight:"150px"}}><b>Completed</b></label>
+        <label style={{marginRight:"40px"}}></label>
+          <label style={{marginRight:"70px"}}><b>Completed</b></label>
           <label><b>Lost</b></label>
         </div>
 
@@ -234,9 +237,10 @@ render() {
 
 
         {/*This Button takes all information inputed form the input fields and calls the alert*/}
-          <div className="form-inlineEnd">
-            <Button type="submit" onClick={this.submit}>Add</Button>
-          </div>
+        <div class ="form-inline">
+        <Button type="submit">Add</Button>
+        </div>
+
       </form>
     </div>
   );

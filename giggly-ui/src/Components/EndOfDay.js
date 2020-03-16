@@ -35,12 +35,12 @@ class EndOfDay extends React.Component{
   render(){
     return(
       <div className="endOfDayStyle">
-        <div>
-        <div  style={{marginBottom:"30px"}}>
+        
+        <div className="form-inlineEnd">
           <label>Date: </label>
           <input className="calender" type="date" name="submitDate" value={this.name} onChange={this.handleChange}></input>
         </div>
-        </div>
+
         <div className="top">
           <div className="sections">
             <div>

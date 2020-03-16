@@ -33,7 +33,7 @@ const Navbar = () => {
         </Link>
 
         <Link style={navStyle} to="/EndOfDay">
-          <li>EndOfDay</li>
+          <li>End of Day</li>
         </Link>
 
         <Link style={navStyle} to="/Admin">

@@ -65,7 +65,7 @@ class Vinyl extends React.Component{
   render(){
 
     const colors = [
-      {id: 'em', name: ''},
+      {id: 'em', name: 'Select'},
       {id: 'rd', name: 'Red'},
       {id: 'bu', name: 'Blue'},
       {id: 'bk', name: 'Black'}
@@ -92,8 +92,8 @@ class Vinyl extends React.Component{
             </div>
 
             <div class="form-inlineEnd">
-            <label style={{marginRight:"30px"}}><b></b></label>
-              <label style={{marginRight:"20px"}}><b>Completed</b></label>
+              <label style={{marginRight:"40px"}}></label>
+              <label style={{marginRight:"70px"}}><b>Completed</b></label>
               <label><b>Lost</b></label>
             </div>
 
@@ -159,9 +159,7 @@ class Vinyl extends React.Component{
               onChange={this.handleChange}
               className="inputStyle"/>
             </div>
-            <div class="form-inline">
               <Button onClick={this.submit}>Add</Button>
-            </div>
         </form>
 
       </div>

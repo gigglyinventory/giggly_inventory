@@ -26,6 +26,10 @@ module.exports = class User {
       return db.query('DELETE FROM users WHERE userID like ?', [id])
   }
 
+  static fetchUserList() {
+    return db.query('SELECT userID, userEmail, userFirstName, userLastName FROM users');
+  }
+
   static fetchAll() {
     return db.query('SELECT * FROM users');
   }

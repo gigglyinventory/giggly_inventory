@@ -257,14 +257,14 @@ module.exports = class Product {
       'WITH temp AS ( \
         SELECT ProdID, amounts.MatID, InStock, MaterialAmount \
         FROM productmaterials INNER JOIN amounts ON productmaterials.MatID = amounts.MatID \
-        WHERE DepID IN (13, 18, 25) AND Date = (SELECT Date(CURRENT_TIMESTAMP() - INTERVAL 8 HOUR)) \
+        WHERE DepID IN (34, 35, 36) AND Date = (SELECT Date(CURRENT_TIMESTAMP() - INTERVAL 8 HOUR)) \
       ) \
       SELECT CAST(MIN(InStock/MaterialAmount) AS int) AS ReadyShip, ProductName \
       FROM temp INNER JOIN products ON temp.ProdID = products.ProductID \
       WHERE Discontinued = 0 \
       GROUP BY ProductName \
       ORDER BY ProductName'
-    );// need to switch DepID IN to 34, 35, 36. Was changed to pre production departments for testing
+    );
   }
   
   // Returns the type and amount of materials in a given department for a given product.
