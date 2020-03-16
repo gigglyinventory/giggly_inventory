@@ -52,7 +52,7 @@ class InventoryTable extends React.Component{
 
 
     return(
-      <div className="inventoryStyle">
+      <div className="InventoryStyle">
       <Table striped bordered hover>
       <thead>
         <tr>

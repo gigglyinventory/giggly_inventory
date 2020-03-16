@@ -16,6 +16,7 @@ class Admin extends React.Component{
         userLastName:''
       }]
     } 
+    this.handleSubmit = this.handleSubmit.bind(this)
     //this.fetch = this.fetch.bind(this)
 
   }
@@ -28,16 +29,31 @@ class Admin extends React.Component{
 //     })
 // }
 
-  async componentDidMount() {
-    try {
-      let response = await fetch(`/admin/get-users`);
-      let users = await response.json();
-      console.log(users);
-      this.setState({users});
-    } catch (error) {
-      console.log(error);
+  // async componentDidMount() {
+  //   try {
+  //     let response = await fetch(`/admin/get-users`);
+  //     let users = await response.json();
+  //     console.log(users);
+  //     this.setState({users});
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  async handleSubmit(){
+    try{
+    let url = '/admin/get-users'
+    let response = await fetch(url, 
+        {method: 'GET',
+        headers:{ 'Content-Type': 'application/json'}})
+        let users = await response.json();
+        console.log(users);
+        this.setState({users});
+      } catch (error){
+        console.log(error)
     }
-  }
+};
+
 
   
   // async handleDelete(event){
@@ -132,9 +148,10 @@ class Admin extends React.Component{
           <Button type="submit">Delete user</Button>
           </div>
         </form>
-        <form method="GET" action="/admin/get-users">
+        <form >
           <div class="enter_user">
           <h2 className="inventory">Users List</h2>
+          <Button onClick={this.handleSubmit}>Show users</Button>
           <Table striped bordered hover>
           <thead>
             <tr>

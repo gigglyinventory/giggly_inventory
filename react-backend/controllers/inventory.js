@@ -26,13 +26,13 @@ exports.getProductionStepMaterials = (req, res, next) => {
    // res.redirect('/production')
 };
 
-exports.updateReadyShip = (req, res, next) => {
+exports.PostUpdateReadyShip = (req, res, next) => {
   console.log('####################### in updateReadyShip #')
   const date = req.body.date 
   const name = req.body.name
   const amount = req.body.quantity
   console.log(date, name, amount)
-  if(name === "RedTruck"){ // ReadyShip departmentID for Grills is 35
+  if(name === "TruckRed"){ // ReadyShip departmentID for Grills is 35
     Product.updateGrills(date, "Truck", "Red", 35, 39, amount, 0)
       .catch(err => console.log(err))
       res.redirect('/Sales')

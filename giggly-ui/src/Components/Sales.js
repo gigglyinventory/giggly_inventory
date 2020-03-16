@@ -49,15 +49,28 @@ class Sales extends React.Component{
         this.setState({productList: this.state.productList})
     }
 
-    handleSubmit(){
-        this.forceUpdate();
+    async handleSubmit(){
+        try{
+            console.log('Sales handleSubmit productList is', this.state.productList)
+        let url = '/inventory/'
+        let productList = this.state.productList
+        let response = await fetch(url, 
+            {method: 'POST',
+            body: JSON.stringify({productList}),
+            headers:{ 'Content-Type': 'application/json'}})
+        let respnseJSON = await response.json()
+        this.setState(respnseJSON)
+        console.log('in handlesubmit the response is ',respnseJSON)
+        } catch (error){
+            console.log(error)
+        }
     };
 
     render(){
         return(
             <div class="salesStyle">
                     <h2 className="inventory">Products Ordered</h2>
-                    <form method="POST" action="/inventory/updateReadyShip">
+                    <form>
                     <div className="formatInline">
                         <label style={{fontSize: "20px"}}>Product: </label>
                         <select id="ProductName" name="name" onChange={(e) => this.setState({ ProductName: e.target.ProductName })}>{this.productsMenue}</select>
@@ -72,7 +85,7 @@ class Sales extends React.Component{
 
                                             <div key={index}>
                                                 <label style={{marginLeft:"10px"}}>Product: </label>
-                                                <select id="design">{this.productsMenue}</select>
+                                                <select id="ProductName" onChange={(e) => this.setState({ ProductName: e.target.ProductName })}>{this.productsMenue}</select>
                                                 <label>Quantity: </label>
                                                 <input className="inputStyle" name="quantity" onChange={(e)=>this.handleChange(e, index)} value={prod}/>
                                             </div>
@@ -126,7 +139,7 @@ class Sales extends React.Component{
                         <input className="inputStyle"/>
                     </div>
 
-                    <Button>
+                    <Button onClick={this.handleSubmit}>
                         Submit
                     </Button>
                     </form>
