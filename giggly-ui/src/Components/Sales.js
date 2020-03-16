@@ -60,7 +60,7 @@ class Sales extends React.Component{
                     <form method="POST" action="/inventory/updateReadyShip">
                     <div className="formatInline">
                         <label style={{fontSize: "20px"}}>Product: </label>
-                        <select id="design" name="name" value={this.id} onChange={(e) => this.setState({ ProductName: e.target.ProductName })}>{this.productsMenue}</select>
+                        <select id="ProductName" name="name" onChange={(e) => this.setState({ ProductName: e.target.ProductName })}>{this.productsMenue}</select>
                         <label style={{fontSize: "20px"}}>Quantity: </label>
                         <input className="inputStyle" style={{marginLeft:"10px"}}/>
                     </div>
