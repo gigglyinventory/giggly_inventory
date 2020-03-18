@@ -63,7 +63,7 @@ class EndOfDay extends React.Component{
           </div>
           {/*Will be adding Deliveries and Sales div at the bottom and both Will
             reference a .js file for the functionality.*/}
-          <div class="sections">
+          <div className="sections">
             <Output />
           </div>
         </div>

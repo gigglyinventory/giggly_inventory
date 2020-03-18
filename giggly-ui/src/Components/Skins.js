@@ -21,14 +21,46 @@ class Skins extends React.Component{
       packaging: "0",
       packagingLost: "0"
     };
-
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.submit = this.submit.bind(this);
     this.sendToSummary = this.sendToSummary.bind(this);
   }
 
+  async handleSubmit(){
+    this.submit();
+    try{
+        let url ='/endOfDay/update-skins'
+        let date = this.state.date;
+        let print = this.state.print;
+        let type = this.state.type;
+        let printing = this.state.printing;
+        let printingLost = this.state.printingLost;
+        let cutting = this.state.cutting;
+        let cuttingLost = this.state.cuttingLost;
+        let packaging = this.state.packaging;
+        let packagingLost = this.state.packagingLost;
+        let response = await fetch(url,
+        {method: 'POST',
+          body: JSON.stringify({print: print,
+          type: type,
+          printing: printing,
+          printingLost: printingLost,
+          cutting: cutting,
+          cuttingLost: cuttingLost,
+          packaging: packaging,
+          packagingLost: packagingLost
+        }),
+        headers:{ 'Content-Type': 'application/json'}})
+        let respnseJSON = await response.json()
+        this.setState(respnseJSON)
+        console.log('in handlesubmit the response is ',respnseJSON)
+    } catch(error){
+      console.log(error)
+    }
+  }
+
   sendToSummary(message){
-    alert(message)
     addMessage(message)
   }
 
@@ -68,7 +100,7 @@ class Skins extends React.Component{
     ];
 
     let walkerList = walker.length > 0 && walker.map((item, i) => {
-      return (<option key={i} value={item.id}>{item.name}</option>)
+      return (<option key={i} value={item.name}>{item.name}</option>)
     }, this)
 
     const skin = [
@@ -80,83 +112,83 @@ class Skins extends React.Component{
       {id: 'wo', name: 'Wonder'}
     ];
     let skinList = skin.length > 0 && skin.map((item, i) => {
-      return (<option key={i} value={item.id}>{item.name}</option>)
+      return (<option key={i} value={item.name}>{item.name}</option>)
     }, this)
 
     const globalDate = getDate();
 
     return(
 
-      <div>
-        <h2 class="end">Skin</h2>
-        <div class="form-inline">
+      <form>
+        <h2 className="invnetory">Skin</h2>
+        <div className="form-inlineEnd">
           <input className="inputStyle" name= "date" value={getDate()}></input>
         </div>
-        <div class="form-inline">
-          <label for="skin_pattern">Skins: </label>
+        <div className="form-inlineEnd">
+          <label htmlFor="skin_pattern">Skins: </label>
           <select id="skin_pattern"
             name="print"
             value={this.name}
             onChange={this.handleChange}>{skinList}</select>
-          <label for="walker_type">Walker: </label>
+          <label htmlFor="walker_type">Walker: </label>
           <select id="walker_type"
             name="type"
             value={this.name}
             onChange={this.handleChange}>{walkerList}</select>
         </div>
 
-        <div class="form-inline">
-          <label><b>Process</b></label>
-          <label><b>Completed</b></label>
+        <div class="form-inlineEnd">
+        <label style={{marginRight:"40px"}}></label>
+          <label style={{marginRight:"70px"}}><b>Completed</b></label>
           <label><b>Lost</b></label>
         </div>
 
-        <div class="form-inline">
-          <label for="printing">Printing: </label>
-          <input id="printing" type="text"
+        <div className="form-inlineEnd">
+          <label htmlFor="printing">Printing: </label>
+          <input className="inputStyle" id="printing" type="text"
             name="printing"
             value={this.name}
-            defualtValue="" maxlength="5" size="8"
+            defaultValue="" maxLength="5" size="8"
             onChange={this.handleChange}/>
-          <input id="printingLost" type="text"
+          <input className="inputStyle" id="printingLost" type="text"
             name="printingLost"
             value={this.name}
-            defualtValue="" maxlength="5" size="8"
+            defaultValue="" maxLength="5" size="8"
             onChange={this.handleChange}/>
         </div>
 
-        <div class="form-inline">
-          <label for="trim">Assembly: </label>
-          <input id="trim" type="text"
+        <div className="form-inlineEnd">
+          <label htmlFor="trim">Assembly: </label>
+          <input className="inputStyle" id="trim" type="text"
             name="cutting"
             value={this.name}
-            defualtValue="" maxlength="5" size="8"
+            defaultValue="" maxLength="5" size="8"
             onChange={this.handleChange}/>
-          <input id="trimLost" type="text"
+          <input className="inputStyle" id="trimLost" type="text"
             name="cuttingLost"
             value={this.name}
-            defualtValue="" maxlength="5" size="8"
+            defaultValue="" maxLength="5" size="8"
             onChange={this.handleChange}/>
         </div>
 
-        <div class="form-inline">
-          <label for="packaging">Packaging: </label>
-          <input id="packaging" type="text"
+        <div className="form-inlineEnd">
+          <label htmlFor="packaging">Packaging: </label>
+          <input className="inputStyle" id="packaging" type="text"
           name="packaging"
           value={this.name}
-          defualtValue="" maxlength="5" size="8"
+          defaultValue="" maxLength="5" size="8"
           onChange={this.handleChange}/>
-          <input id="packagingLost" type="text"
+          <input className="inputStyle" id="packagingLost" type="text"
           name="packagingLost"
-          defualtValue="" maxlength="10" size="8"
+          defaultValue="" maxLength="10" size="8"
           onChange={this.handleChange}/>
         </div>
         <div>
-          <Button onClick={this.submit}>Add</Button>
+          <Button onClick={this.handleSubmit}>Add</Button>
         </div>
 
 
-      </div>
+      </form>
     );
   }
 

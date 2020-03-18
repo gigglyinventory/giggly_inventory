@@ -55,7 +55,7 @@ class Sales extends React.Component{
 
     render(){
         return(
-            <div class="salesStyle">
+            <div className="salesStyle">
                     <h2 className="inventory">Products Ordered</h2>
                     <div className="formatInline">
                         <label style={{fontSize: "20px"}}>Product: </label>
@@ -87,7 +87,7 @@ class Sales extends React.Component{
                     </div>
                     <div style={{fontSize: "19px"}}>
                         <label>Order date:</label>
-                        <input class="calender" type="date" name="order-date"></input>
+                        <input className="calender" type="date" name="order-date"></input>
                     </div>
 
                     <div style={{fontSize: "20px"}}>

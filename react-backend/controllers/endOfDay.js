@@ -32,7 +32,7 @@ exports.postUpdateGrills = (req, res, next) => {
     .then(Product.updateGrills(date, design, color, "GrillPackaging", "GrillReadyShip", packaging, packagingLost)
     ))))))
    .catch(err => console.log(err))
-    res.redirect('/endOfDay')
+    
 };
 
 exports.postUpdateFeet = (req, res, next) => {
@@ -52,7 +52,7 @@ exports.postUpdateFeet = (req, res, next) => {
     .then(Product.updateFeet(date, color, "FeetPackaging", "FeetReadyShip", packaging, packagingLost)
     ))
     .catch(err => console.log(err))
-    res.redirect('/endOfDay')
+    
 };
 
 exports.postUpdateSkins = (req, res, next) => {
@@ -73,7 +73,7 @@ exports.postUpdateSkins = (req, res, next) => {
     .then(Product.updateSkins(date, skin, walker, "SkinPackaging", "SkinReadyShip", packaging, packagingLost)
     ))
     .catch(err => console.log(err))
-    res.redirect('/endOfDay')
+    
 };
 
 exports.postUpdateMaterials = (req, res, next) => {
@@ -85,12 +85,12 @@ exports.postUpdateMaterials = (req, res, next) => {
   Material
     .update(date, location, name, gain, loss)
     .catch(err => console.log(err))
-    res.redirect('/endOfDay')
+    
 };
 
 exports.postRollbackAll = (req, res, next) => {
   Product
     .rollbackAll()
     .catch(err => console.log(err))
-    res.redirect('/endOfDay')
+    
 };

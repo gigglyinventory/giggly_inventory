@@ -43,7 +43,7 @@ class Login extends React.Component {
             name="username"
             defualtValue=""
             class="credentials"
-            maxlength="20"
+            maxLength="20"
             placeholder="Username"
             />
           <br />
@@ -55,7 +55,7 @@ class Login extends React.Component {
             name="password"
             value={this.state.password}
             class="credentials"
-            maxlength="20"
+            maxLength="20"
             placeholder="Password"
             onChange={this.handlePasswordChange}
           />

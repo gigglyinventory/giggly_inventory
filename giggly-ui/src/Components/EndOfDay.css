@@ -58,7 +58,7 @@ ul.elements{
 }
 
 .final-display{
-  border: 1px solid black;
+  border: 1px solid white;
   overflow-y: scroll;
   height: 500px;
   width: 300px;

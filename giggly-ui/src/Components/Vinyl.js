@@ -32,7 +32,7 @@ class Vinyl extends React.Component{
     var product= "Vinyl: " + this.state.vinyl;
     var mDelivered= "Delivered:" + this.state.delivered + ". used: " + this.state.used;
     var message= title +"\n"+ date + "\n" + product+"\n"+mDelivered;
-    var show = "Vinyl | " + this.state.material + " | " + "Del:" + this.state.delivered + "-" + this.state.used;
+    var show = "Vinyl | " + this.state.vinyl + " | " + "Del:" + this.state.delivered + "-" + this.state.used;
     {/*This shows the alert with the summary*/}
     alert(message)
     {/*If click confirm add to database, click deny will not*/}
@@ -57,7 +57,7 @@ class Vinyl extends React.Component{
       {id: 'gen', name: 'General'},
       {id: '105', name: '1105'},
       {id: '106', name: '1106'},
-      {id: 'lam', name: 'Laminat'},
+      {id: 'lam', name: 'Laminate'},
     ];
 
     let vinylsList = vinyls.length > 0 && vinyls.map((item, i) => {
@@ -69,31 +69,31 @@ class Vinyl extends React.Component{
     return(
 
       <div>
-        <h2 class="end">Vinyls</h2>
-        <div class="form-inline">
+        <h2 className="inventory">Vinyls</h2>
+        <div className="form-inlineEnd">
           <input className="inputStyle" name= "date" value={getDate()}></input>
         </div>
-        <div class="form-inline">
+        <div className="form-inlineEnd">
 
-          <label for="materials">Vinyl Type: </label>
-          <select id="materials"
-            name="material"
+          <label htmlFor="vinyl">Vinyl Type: </label>
+          <select id="vinyl"
+            name="vinyl"
             value={this.name}
             onChange={this.handleChange}>{vinylsList}</select>
           </div>
 
-        <div class="form-inline">
-          <label for="delivered">Delivered: </label>
-          <input id="delivered" type="text"
+        <div className="form-inlineEnd">
+          <label htmlFor="delivered">Delivered: </label>
+          <input className="inputStyle" id="delivered" type="text"
             name="delivered"
             value={this.name}
-            defualtValue="" maxlength="5" size="8"
+            defaultValue="" maxLength="5" size="8"
             onChange={this.handleChange}/>
-          <label for="used">Used: </label>
-          <input id="used" type="text"
+          <label htmlFor="used">Used: </label>
+          <input className="inputStyle" id="used" type="text"
             name="used"
             value={this.name}
-            defualtValue="" maxlength="5" size="8"
+            defaultValue="" maxLength="5" size="8"
             onChange={this.handleChange}/>
         </div>
 
